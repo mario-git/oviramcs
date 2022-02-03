@@ -117,8 +117,6 @@
 ;; environment variables
 (load "shell-integration.el")
 
-(load "clj-refactor-setup.el")
-
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
 (load "navigation.el")
