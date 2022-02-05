@@ -66,3 +66,6 @@
     (quit nil)))
 
 (setq electric-indent-mode nil)
+
+;; auto indent
+(define-key global-map (kbd "RET") 'newline-and-indent)
