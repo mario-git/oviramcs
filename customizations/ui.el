@@ -53,8 +53,9 @@
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
 
-;; Cursor-type bar (default would be box)
-(setq-default cursor-type '(bar . 2))
+;; Cursor
+(blink-cursor-mode 0)
+(set-cursor-color "#000000")
 
 ;; full path in title bar
 (setq-default frame-title-format "%b (%f)")
