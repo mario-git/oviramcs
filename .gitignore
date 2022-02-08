@@ -1,5 +1,6 @@
 *.elc
 *~$
+.last-package-update-day
 .recentf*
 .smex-items
 archive-contents
