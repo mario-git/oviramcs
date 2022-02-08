@@ -63,6 +63,12 @@
     ;; http://www.emacswiki.org/emacs/Smex
     smex
 
+    ;; https://github.com/emacs-dashboard/emacs-dashboard
+    dashboard
+
+    ;; https://github.com/domtronn/all-the-icons.el
+    all-the-icons
+
     ;; project navigation
     projectile
 
@@ -90,7 +96,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-
 ;; Place downloaded elisp files in ~/.emacs.d/vendor. You'll then be able
 ;; to load them.
 ;;
@@ -103,7 +108,6 @@
 ;; Adding this code will make Emacs enter yaml mode whenever you open
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
-
 
 ;;;;
 ;; Customization
@@ -147,7 +151,7 @@
  '(auto-save-visited-mode t)
  '(coffee-tab-width 2)
  '(package-selected-packages
-   '(clj-refactor no-littering auto-package-update haskell-mode terraform-mode magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell)))
+   '(page-break-lines all-the-icons dashboard clj-refactor no-littering auto-package-update haskell-mode terraform-mode magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

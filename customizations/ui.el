@@ -65,3 +65,21 @@
 
 ;; no bell
 (setq ring-bell-function 'ignore)
+
+;; dashboard / splash screen
+(require 'dashboard)
+(dashboard-setup-startup-hook)
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-projects-backend 'projectile
+      dashboard-items '((projects . 5)
+                        (recents  . 5)
+                        (bookmarks . 3)
+                        (agenda . 5)))
+(setq dashboard-set-navigator t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+
+;; all the icons
+(when (display-graphic-p)
+  (require 'all-the-icons))
