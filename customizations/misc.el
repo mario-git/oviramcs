@@ -10,3 +10,6 @@
 
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
+
+;; https://github.com/rranelli/auto-package-update.el/
+(require 'auto-package-update)
