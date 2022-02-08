@@ -149,7 +149,6 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-default t)
  '(auto-save-visited-mode t)
- '(coffee-tab-width 2)
  '(package-selected-packages
    '(page-break-lines all-the-icons dashboard clj-refactor no-littering auto-package-update haskell-mode terraform-mode magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell)))
 (custom-set-faces
