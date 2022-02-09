@@ -1,7 +1,3 @@
-;;;;
-;; Packages
-;;;;
-
 ;; Define package repositories
 (require 'package)
 (add-to-list 'package-archives
@@ -14,7 +10,6 @@
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
-;; This also sets the load path.
 (package-initialize)
 
 ;; Download the ELPA archive description if needed.
@@ -23,19 +18,16 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Define he following variables to remove the compile-log warnings
-;; when defining ido-ubiquitous
-;; (defvar ido-cur-item nil)
-;; (defvar ido-default-item nil)
-;; (defvar ido-cur-list nil)
-;; (defvar predicate nil)
-;; (defvar inherit-input-method nil)
-
-;; The packages you want installed. You can also install these
-;; manually with M-x package-install
-;; Add in your own as you wish:
+;; The packages you want installed.
 (defvar my-packages
-  '(;; makes handling lisp expressions much, much easier
+  '(
+    try
+    no-littering
+    auto-package-update
+    terraform-mode
+    ;; exec-path-from-shell
+    page-break-lines
+    ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
 
@@ -96,19 +88,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; Place downloaded elisp files in ~/.emacs.d/vendor. You'll then be able
-;; to load them.
-;;
-;; For example, if you download yaml-mode.el to ~/.emacs.d/vendor,
-;; then you can add the following code to this file:
-;;
-;; (require 'yaml-mode)
-;; (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-;; 
-;; Adding this code will make Emacs enter yaml mode whenever you open
-;; a .yml file
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
 ;;;;
 ;; Customization
 ;;;;
@@ -142,15 +121,15 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
+(auto-save-mode 1)
+(auto-save-visited-mode 1)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auto-save-default t)
- '(auto-save-visited-mode t)
  '(package-selected-packages
-   '(page-break-lines all-the-icons dashboard clj-refactor no-littering auto-package-update haskell-mode terraform-mode magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell)))
+   '(try terraform-mode tagedit smex rainbow-delimiters projectile page-break-lines no-littering magit ido-completing-read+ dashboard clojure-mode-extra-font-locking clj-refactor auto-package-update all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
