@@ -6,6 +6,7 @@
 archive-contents
 auto-save-list
 backups
+custom.el
 cider-history
 elpa
 ido.last*

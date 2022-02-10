@@ -123,16 +123,7 @@
 
 (auto-save-mode 1)
 (auto-save-visited-mode 1)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(try terraform-mode tagedit smex rainbow-delimiters projectile page-break-lines no-littering magit ido-completing-read+ dashboard clojure-mode-extra-font-locking clj-refactor auto-package-update all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;; Dedicated file for Custom AKA Emacs generating custom code automatically
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
