@@ -121,8 +121,9 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
-(auto-save-mode 1)
 (auto-save-visited-mode 1)
+(global-auto-revert-mode t)
+(setq auto-revert-use-notify nil)
 
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
 (setq custom-file "~/.emacs.d/custom.el")
