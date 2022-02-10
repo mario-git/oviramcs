@@ -25,8 +25,13 @@
     no-littering
     auto-package-update
     terraform-mode
+
+    ;; https://depp.brause.cc/nov.el/
+    nov
+
     ;; exec-path-from-shell
     page-break-lines
+
     ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
@@ -124,6 +129,9 @@
 (auto-save-visited-mode 1)
 (global-auto-revert-mode t)
 (setq auto-revert-use-notify nil)
+
+;; To enable nov.el
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
 (setq custom-file "~/.emacs.d/custom.el")
