@@ -55,7 +55,7 @@
 
 ;; Cursor
 (blink-cursor-mode 0)
-(set-cursor-color "#000000")
+(set-cursor-color "White")
 
 ;; full path in title bar
 (setq-default frame-title-format "%b (%f)")
