@@ -33,8 +33,9 @@
 ;; provides minibuffer documentation for the code you're typing into the repl
 (add-hook 'cider-mode-hook 'eldoc-mode)
 
-;; go right to the REPL buffer when it's finished connecting
-(setq cider-repl-pop-to-buffer-on-connect t)
+;; Don't go to the REPL buffer (or the help banner) when it's finished connecting
+(setq cider-repl-pop-to-buffer-on-connect nil)
+(setq cider-repl-display-help-banner nil)
 
 ;; When there's a cider error, show its buffer and switch to it
 (setq cider-show-error-buffer t)
