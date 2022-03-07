@@ -126,6 +126,8 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
+(load "multiple-cursors.el")
+
 (auto-save-visited-mode 1)
 (global-auto-revert-mode t)
 (setq auto-revert-use-notify nil)
