@@ -58,5 +58,8 @@
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 
-;; projectile everywhere!
+;; projectile
 (projectile-global-mode)
+
+;; Note: docs recommend s-p for macOS and C-c p for Windows/Linux
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
