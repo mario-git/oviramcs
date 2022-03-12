@@ -21,6 +21,7 @@
 ;; The packages you want installed.
 (defvar my-packages
   '(
+    use-package
     try
     no-littering
     auto-package-update
@@ -92,6 +93,16 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(setq use-package-verbose t)
+(setq use-package-always-ensure t)
+(require 'use-package)
+
+(use-package dired-subtree
+  :config
+  (bind-keys :map dired-mode-map
+             ("i" . dired-subtree-insert)
+             (";" . dired-subtree-remove)))
 
 ;;;;
 ;; Customization
