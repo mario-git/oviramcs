@@ -52,7 +52,7 @@
     cider
 
     ;; allow ido usage in as many contexts as possible. see
-    ;; customizations/navigation.el line 23 for a description
+    ;; core/navigation.el line 23 for a description
     ;; of ido
     ido-completing-read+
 
@@ -110,7 +110,7 @@
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
-(add-to-list 'load-path "~/.emacs.d/customizations")
+(add-to-list 'load-path "~/.emacs.d/core")
 
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
@@ -147,5 +147,4 @@
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(load "~/.emacs.d/custom.el")
