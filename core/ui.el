@@ -19,10 +19,16 @@
   (scroll-bar-mode -1))
 
 ;; Default Theme
+;; TODO: find a way to move from the files in FS, taken probably from here
+;; https://github.com/ChrisKempson/Tomorrow-Theme
+;; to using the ones provided on base16-emacs
+;; https://github.com/belak/base16-emacs/blob/master/build/base16-bright-theme.el
+;; https://github.com/belak/base16-emacs/blob/master/build/base16-tomorrow-night-theme.el
+;; I'm not sure if these two can be combined to rebuild tomorrow-night-bright.
+;; Alternatively, load this from init.el, not sure why doing this breaks the cursor.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'tomorrow-night-bright t)
-
 
 ;; different font size for Mac (darwin) and others
 (set-face-attribute 'default nil :height (if (eq system-type 'darwin) 140 100))

@@ -69,3 +69,7 @@
 
 ;; auto indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+(auto-save-visited-mode 1)
+(global-auto-revert-mode t)
+(setq auto-revert-use-notify nil)
