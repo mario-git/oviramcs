@@ -147,4 +147,5 @@
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
-(load "~/.emacs.d/custom.el")
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
