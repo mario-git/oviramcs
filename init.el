@@ -1,12 +1,7 @@
 ;; Define package repositories
 (require 'package)
 (add-to-list 'package-archives
-             '("tromey" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-
-(add-to-list 'package-pinned-packages '(cider . "melpa") t)
-(add-to-list 'package-pinned-packages '(magit . "melpa") t)
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
