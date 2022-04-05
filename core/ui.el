@@ -69,9 +69,12 @@
 ;; no bell
 (setq ring-bell-function 'ignore)
 
-;; dashboard / splash screen
-(require 'dashboard)
-(dashboard-setup-startup-hook)
+;; https://github.com/emacs-dashboard/emacs-dashboard
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 (setq dashboard-startup-banner 'logo)
 (setq dashboard-projects-backend 'projectile
@@ -83,6 +86,6 @@
 (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
 
-;; all the icons
-(when (display-graphic-p)
-  (require 'all-the-icons))
+;; https://github.com/domtronn/all-the-icons.el
+(use-package all-the-icons
+  :if (display-graphic-p))

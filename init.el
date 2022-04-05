@@ -40,12 +40,6 @@
     ;; http://www.emacswiki.org/emacs/Smex
     smex
 
-    ;; https://github.com/emacs-dashboard/emacs-dashboard
-    dashboard
-
-    ;; https://github.com/domtronn/all-the-icons.el
-    all-the-icons
-
     projectile
 
     ;; colorful parenthesis matching
