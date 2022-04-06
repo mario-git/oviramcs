@@ -57,4 +57,9 @@
   :config
   (projectile-global-mode)
   ;; Note: docs recommend s-p for macOS and C-c p for Windows/Linux
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  ;; The following are not much usable on Win (to revisit if ever using this there)
+  (define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
+  (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
+  (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
+  (define-key projectile-mode-map [?\s-g] 'projectile-grep))
