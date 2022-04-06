@@ -40,8 +40,6 @@
     ;; http://www.emacswiki.org/emacs/Smex
     smex
 
-    projectile
-
     ;; colorful parenthesis matching
     rainbow-delimiters
 
