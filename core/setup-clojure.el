@@ -1,6 +1,4 @@
-;;;;
-;; Clojure
-;;;;
+(use-package clojure-mode)
 
 ;; Enable paredit for Clojure
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
@@ -10,7 +8,7 @@
 (add-hook 'clojure-mode-hook 'subword-mode)
 
 ;; A little more syntax highlighting
-(require 'clojure-mode-extra-font-locking)
+(use-package clojure-mode-extra-font-locking)
 
 ;; syntax hilighting for midje
 (add-hook 'clojure-mode-hook
@@ -30,25 +28,27 @@
 ;; Cider
 ;;;;
 
-;; provides minibuffer documentation for the code you're typing into the repl
-(add-hook 'cider-mode-hook 'eldoc-mode)
+(use-package cider
+  :config
+  ;; provides minibuffer documentation for the code you're typing into the repl
+  (add-hook 'cider-mode-hook 'eldoc-mode)
 
-;; Don't go to the REPL buffer (or the help banner) when it's finished connecting
-(setq cider-repl-pop-to-buffer-on-connect nil)
-(setq cider-repl-display-help-banner nil)
+  ;; Don't go to the REPL buffer (or the help banner) when it's finished connecting
+  (setq cider-repl-pop-to-buffer-on-connect nil)
+  (setq cider-repl-display-help-banner nil)
 
-;; When there's a cider error, show its buffer and switch to it
-(setq cider-show-error-buffer t)
-(setq cider-auto-select-error-buffer t)
+  ;; When there's a cider error, show its buffer and switch to it
+  (setq cider-show-error-buffer t)
+  (setq cider-auto-select-error-buffer t)
 
-;; Where to store the cider history.
-(setq cider-repl-history-file "~/.emacs.d/cider-history")
+  ;; Where to store the cider history.
+  (setq cider-repl-history-file "~/.emacs.d/cider-history")
 
-;; Wrap when navigating history.
-(setq cider-repl-wrap-history t)
+  ;; Wrap when navigating history.
+  (setq cider-repl-wrap-history t)
 
-;; enable paredit in your REPL
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+  ;; enable paredit in your REPL
+  (add-hook 'cider-repl-mode-hook 'paredit-mode))
 
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
@@ -83,8 +83,8 @@
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
 
-;; clj-refactor
-(require 'clj-refactor)
+;; https://github.com/clojure-emacs/clj-refactor.el
+(use-package clj-refactor)
 
 (defun my-clojure-mode-hook ()
     (clj-refactor-mode 1)

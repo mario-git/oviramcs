@@ -13,24 +13,6 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; TODO: this will go, moving to use-package
-(defvar my-packages
-  '(
-    ;; https://github.com/clojure-emacs/clj-refactor.el
-    clj-refactor
-
-    ;; https://github.com/clojure-emacs/clojure-mode
-    clojure-mode
-
-    ;; extra syntax highlighting for clojure
-    clojure-mode-extra-font-locking
-
-    cider))
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-
 ;; Setup use-package
 ;; https://github.com/jwiegley/use-package
 (unless (package-installed-p 'use-package)
