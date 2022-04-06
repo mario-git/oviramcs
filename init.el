@@ -16,9 +16,6 @@
 ;; TODO: this will go, moving to use-package
 (defvar my-packages
   '(
-    ;; http://www.emacswiki.org/emacs/PareditCheatsheet
-    paredit
-
     ;; https://github.com/clojure-emacs/clj-refactor.el
     clj-refactor
 
@@ -28,25 +25,7 @@
     ;; extra syntax highlighting for clojure
     clojure-mode-extra-font-locking
 
-    cider
-
-    ;; allow ido usage in as many contexts as possible. see
-    ;; core/navigation.el line 23 for a description
-    ;; of ido
-    ido-completing-read+
-
-    ;; Enhances M-x to allow easier execution of commands. Provides
-    ;; a filterable list of possible commands in the minibuffer
-    ;; http://www.emacswiki.org/emacs/Smex
-    smex
-
-    ;; colorful parenthesis matching
-    rainbow-delimiters
-
-    ;; edit html tags like sexps
-    tagedit
-
-    magit))
+    cider))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -81,13 +60,18 @@
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-envs '("PATH"))))
 
+(use-package magit)
+
+(use-package no-littering)
+
 ;; https://depp.brause.cc/nov.el/
 (use-package nov
   :config
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
 
-(use-package no-littering)
 (use-package page-break-lines)
+(use-package paredit)
+(use-package rainbow-delimiters)
 (use-package terraform-mode)
 (use-package try)
 
