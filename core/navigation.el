@@ -19,7 +19,6 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
 
-
 ;; ido-mode allows you to more easily navigate choices. For example,
 ;; when you want to switch buffers, ido presents you with a list
 ;; of buffers in the the mini-buffer. As you start to type a buffer's
@@ -43,6 +42,18 @@
 
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Gems from http://whattheemacsd.com/
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super)
+(setq ns-function-modifier 'hyper)
+
+;; https://github.com/emacsmirror/multiple-cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer

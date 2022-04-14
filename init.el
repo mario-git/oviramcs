@@ -69,8 +69,8 @@
 (load "elisp-editing.el")
 (load "setup-clojure.el")
 (load "setup-js.el")
-(load "multiple-cursors.el")
 
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
