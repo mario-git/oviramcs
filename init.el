@@ -42,6 +42,10 @@
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-envs '("PATH"))))
 
+;; https://github.com/magnars/expand-region.el
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
 (use-package magit)
 
 (use-package no-littering)
