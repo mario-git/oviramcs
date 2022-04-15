@@ -1,7 +1,8 @@
 ;; Define package repositories
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; This can be removed from Emacs 28
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
@@ -29,6 +30,18 @@
   (bind-keys :map dired-mode-map
              ("i" . dired-subtree-insert)
              (";" . dired-subtree-remove)))
+
+(use-package evil
+  :init
+  (setq evil-cross-lines t)
+  :config
+  (evil-mode 1)
+  ;; https://github.com/syl20bnr/spacemacs/issues/3018#issuecomment-229843770
+  (define-key evil-motion-state-map "j" 'evil-backward-char)
+  (define-key evil-motion-state-map "k" 'evil-next-line)
+  (define-key evil-motion-state-map "l" 'evil-previous-line)
+  (define-key evil-motion-state-map ";" 'evil-forward-char)
+  (define-key evil-insert-state-map "jj" 'evil-normal-state))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
