@@ -36,12 +36,14 @@
   (setq evil-cross-lines t)
   :config
   (evil-mode 1)
-  ;; https://github.com/syl20bnr/spacemacs/issues/3018#issuecomment-229843770
+  ;; motion examples found at https://github.com/syl20bnr/spacemacs/issues/3018#issuecomment-229843770
   (define-key evil-motion-state-map "j" 'evil-backward-char)
   (define-key evil-motion-state-map "k" 'evil-next-line)
   (define-key evil-motion-state-map "l" 'evil-previous-line)
   (define-key evil-motion-state-map ";" 'evil-forward-char)
-  (define-key evil-insert-state-map "jj" 'evil-normal-state))
+  (define-key evil-insert-state-map "jj" 'evil-normal-state)
+  (setq evil-move-cursor-back nil)
+  (setq evil-default-state 'emacs))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -86,4 +88,3 @@
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
-
