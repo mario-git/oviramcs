@@ -1,32 +1,12 @@
 (use-package clojure-mode)
 
-;; Enable paredit for Clojure
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
-;; This is useful for working with camel-case tokens, like names of
-;; Java classes (e.g. JavaClassName)
+;; For camel-case tokens such as Java classes
 (add-hook 'clojure-mode-hook 'subword-mode)
 
 ;; A little more syntax highlighting
 (use-package clojure-mode-extra-font-locking)
-
-;; syntax hilighting for midje
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (setq inferior-lisp-program "lein repl")
-            (font-lock-add-keywords
-             nil
-             '(("(\\(facts?\\)"
-                (1 font-lock-keyword-face))
-               ("(\\(background?\\)"
-                (1 font-lock-keyword-face))))
-            (define-clojure-indent (fact 1))
-            (define-clojure-indent (facts 1))
-            (rainbow-delimiters-mode)))
-
-;;;;
-;; Cider
-;;;;
 
 (use-package cider
   :config
@@ -48,7 +28,9 @@
   (setq cider-repl-wrap-history t)
 
   ;; enable paredit in your REPL
-  (add-hook 'cider-repl-mode-hook 'paredit-mode))
+  (add-hook 'cider-repl-mode-hook 'paredit-mode)
+  ;; https://github.com/clojure-emacs/clj-refactor.el
+  (use-package clj-refactor))
 
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
@@ -56,9 +38,7 @@
 (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
-
-;; key bindings
-;; these help me out with the way I usually develop web apps
+;; TODO: lefover from original settings, check if this might be useful
 (defun cider-start-http-server ()
   (interactive)
   (cider-load-current-buffer)
@@ -66,7 +46,6 @@
     (cider-repl-set-ns ns)
     (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
     (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))
-
 
 (defun cider-refresh ()
   (interactive)
@@ -82,9 +61,6 @@
      (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
-
-;; https://github.com/clojure-emacs/clj-refactor.el
-(use-package clj-refactor)
 
 (defun my-clojure-mode-hook ()
     (clj-refactor-mode 1)
