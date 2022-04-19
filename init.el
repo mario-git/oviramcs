@@ -31,6 +31,12 @@
              ("i" . dired-subtree-insert)
              (";" . dired-subtree-remove)))
 
+(use-package dumb-jump
+  ;; MEMO: M-. is gd in evil mode
+  :init
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  (setq dumb-jump-prefer-searcher 'rg))
+
 (use-package evil
   :init
   (setq evil-cross-lines t)
