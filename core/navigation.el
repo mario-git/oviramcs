@@ -45,6 +45,7 @@
 
 ;; Gems from http://whattheemacsd.com/
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
+;; fix € and # insertio on mac keyboard
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 (setq ns-function-modifier 'hyper)
