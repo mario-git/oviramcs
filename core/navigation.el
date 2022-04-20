@@ -45,10 +45,14 @@
 
 ;; Gems from http://whattheemacsd.com/
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-;; fix € and # insertio on mac keyboard
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 (setq ns-function-modifier 'hyper)
+;; fix for € and # on mac keyboard: 8364 -> €, 35 -> #
+(when is-mac-os-p
+  (global-set-key (kbd "s-2")(lambda () (interactive) (insert-char 8364)))
+  (global-set-key (kbd "s-3") (lambda () (interactive) (insert-char 35))))
+
 
 ;; https://github.com/emacsmirror/multiple-cursors
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)

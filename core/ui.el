@@ -30,8 +30,8 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'tomorrow-night-bright t)
 
-;; different font size for Mac (darwin) and others
-(set-face-attribute 'default nil :height (if (eq system-type 'darwin) 140 100))
+;; different font size for Mac and others
+(set-face-attribute 'default nil :height (if is-mac-os-p 140 100))
 
 ;; start every frame maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))

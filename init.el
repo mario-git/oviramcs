@@ -4,6 +4,8 @@
 ;; This can be removed from Emacs 28
 (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
 
+(defvar is-mac-os-p (string-equal system-type "darwin"))
+
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
 (package-initialize)
@@ -56,7 +58,7 @@
 ;; terminal window, because OS X does not run a shell during the
 ;; login. This library works around this problem.
 ;; https://github.com/purcell/exec-path-from-shell
-(when (memq window-system '(mac ns))
+(when is-mac-os-p
   (use-package exec-path-from-shell
     :ensure t
     :config
