@@ -79,7 +79,13 @@
 (use-package page-break-lines)
 (use-package paredit)
 (use-package rainbow-delimiters)
-(use-package terraform-mode)
+
+(use-package terraform-mode
+  :defer t
+  :config
+  (setq semantic-symref-filepattern-alist
+        (append semantic-symref-filepattern-alist '((terraform-mode "*.tf" )))))
+
 (use-package try)
 
 (add-to-list 'load-path "~/.emacs.d/core")
