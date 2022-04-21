@@ -69,6 +69,11 @@
   (smex-initialize)
   (global-set-key (kbd "M-x") 'smex))
 
+(use-package ivy
+  :config
+  (ivy-mode)
+  (use-package swiper))
+
 (use-package projectile
   :config
   (projectile-global-mode)
@@ -80,4 +85,6 @@
   (define-key projectile-mode-map (kbd "s-r") 'projectile-replace)
   ;; Workaround for projectile-grep, as per
   ;; https://github.com/bbatsov/projectile/issues/1075#issuecomment-1003794929
-  (setq projectile-use-git-grep t))
+  (setq projectile-use-git-grep t)
+  (use-package counsel-projectile
+    :config (counsel-projectile-mode)))
