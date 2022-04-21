@@ -42,6 +42,7 @@
 (use-package evil
   :init
   (setq evil-cross-lines t)
+  (setq evil-want-C-u-scroll t)
   :config
   (evil-mode 1)
   ;; motion examples found at https://github.com/syl20bnr/spacemacs/issues/3018#issuecomment-229843770
