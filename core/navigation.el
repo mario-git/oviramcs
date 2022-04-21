@@ -54,6 +54,7 @@
   (global-set-key (kbd "s-3") (lambda () (interactive) (insert-char 35))))
 
 ;; https://github.com/emacsmirror/multiple-cursors
+(setq mc/always-run-for-all t)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
