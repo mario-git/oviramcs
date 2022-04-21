@@ -53,7 +53,6 @@
   (global-set-key (kbd "s-2")(lambda () (interactive) (insert-char 8364)))
   (global-set-key (kbd "s-3") (lambda () (interactive) (insert-char 35))))
 
-
 ;; https://github.com/emacsmirror/multiple-cursors
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -72,13 +71,12 @@
 (use-package projectile
   :config
   (projectile-global-mode)
-  ;; Note: docs recommend s-p for macOS and C-c p for Windows/Linux
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  ;; The following are not much usable on Win (to revisit if ever using this there)
-  (define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
-  (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
-  (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
-  (define-key projectile-mode-map [?\s-g] 'projectile-grep)
+  (define-key projectile-mode-map (kbd "s-d") 'projectile-find-dir)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-switch-project)
+  (define-key projectile-mode-map (kbd "s-f") 'projectile-find-file)
+  (define-key projectile-mode-map (kbd "s-g") 'projectile-grep)
+  (define-key projectile-mode-map (kbd "s-r") 'projectile-replace)
   ;; Workaround for projectile-grep, as per
   ;; https://github.com/bbatsov/projectile/issues/1075#issuecomment-1003794929
   (setq projectile-use-git-grep t))
