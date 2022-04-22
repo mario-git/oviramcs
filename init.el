@@ -46,9 +46,7 @@
   :config
   (evil-mode 1)
   ;; motion examples found at https://github.com/syl20bnr/spacemacs/issues/3018#issuecomment-229843770
-  (define-key evil-motion-state-map "j" 'evil-backward-char)
-  (define-key evil-motion-state-map "k" 'evil-next-line)
-  (define-key evil-motion-state-map "l" 'evil-previous-line)
+  (define-key evil-motion-state-map "l" 'evil-backward-char)
   (define-key evil-motion-state-map ";" 'evil-forward-char)
   (define-key evil-insert-state-map "jj" 'evil-normal-state)
   (setq evil-move-cursor-back nil)
