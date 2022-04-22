@@ -43,6 +43,7 @@
   :init
   (setq evil-cross-lines t)
   (setq evil-want-C-u-scroll t)
+  (setq evil-disable-insert-state-bindings t)
   :config
   (evil-mode 1)
   ;; motion examples found at https://github.com/syl20bnr/spacemacs/issues/3018#issuecomment-229843770
