@@ -10,7 +10,6 @@ backups
 custom.el
 cider-history
 elpa
-ido.last*
 melpa-stable
 nov-places
 places
