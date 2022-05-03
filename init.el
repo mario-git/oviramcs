@@ -51,7 +51,8 @@
   (define-key evil-motion-state-map ";" 'evil-forward-char)
   (define-key evil-insert-state-map "jj" 'evil-normal-state)
   (setq evil-move-cursor-back nil)
-  (setq evil-default-state 'emacs))
+  (setq evil-default-state 'emacs)
+  (use-package undo-fu :config (setq evil-redo-function 'undo-fu-only-redo)))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
