@@ -50,6 +50,7 @@
   (define-key evil-motion-state-map "l" 'evil-backward-char)
   (define-key evil-motion-state-map ";" 'evil-forward-char)
   (define-key evil-insert-state-map "jj" 'evil-normal-state)
+  (define-key evil-motion-state-map "h" 'evil-repeat-find-char)
   (setq evil-move-cursor-back nil)
   (setq evil-default-state 'emacs)
   (use-package undo-fu :config (setq evil-redo-function 'undo-fu-only-redo)))
