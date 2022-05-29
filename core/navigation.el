@@ -27,10 +27,9 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 (setq ns-function-modifier 'hyper)
-;; fix for € and # on mac keyboard: 8364 -> €, 35 -> #
+;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
 (when is-mac-os-p
-  (global-set-key (kbd "s-2")(lambda () (interactive) (insert-char 8364)))
-  (global-set-key (kbd "s-3") (lambda () (interactive) (insert-char 35))))
+  (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364))))
 
 ;; https://github.com/emacsmirror/multiple-cursors
 (setq mc/always-run-for-all t)
