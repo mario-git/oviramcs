@@ -351,23 +351,7 @@ It should only modify the values of Spacemacs settings."
    ;; nil to boost the loading time. (default t)
    dotspacemacs-loading-progress-bar t
 
-   ;; If non-nil the frame is fullscreen when Emacs starts up. (default nil)
-   ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
-
-   ;; If non-nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
-   ;; Use to disable fullscreen animations in OSX. (default nil)
-   dotspacemacs-fullscreen-use-non-native nil
-
-   ;; If non-nil the frame is maximized when Emacs starts up.
-   ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
-   ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
-
-   ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
-   ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
-   ;; borderless fullscreen. (default nil)
-   dotspacemacs-undecorated-at-startup nil
+   dotspacemacs-maximized-at-startup t
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
@@ -543,6 +527,7 @@ See the header of this file for more information."
 )
 
 (defun dotspacemacs/user-init ()
+  custom-file "~/.emacs.d/custom.el"
   "Initialization for user code:
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
@@ -566,7 +551,3 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 )
-
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
