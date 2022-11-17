@@ -533,7 +533,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  custom-file "~/.emacs.d/custom.el"
+  (setq custom-file "~/.emacs.d/custom.el")
+  (load custom-file)
 )
 
 
