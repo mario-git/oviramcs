@@ -549,6 +549,8 @@ before packages are loaded."
     (let ((evil-this-register ?0))
       (call-interactively 'evil-paste-after)))
   (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
+  ;; test .spacemacs changes
+  (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)
   ;; Custom stuff from vanilla Emacs
   (defvar is-mac-os-p (string-equal system-type "darwin"))
   (setq mac-command-modifier 'meta)
