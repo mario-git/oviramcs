@@ -543,6 +543,12 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; no more files starting with .#
   (setq create-lockfiles nil)
+  ;; paste means paste
+  (defun evil-paste-after-from-0 ()
+    (interactive)
+    (let ((evil-this-register ?0))
+      (call-interactively 'evil-paste-after)))
+  (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
   ;; Custom stuff from vanilla Emacs
   (defvar is-mac-os-p (string-equal system-type "darwin"))
   (setq mac-command-modifier 'meta)
