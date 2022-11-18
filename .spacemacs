@@ -552,13 +552,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-)
-
-;; Custom stuff from vanilla Emacs
-(defvar is-mac-os-p (string-equal system-type "darwin"))
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'super)
-(setq ns-function-modifier 'hyper)
-;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
-(when is-mac-os-p
-  (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364))))
+  ;; Custom stuff from vanilla Emacs
+  (defvar is-mac-os-p (string-equal system-type "darwin"))
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'super)
+  (setq ns-function-modifier 'hyper)
+  ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
+  (when is-mac-os-p
+    (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))))
