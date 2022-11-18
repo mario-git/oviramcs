@@ -541,6 +541,8 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; no more files starting with .#
+  (setq create-lockfiles nil)
   ;; Custom stuff from vanilla Emacs
   (defvar is-mac-os-p (string-equal system-type "darwin"))
   (setq mac-command-modifier 'meta)
