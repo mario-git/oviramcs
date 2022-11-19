@@ -1,6 +1,4 @@
-;; -*- mode: emacs-lisp; lexical-binding: t -*-
-;; This file is loaded by Spacemacs at startup.
-;; It must be stored in your home directory.
+(defvar is-mac-os-p (string-equal system-type "darwin"))
 
 (defun dotspacemacs/layers ()
   "Layer configuration:
@@ -253,10 +251,10 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 10.0
-                               :weight normal
-                               :width normal)
+   dotspacemacs-default-font (list "Source Code Pro"
+                                   :size (if is-mac-os-p 14.0 10.0)
+                                   :weight 'normal
+                                   :width 'normal)
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
@@ -554,7 +552,6 @@ before packages are loaded."
   ;; test .spacemacs changes
   (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)
   ;; Custom stuff from vanilla Emacs
-  (defvar is-mac-os-p (string-equal system-type "darwin"))
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'super)
   (setq ns-function-modifier 'hyper)
