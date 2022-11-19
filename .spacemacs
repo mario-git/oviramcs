@@ -38,6 +38,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      helm
+     javascript
      ;; lsp
      markdown
      multiple-cursors
@@ -49,7 +50,8 @@ This function should only modify configuration layer settings."
      ;; syntax-checking
      ;; version-control
      terraform
-     treemacs)
+     treemacs
+     yaml)
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
