@@ -48,7 +48,9 @@ This function should only modify configuration layer settings."
      ;; syntax-checking
      ;; version-control
      terraform
-     treemacs
+     (treemacs :variables
+               treemacs--icon-size 16
+               treemacs-text-scale 0.2)
      yaml)
 
    ;; List of additional packages that will be installed without being wrapped
