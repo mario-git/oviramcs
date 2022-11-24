@@ -1,6 +1,6 @@
 # Oviramcs
 
-This repo is to save my Emacs configuration, currently a Spacemacs one. 
+This repo is to save my Emacs configuration, currently a Spacemacs/hybrid one.
 
 In the other (non default) branch there is a more basic one.
 
