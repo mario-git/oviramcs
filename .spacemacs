@@ -557,9 +557,9 @@ before packages are loaded."
   ;; test .spacemacs changes
   (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)
   ;; Custom stuff from vanilla Emacs
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'super)
-  (setq ns-function-modifier 'hyper)
+  ;; (setq mac-command-modifier 'meta)
+  ;; (setq mac-option-modifier 'super)
+  ;; (setq ns-function-modifier 'hyper)
   ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
   (when is-mac-os-p
     (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))))
