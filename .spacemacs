@@ -4,9 +4,7 @@
   "Layer configuration:
 This function should only modify configuration layer settings."
   (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
-   ;; `+distribution'. For now available distributions are `spacemacs-base'
-   ;; or `spacemacs'. (default 'spacemacs)
+   ;; `spacemacs-base' or `spacemacs' (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
 
    ;; Lazy installation of layers (i.e. layers are installed only when a file
@@ -32,8 +30,21 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(ansible
      clojure
-     ;; auto-completion
-     ;; better-defaults
+     ;; (auto-completion :variables
+                      ;; auto-completion-return-key-behavior 'complete
+                      ;; auto-completion-tab-key-behavior 'cycle
+                      ;; a string of two characters denoting a key sequence that
+                      ;; will perform a complete action if the sequence has been
+                      ;; entered quickly enough. `jk' is a good candidate for this
+                      ;; auto-completion-complete-with-key-sequence nil
+                      ;; auto-completion-complete-with-key-sequence-delay 0.1
+                      ;; auto-completion-minimum-prefix-length 2
+                      ;; auto-completion-idle-delay 0.2
+                      ;; auto-completion-private-snippets-directory nil
+                      ;; auto-completion-enable-snippets-in-popup nil
+                      ;; auto-completion-enable-help-tooltip nil
+                      ;; auto-completion-use-company-box nil
+                      ;; auto-completion-enable-sort-by-usage nil)
      emacs-lisp
      git
      helm
@@ -45,9 +56,6 @@ This function should only modify configuration layer settings."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
      terraform
      (treemacs :variables
                treemacs--icon-size 16
@@ -157,12 +165,6 @@ It should only modify the values of Spacemacs settings."
    ;; to `emacs-version'. (default 'emacs-version)
    dotspacemacs-elpa-subdirectory 'emacs-version
 
-   ;; One of `vim', `emacs' or `hybrid'.
-   ;; `hybrid' is like `vim' except that `insert state' is replaced by the
-   ;; `hybrid state' with `emacs' key bindings. The value can also be a list
-   ;; with `:variables' keyword (similar to layers). Check the editing styles
-   ;; section of the documentation for details on available variables.
-   ;; (default 'vim)
    dotspacemacs-editing-style '(hybrid :variables
                                        hybrid-mode-enable-evilified-state t
                                        hybrid-mode-enable-hjkl-bindings t
@@ -213,7 +215,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil, show file icons for entries and headings on Spacemacs home buffer.
    ;; This has no effect in terminal or if "all-the-icons" package or the font
    ;; is not installed. (default nil)
-   dotspacemacs-startup-buffer-show-icons nil
+   dotspacemacs-startup-buffer-show-icons t
 
    ;; Default major mode for a new empty buffer. Possible values are mode
    ;; names such as `text-mode'; and `nil' to use Fundamental mode.
@@ -231,8 +233,6 @@ It should only modify the values of Spacemacs settings."
    ;; will bury it instead of killing.
    dotspacemacs-scratch-buffer-unkillable nil
 
-   ;; Initial message in the scratch buffer, such as "Welcome to Spacemacs!"
-   ;; (default nil)
    dotspacemacs-initial-scratch-message nil
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
@@ -250,8 +250,6 @@ It should only modify the values of Spacemacs settings."
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
    dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
 
-   ;; If non-nil the cursor color matches the state color in GUI Emacs.
-   ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
@@ -262,7 +260,6 @@ It should only modify the values of Spacemacs settings."
                                    :weight 'normal
                                    :width 'normal)
 
-   ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
 
    ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
@@ -276,14 +273,8 @@ It should only modify the values of Spacemacs settings."
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
 
-   ;; Major mode leader key is a shortcut key which is the equivalent of
-   ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
 
-   ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m" for terminal mode, "<M-return>" for GUI mode).
-   ;; Thus M-RET should work as leader key in both GUI and terminal modes.
-   ;; C-M-m also should work in terminal mode, but not in GUI mode.
    dotspacemacs-major-mode-emacs-leader-key (if window-system "<M-return>" "C-M-m")
 
    ;; These variables control whether separate commands are bound in the GUI to
@@ -325,19 +316,12 @@ It should only modify the values of Spacemacs settings."
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
 
-   ;; If non-nil, the paste transient-state is enabled. While enabled, after you
-   ;; paste something, pressing `C-j' and `C-k' several times cycles through the
-   ;; elements in the `kill-ring'. (default nil)
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-transient-state t
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
 
-   ;; Which-key frame position. Possible values are `right', `bottom' and
-   ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
-   ;; right; if there is insufficient space it displays it at the bottom.
-   ;; (default 'bottom)
    dotspacemacs-which-key-position 'bottom
 
    ;; Control where `switch-to-buffer' displays the buffer. If nil,
@@ -550,11 +534,11 @@ before packages are loaded."
   ;; no more files starting with .#
   (setq create-lockfiles nil)
   ;; paste means paste
-  (defun evil-paste-after-from-0 ()
-    (interactive)
-    (let ((evil-this-register ?0))
-      (call-interactively 'evil-paste-after)))
-  (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
+  ;; (defun evil-paste-after-from-0 ()
+    ;; (interactive)
+    ;; (let ((evil-this-register ?0))
+      ;; (call-interactively 'evil-paste-after)))
+  ;; (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
   ;; test .spacemacs changes
   (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)
   ;; Custom stuff from vanilla Emacs

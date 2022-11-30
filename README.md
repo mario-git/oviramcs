@@ -9,3 +9,7 @@ The word Oviramcs itself is my first name reversed, with a (Emacs flavoured) *cs
 ## Assumptions
 
 - `rg` (or another search tool) installed, the default `helm` with `grep` doesn't skip ignored files.
+
+## Troubleshooting
+
+- If on the splash screen the icons seem broken, a round of `SPC SPC all-the-icons-install-fonts` and a restart should fix them.
