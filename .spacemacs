@@ -45,6 +45,7 @@ This function should only modify configuration layer settings."
                       ;; auto-completion-enable-help-tooltip nil
                       ;; auto-completion-use-company-box nil
                       ;; auto-completion-enable-sort-by-usage nil)
+     command-log
      emacs-lisp
      git
      helm
