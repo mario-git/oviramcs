@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+# set the stage
+cd ~/.emacs.d/private
+mkdir themes
+cd themes
+
+#vs code theme
+curl -O https://raw.githubusercontent.com/ianyepan/vscode-dark-plus-emacs-theme/master/vscode-dark-plus-theme.el
+
+# tomorrow themes
+git clone https://github.com/chriskempson/tomorrow-theme.git
+mv tomorrow-theme/GNU\ Emacs/* .
+rm -rf tomorrow-theme

@@ -6,8 +6,9 @@ In the other (non default) branch there is a more basic one.
 
 The word Oviramcs itself is my first name reversed, with a (Emacs flavoured) *cs* suffix and a *v* (for Vim) thrown in the mix.
 
-## Assumptions
+## Dependencies
 
+- a few custom themes, installable via `get-custom-themes` script.
 - `rg` (or another search tool) installed, the default `helm` with `grep` doesn't skip ignored files.
 
 ## Troubleshooting
