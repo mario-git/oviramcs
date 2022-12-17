@@ -81,7 +81,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(evil-lisp-state)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -525,6 +525,8 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   ;; no more files starting with .#
   (setq create-lockfiles nil)
   ;; paste means paste
