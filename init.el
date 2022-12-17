@@ -541,6 +541,7 @@ before packages are loaded."
   ;; (setq mac-command-modifier 'meta)
   ;; (setq mac-option-modifier 'super)
   ;; (setq ns-function-modifier 'hyper)
+  (setq evil-search-module 'evil-search)
   ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
   (when is-mac-os-p
     (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))))
