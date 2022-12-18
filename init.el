@@ -529,19 +529,13 @@ before packages are loaded."
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   ;; no more files starting with .#
   (setq create-lockfiles nil)
-  ;; paste means paste
-  ;; (defun evil-paste-after-from-0 ()
-    ;; (interactive)
-    ;; (let ((evil-this-register ?0))
-      ;; (call-interactively 'evil-paste-after)))
-  ;; (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
-  ;; test .spacemacs changes
   (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)
-  ;; Custom stuff from vanilla Emacs
-  ;; (setq mac-command-modifier 'meta)
-  ;; (setq mac-option-modifier 'super)
-  ;; (setq ns-function-modifier 'hyper)
   (setq evil-search-module 'evil-search)
-  ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
   (when is-mac-os-p
-    (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))))
+    ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
+    (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))
+    ;; Windows/Linux like positioning, starting with option and command already flipped via Karabiner.
+    ;; This is not necessary with Emacs for Mac OS X (which I was using), it seems necessary for emacs-plus
+    (setq mac-option-modifier 'meta)
+    (setq mac-command-modifier 'super)
+    (setq ns-function-modifier 'hyper)))
