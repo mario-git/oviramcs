@@ -527,6 +527,13 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+  ;; unimpaired/cleverparens overlap resolution
+  (with-eval-after-load 'evil-cleverparens
+    (evil-define-key 'normal evil-cleverparens-mode-map
+      (kbd "[") nil
+      (kbd "]") nil
+      (kbd "s-[") 'evil-cp-previous-opening
+      (kbd "s-]") 'evil-cp-next-closing))
   ;; no more files starting with .#
   (setq create-lockfiles nil)
   (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)
