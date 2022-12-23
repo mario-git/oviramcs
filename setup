@@ -1,0 +1,2 @@
+ln -s ~/oviramcs/default-emacs-profile ~/.emacs-profile
+ln -s ~/oviramcs/emacs-profiles.el ~/.emacs-profiles.el

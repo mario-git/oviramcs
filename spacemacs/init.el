@@ -508,10 +508,11 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/private/themes")
-  (add-to-list 'load-path "~/.emacs.d/private/themes")
+  (setq custom-themes "~/spacemacs/private/themes")
+  (add-to-list 'custom-theme-load-path custom-themes)
+  (add-to-list 'load-path custom-themes)
 
-  (setq custom-file "~/.emacs.d/custom.el")
+  (setq custom-file "~/spacemacs/custom.el")
   (load custom-file))
 
 (defun dotspacemacs/user-load ()

@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # set the stage
-cd ~/.emacs.d/private
+cd ~/spacemacs/private
 mkdir themes
 cd themes
 
