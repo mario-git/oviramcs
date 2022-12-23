@@ -537,7 +537,7 @@ before packages are loaded."
   ;; no more files starting with .#
   (setq create-lockfiles nil)
   (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)
-  (setq evil-search-module 'evil-search)
+  (evil-select-search-module 'evil-search-module 'evil-search)
   (when is-mac-os-p
     ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
     (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))
