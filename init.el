@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      helm
+     html
      javascript
      ;; lsp
      markdown
