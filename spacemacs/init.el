@@ -248,9 +248,7 @@ It should only modify the values of Spacemacs settings."
                          afternoon
                          doom-dark+
                          solarized-selenized-black
-                         sanityinc-tomorrow-night
-                         tomorrow-night-bright
-                         vscode-dark-plus)
+                         sanityinc-tomorrow-night)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -508,10 +506,6 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  (setq custom-themes "~/spacemacs/private/themes")
-  (add-to-list 'custom-theme-load-path custom-themes)
-  (add-to-list 'load-path custom-themes)
-
   (setq custom-file "~/spacemacs/custom.el")
   (load custom-file))
 

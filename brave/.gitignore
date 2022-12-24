@@ -11,10 +11,7 @@ custom.el
 cider-history
 elpa
 melpa-stable
-nov-places
 places
-projectile-bookmarks.eld
-projectile.cache
 session.*
 transient
 var

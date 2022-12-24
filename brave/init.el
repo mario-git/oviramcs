@@ -46,11 +46,6 @@
   (setq evil-disable-insert-state-bindings t)
   :config
   (evil-mode 1)
-  ;; motion examples found at https://github.com/syl20bnr/spacemacs/issues/3018#issuecomment-229843770
-  ;; (define-key evil-motion-state-map "l" 'evil-backward-char)
-  ;; (define-key evil-motion-state-map ";" 'evil-forward-char)
-  ;; (define-key evil-insert-state-map "jj" 'evil-normal-state)
-  ;; (define-key evil-motion-state-map "h" 'evil-repeat-find-char)
   (setq evil-move-cursor-back nil)
   (setq evil-default-state 'emacs)
   (use-package undo-fu :config (setq evil-redo-function 'undo-fu-only-redo)))
@@ -74,21 +69,9 @@
 (use-package magit)
 
 (use-package no-littering)
-
-;; https://depp.brause.cc/nov.el/
-(use-package nov
-  :config
-  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
-
 (use-package page-break-lines)
 (use-package paredit)
 (use-package rainbow-delimiters)
-
-(use-package terraform-mode
-  :defer t
-  :config
-  (setq semantic-symref-filepattern-alist
-        (append semantic-symref-filepattern-alist '((terraform-mode "*.tf" )))))
 
 (use-package try)
 
@@ -99,7 +82,6 @@
 (load "misc.el")
 (load "elisp-editing.el")
 (load "setup-clojure.el")
-(load "setup-js.el")
 
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
 (setq custom-file "~/oviramcs/brave/custom.el")

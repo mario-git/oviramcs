@@ -19,13 +19,6 @@
   (scroll-bar-mode -1))
 
 ;; Default Theme
-;; TODO: find a way to move from the files in FS, taken probably from here
-;; https://github.com/ChrisKempson/Tomorrow-Theme
-;; to using the ones provided on base16-emacs
-;; https://github.com/belak/base16-emacs/blob/master/build/base16-bright-theme.el
-;; https://github.com/belak/base16-emacs/blob/master/build/base16-tomorrow-night-theme.el
-;; I'm not sure if these two can be combined to rebuild tomorrow-night-bright.
-;; Alternatively, load this from init.el, not sure why doing this breaks the cursor.
 (add-to-list 'custom-theme-load-path "~/oviramcs/brave/themes")
 (add-to-list 'load-path "~/oviramcs/brave/themes")
 (load-theme 'tomorrow-night-bright t)
@@ -80,8 +73,7 @@
 (setq dashboard-projects-backend 'projectile
       dashboard-items '((projects . 5)
                         (recents  . 5)
-                        (bookmarks . 3)
-                        (agenda . 5)))
+                        (bookmarks . 3)))
 (setq dashboard-set-navigator t)
 (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
