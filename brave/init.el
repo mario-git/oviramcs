@@ -92,7 +92,7 @@
 
 (use-package try)
 
-(add-to-list 'load-path "~/.emacs.d/core")
+(add-to-list 'load-path "~/oviramcs/brave/core")
 (load "navigation.el")
 (load "ui.el")
 (load "editing.el")
@@ -102,5 +102,5 @@
 (load "setup-js.el")
 
 ;; Dedicated file for Custom AKA Emacs generating custom code automatically
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/oviramcs/brave/custom.el")
 (load custom-file)
