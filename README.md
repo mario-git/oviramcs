@@ -3,7 +3,8 @@
 This repo is to save my Emacs configurations. I use [Chemacs2](https://github.com/plexus/chemacs2), to be able to play with different configurations, currently:
 
 - Brave, originated from the [Brave Clojure Book](http://www.braveclojure.com/basic-emacs/);
-- Spacemacs (default).
+- Spacemacs (default);
+- Vanilla, one started from scratch.
 
 ## Dependencies
 
