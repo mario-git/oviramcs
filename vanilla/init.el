@@ -29,6 +29,31 @@
   (scroll-bar-mode -1))
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; autosave
+(setq auto-save-default nil)
+(auto-save-visited-mode 1)
+(global-auto-revert-mode t)
+(setq auto-revert-use-notify nil)
+
+;; https://github.com/emacs-dashboard/emacs-dashboard
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
+        dashboard-startup-banner 'logo
+        ;; dashboard-projects-backend 'projectile
+        ;; dashboard-items '((projects . 5)
+        ;;                   (recents  . 5)
+        ;;                   (bookmarks . 3))
+        dashboard-set-navigator t
+        dashboard-set-heading-icons t
+        dashboard-set-file-icons t))
+
+(use-package all-the-icons
+  :if (display-graphic-p))
 
 ;; packages
 (use-package no-littering)
@@ -38,6 +63,4 @@
 (load custom-file)
 
 ;; TODO: more defaults:
-;; auto save mode
-;; keep files&buffer in sync
 ;; a nice dark theme
