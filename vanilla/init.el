@@ -1,3 +1,4 @@
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (when (not package-archive-contents)
@@ -44,6 +45,7 @@
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
         dashboard-startup-banner 'logo
+	;; TODO: try project.el
         ;; dashboard-projects-backend 'projectile
         ;; dashboard-items '((projects . 5)
         ;;                   (recents  . 5)
@@ -55,12 +57,12 @@
 (use-package all-the-icons
   :if (display-graphic-p))
 
+(load-theme 'modus-vivendi t)
+;;(load-theme 'deeper-blue t)
+
 ;; packages
 (use-package no-littering)
 (use-package try)
 
 (setq custom-file "~/oviramcs/vanilla/custom.el")
 (load custom-file)
-
-;; TODO: more defaults:
-;; a nice dark theme
