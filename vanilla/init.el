@@ -46,6 +46,12 @@
 ;; ibuffer is better than list-buffers (here overwritten)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; interactions with OS
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t
+      save-interprogram-paste-before-kill t
+      apropos-do-all t)
+
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :ensure t
