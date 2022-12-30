@@ -43,6 +43,9 @@
 
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
+;; ibuffer is better than list-buffers (here overwritten)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :ensure t
