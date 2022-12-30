@@ -41,6 +41,8 @@
 ;; recover last point position when reopening a buffer
 (save-place-mode 1)
 
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
+
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :ensure t
