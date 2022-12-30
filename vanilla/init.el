@@ -52,6 +52,9 @@
       save-interprogram-paste-before-kill t
       apropos-do-all t)
 
+;; no more lockfiles (temprary files starting with .#)
+(setq create-lockfiles nil)
+
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :ensure t
