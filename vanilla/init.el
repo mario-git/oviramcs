@@ -43,6 +43,12 @@
 
 (show-paren-mode 1)
 
+;; swapped isearch/isearch-regex bindings
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; ibuffer is better than list-buffers (here overwritten)
