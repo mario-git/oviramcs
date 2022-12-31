@@ -43,6 +43,9 @@
 
 (show-paren-mode 1)
 
+;; y/s rather than yes/no
+(setq use-short-answers t)
+
 ;; swapped isearch/isearch-regex bindings
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
