@@ -41,6 +41,8 @@
 ;; recover last point position when reopening a buffer
 (save-place-mode 1)
 
+(show-paren-mode 1)
+
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; ibuffer is better than list-buffers (here overwritten)
