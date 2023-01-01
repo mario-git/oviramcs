@@ -64,6 +64,7 @@ This function should only modify configuration layer settings."
      terraform
      themes-megapack
      (treemacs :variables
+               treemacs-project-follow-mode t
                treemacs--icon-size 16
                treemacs-text-scale 0.2)
      yaml)
