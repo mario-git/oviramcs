@@ -1,8 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
 ;; Setup use-package https://github.com/jwiegley/use-package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
