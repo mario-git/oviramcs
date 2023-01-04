@@ -87,9 +87,10 @@
   :config
   (evil-mode 1)
   (setq evil-disable-insert-state-bindings t)
-  (evil-global-set-key 'insert (kbd "fd") 'evil-normal-state)
-  (evil-global-set-key 'replace (kbd "fd") 'evil-normal-state)
-  (evil-global-set-key 'visual (kbd "fd") 'evil-exit-visual-state)
+  ;; TODO: fix fd
+  ;; (evil-global-set-key 'insert (kbd "fd") 'evil-normal-state)
+  ;; (evil-global-set-key 'replace (kbd "fd") 'evil-normal-state)
+  ;; (evil-global-set-key 'visual (kbd "fd") 'evil-exit-visual-state)
   (evil-set-undo-system 'undo-redo))
 
 (use-package all-the-icons
