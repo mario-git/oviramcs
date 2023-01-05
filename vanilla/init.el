@@ -82,13 +82,18 @@
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t
-	evil-disable-insert-state-bindings t)
+	evil-disable-insert-state-bindings t
+	;; precondition for evil-collection
+	evil-want-keybinding nil)
   :config
+  (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
-  (define-key evil-insert-state-map (kbd "fd") 'evil-force-normal-state)
-  (define-key evil-visual-state-map (kbd "fd") 'evil-force-normal-state)
-  (define-key evil-replace-state-map (kbd "fd") 'evil-force-normal-state)
   (evil-set-undo-system 'undo-redo))
+
+(use-package evil-collection
+  :after evil
+  :custom (evil-collection-setup-minibuffer t)
+  :config (evil-collection-init))
 
 (use-package all-the-icons
   :if (display-graphic-p))
@@ -109,7 +114,6 @@
 ;; handier way to close popup windows (for example help menus)
 ;; treemacs
 ;; cleverparens (or anything similar)
-;; unimpaired
 ;; surround
 ;; ivy
 ;; clojure!
