@@ -101,5 +101,7 @@
 (use-package no-littering)
 (use-package try)
 
+(use-package which-key :config (which-key-mode))
+
 (setq custom-file "~/oviramcs/vanilla/custom.el")
 (load custom-file)
