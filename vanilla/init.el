@@ -81,14 +81,13 @@
 
 (use-package evil
   :init
-  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-u-scroll t
+	evil-disable-insert-state-bindings t)
   :config
   (evil-mode 1)
-  (setq evil-disable-insert-state-bindings t)
-  ;; TODO: fix fd
-  ;; (evil-global-set-key 'insert (kbd "fd") 'evil-normal-state)
-  ;; (evil-global-set-key 'replace (kbd "fd") 'evil-normal-state)
-  ;; (evil-global-set-key 'visual (kbd "fd") 'evil-exit-visual-state)
+  (define-key evil-insert-state-map (kbd "fd") 'evil-force-normal-state)
+  (define-key evil-visual-state-map (kbd "fd") 'evil-force-normal-state)
+  (define-key evil-replace-state-map (kbd "fd") 'evil-force-normal-state)
   (evil-set-undo-system 'undo-redo))
 
 (use-package all-the-icons
@@ -109,7 +108,6 @@
 ;; TODOs:
 ;; handier way to close popup windows (for example help menus)
 ;; treemacs
-;; holy mode as insert mode
 ;; cleverparens (or anything similar)
 ;; unimpaired
 ;; surround
