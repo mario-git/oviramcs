@@ -70,7 +70,7 @@
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
         dashboard-startup-banner 'logo
-	;; TODO: try project.el
+	;; TODO: re enable & amend this
         ;; dashboard-projects-backend 'projectile
         ;; dashboard-items '((projects . 5)
         ;;                   (recents  . 5)
@@ -105,3 +105,14 @@
 
 (setq custom-file "~/oviramcs/vanilla/custom.el")
 (load custom-file)
+
+;; TODOs:
+;; handier way to close popup windows (for example help menus)
+;; treemacs
+;; holy mode as insert mode
+;; cleverparens (or anything similar)
+;; unimpaired
+;; surround
+;; ivy
+;; clojure!
+;; items with number in dashboard, spacemacs like (using current dashboard package or writing custom code)
