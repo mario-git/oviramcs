@@ -30,6 +30,9 @@
   (tool-bar-mode -1))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+;; TODO: find a way to close help buffer with fd and/or C-g
+(setq help-window-select t)
+
 ;; autosave
 (setq auto-save-default nil)
 (auto-save-visited-mode 1)
@@ -111,10 +114,8 @@
 (load custom-file)
 
 ;; TODOs:
-;; handier way to close popup windows (for example help menus)
 ;; treemacs
 ;; cleverparens (or anything similar)
 ;; surround
 ;; ivy
 ;; clojure!
-;; items with number in dashboard, spacemacs like (using current dashboard package or writing custom code)
