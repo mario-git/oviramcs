@@ -86,6 +86,13 @@
   :config
   (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
+  ;; TODO: extend these mappings...
+  ;; (evil-set-leader 'normal (kbd "SPC"))
+  ;; (evil-set-leader 'visual (kbd "SPC"))
+  ;; (evil-set-leader 'normal "," t)
+  ;; (evil-set-leader 'visual "," t)
+  ;; ... following this example
+  ;; (evil-define-key 'normal 'global (kbd "<leader>fs") 'save-buffer)
   (evil-set-undo-system 'undo-redo))
 
 (use-package evil-collection
