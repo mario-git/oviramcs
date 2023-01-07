@@ -1,22 +1,3 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-;; Setup use-package https://github.com/jwiegley/use-package
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(setq use-package-verbose t)
-(setq use-package-always-ensure t)
-(require 'use-package)
-
-;; M-x & completion juice
-(use-package ivy
-  :config
-  (ivy-mode)
-  ;; not 100% sure why evil-collection doesn't fix these 2 bindings
-  (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-next-line)
-  (define-key ivy-minibuffer-map (kbd "C-k") #'ivy-previous-line)
-  (use-package swiper))
-
 ;; layout
 ;; show line numbers
 (global-linum-mode)
@@ -26,8 +7,9 @@
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(load-theme 'modus-vivendi t)
 
-;; TODO: find a way to close help buffer with fd and/or C-g
+;; focus on help window
 (setq help-window-select t)
 
 ;; autosave
@@ -64,6 +46,22 @@
 ;; no more lockfiles (temprary files starting with .#)
 (setq create-lockfiles nil)
 
+(setq custom-file "~/oviramcs/vanilla/custom.el")
+(load custom-file)
+
+;; packages
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+;; Setup use-package https://github.com/jwiegley/use-package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(setq use-package-verbose t
+      use-package-always-ensure t)
+(require 'use-package)
+
+(use-package all-the-icons :if (display-graphic-p))
+
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :config
@@ -95,19 +93,18 @@
   :custom (evil-collection-setup-minibuffer t)
   :config (evil-collection-init))
 
-(use-package all-the-icons
-  :if (display-graphic-p))
+;; M-x & completion juice
+(use-package ivy
+  :config
+  (ivy-mode)
+  ;; not 100% sure why evil-collection doesn't fix these 2 bindings
+  (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-k") #'ivy-previous-line)
+  (use-package swiper))
 
-(load-theme 'modus-vivendi t)
-
-;; packages
 (use-package no-littering)
 (use-package try)
-
 (use-package which-key :config (which-key-mode))
-
-(setq custom-file "~/oviramcs/vanilla/custom.el")
-(load custom-file)
 
 ;; TODOs:
 ;; treemacs
