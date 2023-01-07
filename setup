@@ -1,4 +1,4 @@
-ln -s ~/oviramcs/default-emacs-profile ~/.emacs-profile
-ln -s ~/oviramcs/emacs-profiles.el ~/.emacs-profiles.el
-touch ~/oviramcs/brave/custom.el
-touch ~/oviramcs/vanilla/custom.el
+[ ! -f ~/.emacs-profile ] && ln -s ~/oviramcs/default-emacs-profile ~/.emacs-profile
+[ ! -f ~/.emacs-profiles.el ] && ln -s ~/oviramcs/emacs-profiles.el ~/.emacs-profiles.el
+[ ! -f ~/oviramcs/brave/custom.el ] && touch ~/oviramcs/brave/custom.el
+[ ! -f ~/oviramcs/vanilla/custom.el ] && touch ~/oviramcs/vanilla/custom.el
