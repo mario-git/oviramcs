@@ -99,7 +99,6 @@
   :if (display-graphic-p))
 
 (load-theme 'modus-vivendi t)
-;;(load-theme 'deeper-blue t)
 
 ;; packages
 (use-package no-littering)
