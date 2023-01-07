@@ -8,17 +8,14 @@
 (setq use-package-always-ensure t)
 (require 'use-package)
 
-;; M-x
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-;; Enhances M-x to allow easier execution of commands. Provides
-;; a filterable list of possible commands in the minibuffer
-;; http://www.emacswiki.org/emacs/Smex
-(use-package smex
+;; M-x & completion juice
+(use-package ivy
   :config
-  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
-  (smex-initialize)
-  (global-set-key (kbd "M-x") 'smex))
+  (ivy-mode)
+  ;; not 100% sure why evil-collection doesn't fix these 2 bindings
+  (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-k") #'ivy-previous-line)
+  (use-package swiper))
 
 ;; layout
 ;; show line numbers
@@ -117,5 +114,4 @@
 ;; treemacs
 ;; cleverparens (or anything similar)
 ;; surround
-;; ivy
 ;; clojure!
