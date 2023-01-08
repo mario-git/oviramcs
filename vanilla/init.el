@@ -86,13 +86,11 @@
   :config
   (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
-  ;; TODO: extend these mappings...
+  ;; TODO: find another way to set leader
   ;; (evil-set-leader 'normal (kbd "SPC"))
   ;; (evil-set-leader 'visual (kbd "SPC"))
   ;; (evil-set-leader 'normal "," t)
   ;; (evil-set-leader 'visual "," t)
-  ;; ... following this example
-  ;; (evil-define-key 'normal 'global (kbd "<leader>fs") 'save-buffer)
   (evil-set-undo-system 'undo-redo))
 
 (use-package evil-collection
@@ -110,11 +108,29 @@
   (use-package swiper))
 
 (use-package no-littering)
+
+;; TODO: bring in treemacs-projectile
+(use-package treemacs
+  :init
+  (global-set-key (kbd "C-c t") 'treemacs-select-window)
+  :defer t
+  :config
+  (setq treemacs-project-follow-cleanup t
+	treemacs-show-hidden-files nil
+	treemacs-text-scale 0.2)
+  (treemacs-resize-icons 16))
+
+(use-package treemacs-evil
+  :after (evil evil-collection treemacs)
+  ;; :config
+  ;; (evil-define-key 'normal 'global (kbd "<leader>to") 'treemacs-select-window)
+  )
+
 (use-package try)
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
-;; treemacs
+;; folding
 ;; cleverparens (or anything similar)
 ;; surround
 ;; clojure!
