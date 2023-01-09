@@ -68,7 +68,7 @@
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
         dashboard-startup-banner 'logo
-	;; TODO: re enable & amend this
+	;; TODO: re enable & amend this + install treemacs-projectile
         ;; dashboard-projects-backend 'projectile
         ;; dashboard-items '((projects . 5)
         ;;                   (recents  . 5)
@@ -86,17 +86,20 @@
   :config
   (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
-  ;; TODO: find another way to set leader
-  ;; (evil-set-leader 'normal (kbd "SPC"))
-  ;; (evil-set-leader 'visual (kbd "SPC"))
-  ;; (evil-set-leader 'normal "," t)
-  ;; (evil-set-leader 'visual "," t)
   (evil-set-undo-system 'undo-redo))
 
 (use-package evil-collection
   :after evil
   :custom (evil-collection-setup-minibuffer t)
   :config (evil-collection-init))
+
+(use-package general
+  :config
+  (general-create-definer leader-bindings :prefix "SPC")
+  (general-create-definer local-leader-bindings :prefix ",")
+  ;; for more examples: https://github.com/noctuid/general.el#evil-examples
+  (leader-bindings 'normal 'override
+    "to" 'treemacs-select-window))
 
 ;; M-x & completion juice
 (use-package ivy
@@ -109,7 +112,6 @@
 
 (use-package no-littering)
 
-;; TODO: bring in treemacs-projectile
 (use-package treemacs
   :init
   (global-set-key (kbd "C-c t") 'treemacs-select-window)
@@ -118,13 +120,8 @@
   (setq treemacs-project-follow-cleanup t
 	treemacs-show-hidden-files nil
 	treemacs-text-scale 0.2)
-  (treemacs-resize-icons 16))
-
-(use-package treemacs-evil
-  :after (evil evil-collection treemacs)
-  ;; :config
-  ;; (evil-define-key 'normal 'global (kbd "<leader>to") 'treemacs-select-window)
-  )
+  (treemacs-resize-icons 16)
+  (use-package treemacs-evil))
 
 (use-package try)
 (use-package which-key :config (which-key-mode))
