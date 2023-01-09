@@ -2,6 +2,7 @@
 ;; show line numbers
 (global-linum-mode)
 (menu-bar-mode -1)
+(setq use-dialog-box nil)
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 (when (fboundp 'tool-bar-mode)
@@ -12,15 +13,16 @@
 ;; focus on help window
 (setq help-window-select t)
 
-;; autosave
+;; autosave & buffer sync with file system
 (setq auto-save-default nil)
 (auto-save-visited-mode 1)
 (global-auto-revert-mode t)
+;; dired and other buffers
+(setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-use-notify nil)
 
-;; recover last point position when reopening a buffer
+(savehist-mode 1)
 (save-place-mode 1)
-
 (show-paren-mode 1)
 
 ;; y/s rather than yes/no
