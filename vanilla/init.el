@@ -1,6 +1,5 @@
 ;; layout
-;; show line numbers
-(global-linum-mode)
+(global-display-line-numbers-mode)
 (menu-bar-mode -1)
 (setq use-dialog-box nil)
 (when (fboundp 'scroll-bar-mode)
@@ -101,6 +100,9 @@
   (general-create-definer local-leader-bindings :prefix ",")
   ;; for more examples: https://github.com/noctuid/general.el#evil-examples
   (leader-bindings 'normal 'override
+    ;; even better:
+    ;; :keymaps 'override
+    ;; :states '(normal ...)
     "to" 'treemacs-select-window))
 
 ;; M-x & completion juice
@@ -123,6 +125,8 @@
 	treemacs-show-hidden-files nil
 	treemacs-text-scale 0.2)
   (treemacs-resize-icons 16)
+  ;; name function in case we need to add the same hook somewhere else
+  (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
   (use-package treemacs-evil))
 
 (use-package try)
@@ -133,3 +137,5 @@
 ;; cleverparens (or anything similar)
 ;; surround
 ;; clojure!
+;; multiple cursor
+;; autocompletion/intellisense
