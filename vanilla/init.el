@@ -89,6 +89,12 @@
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo))
 
+(use-package evil-cleverparens
+  :config
+  ;; TODO: enable when Clojure/Cider is in
+  ;; (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode))
+
 (use-package evil-collection
   :after evil
   :custom (evil-collection-setup-minibuffer t)
@@ -129,13 +135,14 @@
   (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
   (use-package treemacs-evil))
 
+(use-package smartparens :config (require 'smartparens-config))
 (use-package try)
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
 ;; folding
-;; cleverparens (or anything similar)
 ;; surround
 ;; clojure!
-;; multiple cursor
+;; multiple cursor (?)
 ;; autocompletion/intellisense
+;; move away from packages listed alphabetically, create more sensible blocks or extract packages
