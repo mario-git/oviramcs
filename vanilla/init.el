@@ -69,11 +69,8 @@
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
         dashboard-startup-banner 'logo
-	;; TODO: re enable & amend this + install treemacs-projectile
-        ;; dashboard-projects-backend 'projectile
-        ;; dashboard-items '((projects . 5)
-        ;;                   (recents  . 5)
-        ;;                   (bookmarks . 3))
+        dashboard-projects-backend 'projectile
+        dashboard-items '((projects . 6) (recents . 8))
         dashboard-set-navigator t
         dashboard-set-heading-icons t
         dashboard-set-file-icons t))
@@ -105,11 +102,13 @@
   (general-create-definer leader-bindings :prefix "SPC")
   (general-create-definer local-leader-bindings :prefix ",")
   ;; for more examples: https://github.com/noctuid/general.el#evil-examples
-  (leader-bindings 'normal 'override
-    ;; even better:
-    ;; :keymaps 'override
-    ;; :states '(normal ...)
-    "to" 'treemacs-select-window))
+  (leader-bindings :keymaps 'override :states '(normal visual)
+    "pd" 'projectile-find-dir
+    "pf" 'projectile-find-file
+    "pp" 'projectile-switch-project
+    "pr" 'projectile-replace
+    "/" 'counsel-projectile-rg
+    "tt" 'treemacs))
 
 ;; M-x & completion juice
 (use-package ivy
@@ -122,6 +121,10 @@
 
 (use-package no-littering)
 
+(use-package projectile
+  :config (projectile-global-mode)
+  (use-package counsel-projectile :config (counsel-projectile-mode)))
+
 (use-package treemacs
   :init
   (global-set-key (kbd "C-c t") 'treemacs-select-window)
@@ -133,16 +136,24 @@
   (treemacs-resize-icons 16)
   ;; name function in case we need to add the same hook somewhere else
   (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
-  (use-package treemacs-evil))
+  (use-package treemacs-evil)
+  (use-package treemacs-projectile :after projectile))
 
 (use-package smartparens :config (require 'smartparens-config))
 (use-package try)
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
+;; clojure!
 ;; folding
 ;; surround
-;; clojure!
+;; magit
 ;; multiple cursor (?)
 ;; autocompletion/intellisense
 ;; move away from packages listed alphabetically, create more sensible blocks or extract packages
+;; implement a sensible modeline :)
+;; evil search / to always show current VS total hits
+;; better treemacs:
+;; - add projects automatically
+;; - toggle open/close tree
+;; - potentially nail both points above with spacemacs/treemacs-project-toggle
