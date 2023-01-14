@@ -84,6 +84,7 @@
   :config
   (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
+  (evil-select-search-module 'evil-search-module 'evil-search)
   (evil-set-undo-system 'undo-redo))
 
 (use-package evil-cleverparens
