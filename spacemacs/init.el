@@ -537,3 +537,4 @@ before packages are loaded."
     (setq mac-option-modifier 'meta)
     (setq mac-command-modifier 'super)
     (setq ns-function-modifier 'hyper)))
+
