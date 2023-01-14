@@ -1,5 +1,16 @@
+(defvar is-mac-os-p (string-equal system-type "darwin"))
+
 ;; CamelCase as separate words everywhere
 (global-subword-mode 1)
+
+(when is-mac-os-p
+  ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
+  (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))
+  ;; Windows/Linux like positioning, starting with option and command already flipped via Karabiner.
+  ;; This is not necessary with Emacs for Mac OS X (which I was using), it seems necessary for emacs-plus
+  (setq mac-option-modifier 'meta)
+  (setq mac-command-modifier 'super)
+  (setq ns-function-modifier 'hyper))
 
 ;; layout
 ;; highlight current line
@@ -13,6 +24,8 @@
   (tool-bar-mode -1))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (load-theme 'modus-vivendi t)
+;; different font size for Mac and others
+(set-face-attribute 'default nil :height (if is-mac-os-p 140 100))
 
 ;; focus on help window
 (setq help-window-select t)
@@ -173,3 +186,19 @@
 ;; - add projects automatically
 ;; - toggle open/close tree
 ;; - potentially nail both points above with spacemacs/treemacs-project-toggle
+;; verify the following leftovers from brave config
+;; (use-package auto-package-update)
+;; ;; https://github.com/Fuco1/dired-hacks#dired-subtree
+;; (use-package dired-subtree
+;;   :config
+;;   (bind-keys :map dired-mode-map
+;;              ("i" . dired-subtree-insert)
+;;              (";" . dired-subtree-remove)))
+;; (use-package dumb-jump
+;;   ;; MEMO: M-. is gd in evil mode
+;;   :init
+;;   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+;;   (setq dumb-jump-prefer-searcher 'rg))
+;; ;; https://github.com/magnars/expand-region.el
+;; (use-package expand-region
+;;   :bind ("C-=" . er/expand-region))
