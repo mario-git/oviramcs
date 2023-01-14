@@ -1,3 +1,6 @@
+;; CamelCase as separate words everywhere
+(global-subword-mode 1)
+
 ;; layout
 (global-display-line-numbers-mode)
 (menu-bar-mode -1)
