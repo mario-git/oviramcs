@@ -2,6 +2,8 @@
 (global-subword-mode 1)
 
 ;; layout
+;; highlight current line
+(global-hl-line-mode 1)
 (global-display-line-numbers-mode)
 (menu-bar-mode -1)
 (setq use-dialog-box nil)
