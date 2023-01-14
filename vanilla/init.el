@@ -129,6 +129,7 @@
   ;; not 100% sure why evil-collection doesn't fix these 2 bindings
   (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-next-line)
   (define-key ivy-minibuffer-map (kbd "C-k") #'ivy-previous-line)
+  (global-set-key (kbd "M-x") 'counsel-M-x)
   (use-package swiper))
 
 (use-package no-littering)
