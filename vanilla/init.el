@@ -66,6 +66,15 @@
 
 (use-package all-the-icons :if (display-graphic-p))
 
+(use-package clojure-mode)
+
+(use-package cider
+  :config
+  (setq cider-repl-pop-to-buffer-on-connect nil)
+  (setq cider-repl-display-help-banner nil)
+  (setq cider-show-error-buffer t)
+  (use-package clj-refactor))
+
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :config
@@ -92,8 +101,7 @@
 
 (use-package evil-cleverparens
   :config
-  ;; TODO: enable when Clojure/Cider is in
-  ;; (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode))
 
 (use-package evil-collection
@@ -148,7 +156,7 @@
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
-;; clojure!
+;; cider bindings
 ;; folding
 ;; surround
 ;; magit
