@@ -48,7 +48,7 @@ This function should only modify configuration layer settings."
      command-log
      emacs-lisp
      git
-     helm
+     (helm :variables helm-always-two-windows nil)
      html
      javascript
      ;; lsp
@@ -67,7 +67,7 @@ This function should only modify configuration layer settings."
                treemacs-project-follow-mode t
                treemacs--icon-size 16
                treemacs-text-scale 0.2
-	       treemacs-width 30)
+               treemacs-width 30)
      yaml)
 
    ;; List of additional packages that will be installed without being wrapped
