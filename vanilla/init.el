@@ -90,6 +90,9 @@
   (setq cider-show-error-buffer t)
   (use-package clj-refactor))
 
+(use-package company
+  :config (global-company-mode t))
+
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :config

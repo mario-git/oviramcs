@@ -29,22 +29,8 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(ansible
+     auto-completion
      clojure
-     ;; (auto-completion :variables
-                      ;; auto-completion-return-key-behavior 'complete
-                      ;; auto-completion-tab-key-behavior 'cycle
-                      ;; a string of two characters denoting a key sequence that
-                      ;; will perform a complete action if the sequence has been
-                      ;; entered quickly enough. `jk' is a good candidate for this
-                      ;; auto-completion-complete-with-key-sequence nil
-                      ;; auto-completion-complete-with-key-sequence-delay 0.1
-                      ;; auto-completion-minimum-prefix-length 2
-                      ;; auto-completion-idle-delay 0.2
-                      ;; auto-completion-private-snippets-directory nil
-                      ;; auto-completion-enable-snippets-in-popup nil
-                      ;; auto-completion-enable-help-tooltip nil
-                      ;; auto-completion-use-company-box nil
-                      ;; auto-completion-enable-sort-by-usage nil)
      command-log
      emacs-lisp
      git
@@ -516,6 +502,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (global-company-mode t)
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   ;; unimpaired/cleverparens overlap resolution
