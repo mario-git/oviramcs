@@ -152,6 +152,16 @@
 
 (use-package no-littering)
 
+(use-package org)
+(use-package org-bullets
+  :after org
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(use-package evil-org
+  :after org
+  :hook ((org-mode . evil-org-mode)
+         (evil-org-mode . evil-org-set-key-theme)))
+
 (use-package projectile
   :config (projectile-global-mode)
   (use-package counsel-projectile :config (counsel-projectile-mode)))
