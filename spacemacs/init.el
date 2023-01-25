@@ -37,16 +37,10 @@ This function should only modify configuration layer settings."
      (helm :variables helm-always-two-windows nil)
      html
      javascript
-     ;; lsp
      markdown
      multiple-cursors
-     org
      python
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
      shell-scripts
-     sql
      terraform
      themes-megapack
      (treemacs :variables
