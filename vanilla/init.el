@@ -166,6 +166,14 @@
   :config (projectile-global-mode)
   (use-package counsel-projectile :config (counsel-projectile-mode)))
 
+(use-package ranger
+  :config
+  (setq ranger-show-preview t
+        ranger-show-hidden t
+        ranger-cleanup-eagerly t
+        ranger-cleanup-on-disable t
+        ranger-ignored-extensions '("mkv" "flv" "iso" "mp4")))
+
 (use-package treemacs
   :init
   (global-set-key (kbd "C-c t") 'treemacs-select-window)
@@ -187,6 +195,7 @@
 
 ;; TODOs:
 ;; cider bindings
+;; ranger bindings
 ;; folding
 ;; surround
 ;; magit

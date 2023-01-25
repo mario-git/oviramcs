@@ -40,6 +40,12 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      python
+     (ranger :variables
+             ranger-show-preview t
+             ranger-show-hidden t
+             ranger-cleanup-eagerly t
+             ranger-cleanup-on-disable t
+             ranger-ignored-extensions '("mkv" "flv" "iso" "mp4"))
      shell-scripts
      terraform
      themes-megapack
