@@ -191,7 +191,11 @@
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
 
-(use-package smartparens :config (require 'smartparens-config))
+;; TODO: paredit instead?
+(use-package smartparens
+  :config
+  (require 'smartparens-config)
+  (smartparens-strict-mode))
 (use-package try)
 (use-package which-key :config (which-key-mode))
 
