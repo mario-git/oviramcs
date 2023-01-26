@@ -162,6 +162,8 @@
   :hook ((org-mode . evil-org-mode)
          (evil-org-mode . evil-org-set-key-theme)))
 
+(use-package neotree)
+
 (use-package projectile
   :config (projectile-global-mode)
   (use-package counsel-projectile :config (counsel-projectile-mode)))
