@@ -173,7 +173,9 @@
 (use-package neotree)
 
 (use-package projectile
-  :config (projectile-global-mode)
+  :config
+  (projectile-global-mode)
+  (setq projectile-project-search-path '("~/code"))
   (use-package counsel-projectile :config (counsel-projectile-mode)))
 
 (use-package ranger
