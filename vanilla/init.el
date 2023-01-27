@@ -212,9 +212,8 @@
 ;; ranger bindings
 ;; folding
 ;; surround
-;; magit
+;; magit, git gutter?
 ;; multiple cursor (?)
-;; autocompletion/intellisense
 ;; move away from packages listed alphabetically, create more sensible blocks or extract packages
 ;; implement a sensible modeline :)
 ;; evil search / to always show current VS total hits
