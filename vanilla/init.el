@@ -151,6 +151,11 @@
   (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-next-line)
   (define-key ivy-minibuffer-map (kbd "C-k") #'ivy-previous-line)
   (global-set-key (kbd "M-x") 'counsel-M-x)
+  (use-package amx :config (amx-mode))
+  (use-package ivy-rich
+    :config
+    (ivy-rich-mode 1)
+    (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
   (use-package swiper))
 
 (use-package no-littering)
