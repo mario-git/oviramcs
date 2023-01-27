@@ -203,7 +203,7 @@
 (use-package smartparens
   :config
   (require 'smartparens-config)
-  (smartparens-strict-mode))
+  (smartparens-strict-mode t))
 (use-package try)
 (use-package which-key :config (which-key-mode))
 
