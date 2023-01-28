@@ -160,11 +160,20 @@
 
 (use-package no-littering)
 
-(use-package org)
+(use-package org
+  :config
+  (setq org-todo-keyword-faces '(("TODO" . "yellow")
+				 ("NEXT" . "aqua")
+				 ("IN PROGRESS" . "PINK")
+				 ("DONE" . "green")
+				 ("CANCELLED" . "purple"))
+	org-todo-keywords '((sequence "TODO" "NEXT" "IN PROGRESS" "WAIT" "|" "DONE" "CANCELLED"))))
+
 (use-package org-bullets
   :after org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 (use-package evil-org
   :after org
   :hook ((org-mode . evil-org-mode)
