@@ -511,8 +511,8 @@ before packages are loaded."
     (evil-define-key 'normal evil-cleverparens-mode-map
       (kbd "[") nil
       (kbd "]") nil
-      (kbd "s-[") 'evil-cp-previous-opening
-      (kbd "s-]") 'evil-cp-next-closing))
+      (kbd "[[") 'evil-cp-previous-opening
+      (kbd "]]") 'evil-cp-next-closing))
   ;; no more files starting with .#
   (setq create-lockfiles nil)
   (spacemacs/set-leader-keys "f e t" 'dotspacemacs/test-dotfile)

@@ -123,7 +123,12 @@
 (use-package evil-cleverparens
   :config
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
-  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode))
+  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  (evil-define-key 'normal evil-cleverparens-mode-map
+      (kbd "[") nil
+      (kbd "]") nil
+      (kbd "[[") 'evil-cp-previous-opening
+      (kbd "]]") 'evil-cp-next-closing))
 
 (use-package evil-collection
   :after evil
