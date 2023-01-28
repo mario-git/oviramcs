@@ -170,6 +170,11 @@
   :hook ((org-mode . evil-org-mode)
          (evil-org-mode . evil-org-set-key-theme)))
 
+(use-package hungry-delete
+  :config
+  (global-hungry-delete-mode)
+  (setq hungry-delete-join-reluctantly t))
+
 (use-package projectile
   :config
   (projectile-global-mode)
