@@ -95,8 +95,7 @@
   (setq cider-show-error-buffer t)
   (use-package clj-refactor))
 
-(use-package company
-  :config (global-company-mode t))
+(use-package company :config (global-company-mode t))
 
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
@@ -179,7 +178,7 @@
   :config
   (setq org-todo-keyword-faces '(("TODO" . "yellow")
 				 ("NEXT" . "aqua")
-				 ("IN PROGRESS" . "PINK")
+				 ("IN PROGRESS" . "pink")
 				 ("DONE" . "green")
 				 ("CANCELLED" . "purple"))
 	org-todo-keywords '((sequence "TODO" "NEXT" "IN PROGRESS" "WAIT" "|" "DONE" "CANCELLED"))))
