@@ -141,11 +141,15 @@
   (general-create-definer local-leader-bindings :prefix ",")
   ;; for more examples: https://github.com/noctuid/general.el#evil-examples
   (leader-bindings :keymaps 'override :states '(normal visual)
+    "b" 'ivy-switch-buffer
+    "nd" 'deer
+    "nr" 'ranger
     "pd" 'projectile-find-dir
     "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
     "pr" 'projectile-replace
     "/" 'counsel-projectile-rg
+    "ta" 'treemacs-add-and-display-current-project
     "tt" 'treemacs))
 
 ;; M-x & completion juice
@@ -230,7 +234,6 @@
 
 ;; TODOs:
 ;; cider bindings
-;; ranger bindings
 ;; folding
 ;; surround
 ;; magit, git gutter?
