@@ -29,6 +29,8 @@
 (setq-default show-trailing-whitespace t)
 (dolist (hook '(minibuffer-setup-hook))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
+;; folding
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 
 ;; focus on help window
 (setq help-window-select t)
