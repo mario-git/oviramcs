@@ -151,6 +151,8 @@
   (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-next-line)
   (define-key ivy-minibuffer-map (kbd "C-k") #'ivy-previous-line)
   (global-set-key (kbd "M-x") 'counsel-M-x)
+  ;; no more search starting with ^ by default
+  (setq ivy-initial-inputs-alist nil)
   (use-package amx :config (amx-mode))
   (use-package ivy-rich
     :config
