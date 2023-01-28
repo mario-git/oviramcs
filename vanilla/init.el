@@ -170,8 +170,6 @@
   :hook ((org-mode . evil-org-mode)
          (evil-org-mode . evil-org-set-key-theme)))
 
-(use-package neotree)
-
 (use-package projectile
   :config
   (projectile-global-mode)
@@ -225,12 +223,6 @@
 ;; - potentially nail both points above with spacemacs/treemacs-project-toggle
 ;; verify the following leftovers from brave config
 ;; (use-package auto-package-update)
-;; ;; https://github.com/Fuco1/dired-hacks#dired-subtree
-;; (use-package dired-subtree
-;;   :config
-;;   (bind-keys :map dired-mode-map
-;;              ("i" . dired-subtree-insert)
-;;              (";" . dired-subtree-remove)))
 ;; (use-package dumb-jump
 ;;   ;; MEMO: M-. is gd in evil mode
 ;;   :init
