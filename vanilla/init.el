@@ -26,9 +26,9 @@
 (load-theme 'modus-vivendi t)
 ;; different font size for Mac and others
 (set-face-attribute 'default nil :height (if is-mac-os-p 140 100))
-;; to tune the following by minor mode
-;; https://stackoverflow.com/questions/34531831/highlighting-trailing-whitespace-in-emacs-without-changing-character
 (setq-default show-trailing-whitespace t)
+(dolist (hook '(minibuffer-setup-hook))
+  (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
 ;; focus on help window
 (setq help-window-select t)
