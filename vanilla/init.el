@@ -236,17 +236,13 @@
 
 ;; TODOs:
 ;; cider bindings
-;; folding
-;; surround
 ;; magit, git gutter?
 ;; multiple cursor (?)
+;; iedit?
 ;; move away from packages listed alphabetically, create more sensible blocks or extract packages
 ;; implement a sensible modeline :)
 ;; evil search / to always show current VS total hits
-;; better treemacs:
-;; - add projects automatically
-;; - toggle open/close tree
-;; - potentially nail both points above with spacemacs/treemacs-project-toggle
+;; better treemacs - mimic spacemacs/treemacs-project-toggle behaviour
 ;; verify the following leftovers from brave config
 ;; (use-package auto-package-update)
 ;; (use-package dumb-jump
