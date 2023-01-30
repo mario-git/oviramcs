@@ -86,8 +86,6 @@
 
 (use-package all-the-icons :if (display-graphic-p))
 
-(use-package clojure-mode)
-
 (use-package company :config (global-company-mode t))
 
 ;; https://github.com/emacs-dashboard/emacs-dashboard
@@ -106,9 +104,33 @@
   :demand t
   :config
   (general-evil-setup)
-  (general-create-definer leader-bindings :prefix "SPC" :global-prefix "C-SPC")
-  ;; TODO: find a way to unbind "," from evil-motion-state-map and use it instead
-  (general-create-definer local-leader-bindings :prefix "SPC-m" :global-prefix "SPC m"))
+  (general-create-definer leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
+    "be" 'eval-buffer
+    "fn" 'make-frame
+    "fd" 'delete-frame
+    "fo" 'other-frame)
+  (general-create-definer local-leader-bindings :prefix "," :global-prefix "SPC m" :states '(normal visual)))
+
+(use-package clojure-mode
+ :general
+ (local-leader-bindings :keymaps 'clojure-mode-map
+  "eb" 'cider-eval-file ;; b as buffer
+  "ee" 'cider-eval-last-sexp
+  "ef" 'cider-eval-defun-at-point
+  "el" 'cider-eval-list-at-point
+  "ep" 'cider-eval-defun-up-to-point
+  "er" 'cider-eval-region
+  "es" 'cider-eval-sexp-at-point
+  "ev" 'cider-eval-sexp-at-point ;; kept as orig
+  "ea" 'cider-load-all-project-ns
+  "ena" 'cider-load-all-project-ns ;; kept also as Spacemacs
+  "j" 'cider-jack-in               ;; undecided
+  "rr" 'cider-jack-in
+  "rn" 'cider-repl-set-ns
+  "rq" 'cider-quit
+  "ta" 'cider-test-run-project-tests
+  "tt" 'cider-test-run
+  "tr" 'cider-test-rerun-failed-tests))
 
 (use-package evil
   :init
@@ -146,28 +168,10 @@
   (setq cider-show-error-buffer t)
   (use-package clj-refactor))
 
-;; TODO: fix. Doesn't work :( local leader is not properly bound
-(local-leader-bindings :keymaps 'cider-mode-map :states '(normal)
-  "eb" 'cider-eval-file ;; b as buffer
-  "ee" 'cider-eval-last-sexp
-  "ef" 'cider-eval-defun-at-point
-  "el" 'cider-eval-list-at-point
-  "ep" 'cider-eval-defun-up-to-point
-  "er" 'cider-eval-region
-  "es" 'cider-eval-sexp-at-point
-  "ev" 'cider-eval-sexp-at-point ;; kept as orig
-  "ea" 'cider-load-all-project-ns
-  "ena" 'cider-load-all-project-ns ;; kept also as Spacemacs
-  "j" 'cider-jack-in               ;; undecided
-  "rr" 'cider-jack-in
-  "rn" 'cider-repl-set-ns
-  "rq" 'cider-quit
-  "ta" 'cider-test-run-project-tests
-  "tt" 'cider-test-run
-  "tr" 'cider-test-rerun-failed-tests)
-
 ;; M-x & completion juice
 (use-package ivy
+  :general
+  (leader-bindings :keymaps 'override :states '(normal visual) "bb" 'ivy-switch-buffer)
   :config
   (ivy-mode)
   ;; not 100% sure why evil-collection doesn't fix these 2 bindings
@@ -182,8 +186,6 @@
     (ivy-rich-mode 1)
     (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
   (use-package swiper))
-
-(leader-bindings :keymaps 'override :states '(normal visual) "b" 'ivy-switch-buffer)
 
 (use-package no-littering)
 
@@ -212,19 +214,23 @@
   (setq hungry-delete-join-reluctantly t))
 
 (use-package projectile
+  :general
+  (leader-bindings :keymaps 'override :states '(normal visual)
+    "pd" 'projectile-find-dir
+    "pf" 'projectile-find-file
+    "pp" 'projectile-switch-project
+    "pr" 'projectile-replace
+    "/" 'counsel-projectile-rg)
   :config
   (projectile-global-mode)
   (setq projectile-project-search-path '("~/code"))
   (use-package counsel-projectile :config (counsel-projectile-mode)))
 
-(leader-bindings :keymaps 'override :states '(normal visual)
-  "pd" 'projectile-find-dir
-  "pf" 'projectile-find-file
-  "pp" 'projectile-switch-project
-  "pr" 'projectile-replace
-  "/" 'counsel-projectile-rg)
-
 (use-package ranger
+  :general
+  (leader-bindings :keymaps 'override :states '(normal visual)
+  "nd" 'deer
+  "nr" 'ranger)
   :config
   (setq ranger-show-preview t
         ranger-show-hidden t
@@ -232,11 +238,11 @@
         ranger-cleanup-on-disable t
         ranger-ignored-extensions '("mkv" "flv" "iso" "mp4")))
 
-(leader-bindings :keymaps 'override :states '(normal visual)
-  "nd" 'deer
-  "nr" 'ranger)
-
 (use-package treemacs
+  :general
+  (leader-bindings :keymaps 'override :states '(normal visual)
+  "ta" 'treemacs-add-and-display-current-project
+  "tt" 'treemacs)
   :init
   (global-set-key (kbd "C-c t") 'treemacs-select-window)
   :defer t
@@ -250,10 +256,6 @@
   (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
-
-(leader-bindings :keymaps 'override :states '(normal visual)
-  "ta" 'treemacs-add-and-display-current-project
-  "tt" 'treemacs)
 
 ;; TODO: paredit instead?
 (use-package smartparens
