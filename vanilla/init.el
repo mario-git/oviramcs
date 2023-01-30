@@ -282,10 +282,13 @@
 ;; clj refactor capabilities
 ;; magit, git gutter?
 ;; multiple cursor (?)
+;; customise comment/uncomment
 ;; iedit?
 ;; move away from packages listed alphabetically, create more sensible blocks or extract packages
 ;; evil search / to always show current VS total hits
-;; better treemacs - mimic spacemacs/treemacs-project-toggle behaviour
+;; better treemacs
+;; - mimic spacemacs/treemacs-project-toggle behaviour
+;; - customise treemacs commands when point is there
 ;; verify the following leftovers from brave config
 ;; (use-package auto-package-update)
 ;; (use-package dumb-jump
