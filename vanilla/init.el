@@ -132,6 +132,8 @@
   "tt" 'cider-test-run
   "tr" 'cider-test-rerun-failed-tests))
 
+(use-package doom-modeline :demand :config (doom-modeline-mode 1))
+
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t
@@ -282,7 +284,6 @@
 ;; multiple cursor (?)
 ;; iedit?
 ;; move away from packages listed alphabetically, create more sensible blocks or extract packages
-;; implement a sensible modeline :)
 ;; evil search / to always show current VS total hits
 ;; better treemacs - mimic spacemacs/treemacs-project-toggle behaviour
 ;; verify the following leftovers from brave config
