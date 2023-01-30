@@ -88,13 +88,6 @@
 
 (use-package clojure-mode)
 
-(use-package cider
-  :config
-  (setq cider-repl-pop-to-buffer-on-connect nil)
-  (setq cider-repl-display-help-banner nil)
-  (setq cider-show-error-buffer t)
-  (use-package clj-refactor))
-
 (use-package company :config (global-company-mode t))
 
 ;; https://github.com/emacs-dashboard/emacs-dashboard
@@ -108,6 +101,14 @@
         dashboard-set-navigator t
         dashboard-set-heading-icons t
         dashboard-set-file-icons t))
+
+(use-package general
+  :demand t
+  :config
+  (general-evil-setup)
+  (general-create-definer leader-bindings :prefix "SPC" :global-prefix "C-SPC")
+  ;; TODO: find a way to unbind "," from evil-motion-state-map and use it instead
+  (general-create-definer local-leader-bindings :prefix "SPC-m" :global-prefix "SPC m"))
 
 (use-package evil
   :init
@@ -138,22 +139,32 @@
 
 (use-package evil-surround :config (global-evil-surround-mode 1))
 
-(use-package general
+(use-package cider
   :config
-  (general-create-definer leader-bindings :prefix "SPC")
-  (general-create-definer local-leader-bindings :prefix ",")
-  ;; for more examples: https://github.com/noctuid/general.el#evil-examples
-  (leader-bindings :keymaps 'override :states '(normal visual)
-    "b" 'ivy-switch-buffer
-    "nd" 'deer
-    "nr" 'ranger
-    "pd" 'projectile-find-dir
-    "pf" 'projectile-find-file
-    "pp" 'projectile-switch-project
-    "pr" 'projectile-replace
-    "/" 'counsel-projectile-rg
-    "ta" 'treemacs-add-and-display-current-project
-    "tt" 'treemacs))
+  (setq cider-repl-pop-to-buffer-on-connect nil)
+  (setq cider-repl-display-help-banner nil)
+  (setq cider-show-error-buffer t)
+  (use-package clj-refactor))
+
+;; TODO: fix. Doesn't work :( local leader is not properly bound
+(local-leader-bindings :keymaps 'cider-mode-map :states '(normal)
+  "eb" 'cider-eval-file ;; b as buffer
+  "ee" 'cider-eval-last-sexp
+  "ef" 'cider-eval-defun-at-point
+  "el" 'cider-eval-list-at-point
+  "ep" 'cider-eval-defun-up-to-point
+  "er" 'cider-eval-region
+  "es" 'cider-eval-sexp-at-point
+  "ev" 'cider-eval-sexp-at-point ;; kept as orig
+  "ea" 'cider-load-all-project-ns
+  "ena" 'cider-load-all-project-ns ;; kept also as Spacemacs
+  "j" 'cider-jack-in               ;; undecided
+  "rr" 'cider-jack-in
+  "rn" 'cider-repl-set-ns
+  "rq" 'cider-quit
+  "ta" 'cider-test-run-project-tests
+  "tt" 'cider-test-run
+  "tr" 'cider-test-rerun-failed-tests)
 
 ;; M-x & completion juice
 (use-package ivy
@@ -171,6 +182,8 @@
     (ivy-rich-mode 1)
     (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
   (use-package swiper))
+
+(leader-bindings :keymaps 'override :states '(normal visual) "b" 'ivy-switch-buffer)
 
 (use-package no-littering)
 
@@ -204,6 +217,13 @@
   (setq projectile-project-search-path '("~/code"))
   (use-package counsel-projectile :config (counsel-projectile-mode)))
 
+(leader-bindings :keymaps 'override :states '(normal visual)
+  "pd" 'projectile-find-dir
+  "pf" 'projectile-find-file
+  "pp" 'projectile-switch-project
+  "pr" 'projectile-replace
+  "/" 'counsel-projectile-rg)
+
 (use-package ranger
   :config
   (setq ranger-show-preview t
@@ -211,6 +231,10 @@
         ranger-cleanup-eagerly t
         ranger-cleanup-on-disable t
         ranger-ignored-extensions '("mkv" "flv" "iso" "mp4")))
+
+(leader-bindings :keymaps 'override :states '(normal visual)
+  "nd" 'deer
+  "nr" 'ranger)
 
 (use-package treemacs
   :init
@@ -227,6 +251,10 @@
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
 
+(leader-bindings :keymaps 'override :states '(normal visual)
+  "ta" 'treemacs-add-and-display-current-project
+  "tt" 'treemacs)
+
 ;; TODO: paredit instead?
 (use-package smartparens
   :config
@@ -236,7 +264,7 @@
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
-;; cider bindings
+;; clj refactor capabilities
 ;; magit, git gutter?
 ;; multiple cursor (?)
 ;; iedit?
