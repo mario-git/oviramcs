@@ -258,10 +258,21 @@
   (use-package treemacs-projectile :after projectile))
 
 ;; TODO: paredit instead?
-(use-package smartparens
+;; (use-package smartparens
+;;   :config
+;;   (require 'smartparens-config)
+;;   (smartparens-strict-mode t))
+
+(use-package paredit
   :config
-  (require 'smartparens-config)
-  (smartparens-strict-mode t))
+  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+  (add-hook 'cider-repl-mode-hook 'paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode))
+
 (use-package try)
 (use-package which-key :config (which-key-mode))
 
