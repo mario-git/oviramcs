@@ -2,8 +2,8 @@
 
 This repo is to save my Emacs configurations. I use [Chemacs2](https://github.com/plexus/chemacs2), to be able to play with different configurations, currently:
 
-- Spacemacs (default);
-- Vanilla, one started from scratch.
+- Vanilla (default), a custom one started from scratch. It comes with hybrid Vim/Emacs Spacemacs-esque bindings, setup for Clojure/Lisp development, general code/text editing, and Org Mode;
+- Spacemacs.
 
 ## Dependencies
 

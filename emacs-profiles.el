@@ -1,3 +1,3 @@
-(("spacemacs" . ((user-emacs-directory . "~/spacemacs")
-               (env . (("SPACEMACSDIR" . "~/oviramcs/spacemacs")))))
- ("vanilla" . ((user-emacs-directory . "~/oviramcs/vanilla"))))
+(("default" . ((user-emacs-directory . "~/oviramcs/vanilla")))
+ ("spacemacs" . ((user-emacs-directory . "~/spacemacs")
+		 (env . (("SPACEMACSDIR" . "~/oviramcs/spacemacs"))))))
