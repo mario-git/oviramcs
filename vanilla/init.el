@@ -23,7 +23,6 @@
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(load-theme 'modus-vivendi t)
 ;; different font size for Mac and others
 (set-face-attribute 'default nil :height (if is-mac-os-p 140 100))
 (setq-default show-trailing-whitespace t)
@@ -259,12 +258,6 @@
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
 
-;; TODO: paredit instead?
-;; (use-package smartparens
-;;   :config
-;;   (require 'smartparens-config)
-;;   (smartparens-strict-mode t))
-
 (use-package paredit
   :config
   (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -276,10 +269,20 @@
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode))
 
 (use-package try)
+
+(use-package jbeans-theme :config (load-theme 'jbeans))
+
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
-;; clj refactor capabilities
+;; straight
+;; make proj searches awesome, see
+;; counsel-projectile-rg-initial-input, https://github.com/ericdanan/counsel-projectile#initial-input-for-the-project-search-commands
+;; eglot / clj refactor capabilities
+;; flycheck
+;; clj-kondo
+;; avy (jump)
+;; command log
 ;; magit, git gutter?
 ;; multiple cursor (?)
 ;; customise comment/uncomment
@@ -287,7 +290,7 @@
 ;; move away from packages listed alphabetically, create more sensible blocks or extract packages
 ;; evil search / to always show current VS total hits
 ;; better treemacs
-;; - mimic spacemacs/treemacs-project-toggle behaviour
+;; - mimic spacemacs/treemacs-project-toggle behaviour, or any other way to navigate better from and to
 ;; - customise treemacs commands when point is there
 ;; verify the following leftovers from brave config
 ;; (use-package auto-package-update)
