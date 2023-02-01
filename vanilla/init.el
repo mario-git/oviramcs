@@ -107,7 +107,11 @@
     "be" 'eval-buffer
     "fn" 'make-frame
     "fd" 'delete-frame
-    "fo" 'other-frame)
+    "fo" 'other-frame
+    "ff" 'other-frame ;; trying convention of double key for cycling commands
+    "w/" 'split-window-right
+    "w-" 'split-window-below
+    "ww" 'other-window)
   (general-create-definer local-leader-bindings :prefix "," :global-prefix "SPC m" :states '(normal visual)))
 
 (use-package clojure-mode
