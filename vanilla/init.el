@@ -257,7 +257,7 @@
   (setq treemacs-project-follow-cleanup t
 	treemacs-show-hidden-files nil
 	treemacs-text-scale 0.2
-	treemacs-width 30)
+	treemacs-width 30) ;; TODO: tune this based on OS type
   (treemacs-resize-icons 16)
   ;; name function in case we need to add the same hook somewhere else
   (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
@@ -290,9 +290,7 @@
 ;; avy (jump)
 ;; magit, git gutter?
 ;; multiple cursor (?)
-;; customise comment/uncomment
 ;; iedit?
-;; move away from packages listed alphabetically, create more sensible blocks or extract packages
 ;; evil search / to always show current VS total hits
 ;; better treemacs
 ;; - mimic spacemacs/treemacs-project-toggle behaviour, or any other way to navigate better from and to
