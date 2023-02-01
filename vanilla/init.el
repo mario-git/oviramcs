@@ -135,6 +135,8 @@
   "tt" 'cider-test-run
   "tr" 'cider-test-rerun-failed-tests))
 
+(use-package command-log-mode)
+
 (use-package doom-modeline :demand :config (doom-modeline-mode 1))
 
 (use-package evil
@@ -286,7 +288,6 @@
 ;; flycheck
 ;; clj-kondo
 ;; avy (jump)
-;; command log
 ;; magit, git gutter?
 ;; multiple cursor (?)
 ;; customise comment/uncomment
