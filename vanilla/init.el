@@ -149,6 +149,7 @@
   (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
   (evil-select-search-module 'evil-search-module 'evil-search)
+  (use-package evil-anzu :config (global-anzu-mode))
   (evil-set-undo-system 'undo-redo))
 
 (use-package evil-cleverparens
@@ -291,7 +292,6 @@
 ;; magit, git gutter?
 ;; multiple cursor (?)
 ;; iedit?
-;; evil search / to always show current VS total hits
 ;; better treemacs
 ;; - mimic spacemacs/treemacs-project-toggle behaviour, or any other way to navigate better from and to
 ;; - customise treemacs commands when point is there
