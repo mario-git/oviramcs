@@ -92,12 +92,12 @@
   :config
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
-        dashboard-startup-banner 'logo
-        dashboard-projects-backend 'projectile
-        dashboard-items '((projects . 6) (recents . 8))
-        dashboard-set-navigator t
-        dashboard-set-heading-icons t
-        dashboard-set-file-icons t))
+	dashboard-startup-banner 'logo
+	dashboard-projects-backend 'projectile
+	dashboard-items '((projects . 6) (recents . 8))
+	dashboard-set-navigator t
+	dashboard-set-heading-icons t
+	dashboard-set-file-icons t))
 
 (use-package general
   :demand t
@@ -120,25 +120,25 @@
     "ef" 'eval-defun))
 
 (use-package clojure-mode
- :general
- (local-leader-bindings :keymaps 'clojure-mode-map
-  "eb" 'cider-eval-file ;; b as buffer
-  "ee" 'cider-eval-last-sexp
-  "ef" 'cider-eval-defun-at-point
-  "el" 'cider-eval-list-at-point
-  "ep" 'cider-eval-defun-up-to-point
-  "er" 'cider-eval-region
-  "es" 'cider-eval-sexp-at-point
-  "ev" 'cider-eval-sexp-at-point ;; kept as orig
-  "ea" 'cider-load-all-project-ns
-  "ena" 'cider-load-all-project-ns ;; kept also as Spacemacs
-  "j" 'cider-jack-in               ;; undecided
-  "rr" 'cider-jack-in
-  "rn" 'cider-repl-set-ns
-  "rq" 'cider-quit
-  "ta" 'cider-test-run-project-tests
-  "tt" 'cider-test-run
-  "tr" 'cider-test-rerun-failed-tests))
+  :general
+  (local-leader-bindings :keymaps 'clojure-mode-map
+    "eb" 'cider-eval-file ;; b as buffer
+    "ee" 'cider-eval-last-sexp
+    "ef" 'cider-eval-defun-at-point
+    "el" 'cider-eval-list-at-point
+    "ep" 'cider-eval-defun-up-to-point
+    "er" 'cider-eval-region
+    "es" 'cider-eval-sexp-at-point
+    "ev" 'cider-eval-sexp-at-point ;; kept as orig
+    "ea" 'cider-load-all-project-ns
+    "ena" 'cider-load-all-project-ns ;; kept also as Spacemacs
+    "j" 'cider-jack-in               ;; undecided
+    "rr" 'cider-jack-in
+    "rn" 'cider-repl-set-ns
+    "rq" 'cider-quit
+    "ta" 'cider-test-run-project-tests
+    "tt" 'cider-test-run
+    "tr" 'cider-test-rerun-failed-tests))
 
 (use-package command-log-mode)
 
@@ -162,10 +162,10 @@
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   (evil-define-key 'normal evil-cleverparens-mode-map
-      (kbd "[") nil
-      (kbd "]") nil
-      (kbd "[[") 'evil-cp-previous-opening
-      (kbd "]]") 'evil-cp-next-closing))
+    (kbd "[") nil
+    (kbd "]") nil
+    (kbd "[[") 'evil-cp-previous-opening
+    (kbd "]]") 'evil-cp-next-closing))
 
 (use-package evil-collection
   :after evil
@@ -219,7 +219,7 @@
 (use-package evil-org
   :after org
   :hook ((org-mode . evil-org-mode)
-         (evil-org-mode . evil-org-set-key-theme)))
+	 (evil-org-mode . evil-org-set-key-theme)))
 
 (use-package hungry-delete
   :config
@@ -242,20 +242,20 @@
 (use-package ranger
   :general
   (leader-bindings :keymaps 'override :states '(normal visual)
-  "nd" 'deer
-  "nr" 'ranger)
+    "nd" 'deer
+    "nr" 'ranger)
   :config
   (setq ranger-show-preview t
-        ranger-show-hidden t
-        ranger-cleanup-eagerly t
-        ranger-cleanup-on-disable t
-        ranger-ignored-extensions '("mkv" "flv" "iso" "mp4")))
+	ranger-show-hidden t
+	ranger-cleanup-eagerly t
+	ranger-cleanup-on-disable t
+	ranger-ignored-extensions '("mkv" "flv" "iso" "mp4")))
 
 (use-package treemacs
   :general
   (leader-bindings :keymaps 'override :states '(normal visual)
-  "ta" 'treemacs-add-and-display-current-project
-  "tt" 'treemacs)
+    "ta" 'treemacs-add-and-display-current-project
+    "tt" 'treemacs)
   :init
   (global-set-key (kbd "C-c t") 'treemacs-select-window)
   :defer t
@@ -290,20 +290,19 @@
 ;; straight
 ;; make proj searches awesome, see
 ;; counsel-projectile-rg-initial-input, https://github.com/ericdanan/counsel-projectile#initial-input-for-the-project-search-commands
+;; improve buffer search with *, make it spacemacs like
 ;; eglot / clj refactor capabilities
 ;; flycheck
 ;; clj-kondo
 ;; avy (jump)
 ;; magit, git gutter?
-;; multiple cursor (?)
-;; iedit?
+;; multiple cursor (?) iedit?
 ;; better treemacs
 ;; - mimic spacemacs/treemacs-project-toggle behaviour, or any other way to navigate better from and to
 ;; - customise treemacs commands when point is there
 ;; verify the following leftovers from brave config
 ;; (use-package auto-package-update)
 ;; (use-package dumb-jump
-;;   ;; MEMO: M-. is gd in evil mode
 ;;   :init
 ;;   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 ;;   (setq dumb-jump-prefer-searcher 'rg))
