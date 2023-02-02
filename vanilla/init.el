@@ -114,6 +114,11 @@
     "ww" 'other-window)
   (general-create-definer local-leader-bindings :prefix "," :global-prefix "SPC m" :states '(normal visual)))
 
+(use-package emacs
+  :general
+  (local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
+    "ef" 'eval-defun))
+
 (use-package clojure-mode
  :general
  (local-leader-bindings :keymaps 'clojure-mode-map
