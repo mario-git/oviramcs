@@ -104,6 +104,8 @@
   :config
   (general-evil-setup)
   (general-create-definer leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
+    "\\" 'pop-global-mark
+    "l" 'pop-global-mark ;; l - location? \ is a bit out of hand
     "be" 'eval-buffer
     "fn" 'make-frame
     "fd" 'delete-frame
