@@ -264,8 +264,7 @@
   :config
   (setq treemacs-project-follow-cleanup t
 	treemacs-show-hidden-files nil
-	treemacs-text-scale 0.2
-	treemacs-width 30) ;; TODO: tune this based on OS type
+	treemacs-text-scale 0.2)
   (treemacs-resize-icons 16)
   ;; name function in case we need to add the same hook somewhere else
   (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
