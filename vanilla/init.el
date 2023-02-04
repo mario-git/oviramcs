@@ -288,7 +288,7 @@
 
 (use-package try)
 
-(use-package jbeans-theme :config (load-theme 'jbeans))
+(use-package jbeans-theme :config (load-theme 'jbeans t))
 
 (use-package which-key :config (which-key-mode))
 
