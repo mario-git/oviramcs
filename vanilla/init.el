@@ -124,7 +124,8 @@
 (use-package emacs
   :general
   (local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
-    "ef" 'eval-defun))
+    "ef" 'eval-defun)
+  :init (setq warning-minimum-level :error))
 
 (use-package clojure-mode
   :general
