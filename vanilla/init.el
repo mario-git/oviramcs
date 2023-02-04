@@ -73,15 +73,20 @@
 (load custom-file)
 
 ;; packages
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-;; Setup use-package https://github.com/jwiegley/use-package
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(setq use-package-verbose t
-      use-package-always-ensure t)
-(require 'use-package)
+(setq straight-use-package-by-default t)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 6))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+(straight-use-package 'use-package)
 
 (use-package all-the-icons :if (display-graphic-p))
 
@@ -288,7 +293,6 @@
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
-;; straight
 ;; make proj searches awesome, see
 ;; counsel-projectile-rg-initial-input, https://github.com/ericdanan/counsel-projectile#initial-input-for-the-project-search-commands
 ;; improve buffer search with *, make it spacemacs like

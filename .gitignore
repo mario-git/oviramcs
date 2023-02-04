@@ -4,4 +4,6 @@ auto-save-list
 custom.el
 elpa
 ido.last*
+vanilla/straight/build*
+vanilla/straight/repos
 var
