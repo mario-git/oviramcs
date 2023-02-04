@@ -293,6 +293,18 @@
 (use-package which-key :config (which-key-mode))
 
 ;; TODOs:
+;; sql https://dev.to/viglioni/emacs-as-sql-client-with-lsp-143l
+;; better treemacs
+;; - treemacs C-h m, treemacs-all-the-icons, treemacs-mode-map
+;; - https://emacs.stackexchange.com/questions/57899/unmapping-treemacs-prior-and-next-page-up-and-page-down
+;; - mimic spacemacs/treemacs-project-toggle behaviour, or any other way to navigate better from and to
+;; - customise treemacs commands when point is there
+;; customize window/frame navigation:
+;; - To move 3 windows forward you'd do C-u 3 C-x o .
+;; - To move 2 windows backwards you'd do C-u -2 C-x o .
+;; - pressing C-x O (capital o) takes to the previous window
+;; - impl next/prev frame https://github.com/zmaas/evil-unimpaired/blob/master/evil-unimpaired.el
+;; move bits under use-package emacs & early-init.el
 ;; make proj searches awesome, see
 ;; counsel-projectile-rg-initial-input, https://github.com/ericdanan/counsel-projectile#initial-input-for-the-project-search-commands
 ;; improve buffer search with *, make it spacemacs like
@@ -300,13 +312,10 @@
 ;; flycheck
 ;; clj-kondo
 ;; avy (jump)
+;; customize help bindings
 ;; magit, git gutter?
 ;; multiple cursor (?) iedit?
-;; better treemacs
-;; - mimic spacemacs/treemacs-project-toggle behaviour, or any other way to navigate better from and to
-;; - customise treemacs commands when point is there
 ;; verify the following leftovers from brave config
-;; (use-package auto-package-update)
 ;; (use-package dumb-jump
 ;;   :init
 ;;   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
