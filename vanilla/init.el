@@ -69,7 +69,7 @@
 ;; no more lockfiles (temprary files starting with .#)
 (setq create-lockfiles nil)
 
-(setq custom-file "~/oviramcs/vanilla/custom.el")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
 ;; packages
