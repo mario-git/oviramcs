@@ -1,2 +1,5 @@
+[ ! -d ~/.emacs.d ] git clone https://github.com/plexus/chemacs2 ~/.emacs.d
+[ ! -d ~/spacemacs ] git clone https://github.com/syl20bnr/spacemacs ~/spacemacs
 [ ! -f ~/.emacs-profiles.el ] && ln -s ~/oviramcs/emacs-profiles.el ~/.emacs-profiles.el
+[ ! -f ~/oviramcs/spacemacs/custom.el ] && touch ~/oviramcs/spacemacs/custom.el
 [ ! -f ~/oviramcs/vanilla/custom.el ] && touch ~/oviramcs/vanilla/custom.el
