@@ -148,8 +148,6 @@
     "tt" 'cider-test-run
     "tr" 'cider-test-rerun-failed-tests))
 
-(use-package command-log-mode)
-
 (use-package doom-modeline :demand :config (doom-modeline-mode 1))
 
 (use-package evil
@@ -167,8 +165,13 @@
 
 (use-package evil-cleverparens
   :config
-  (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'clojure-mode-hook #'paredit-mode)
+  (define-key evil-insert-state-map (kbd "C-<") 'evil-cp-<)
+  (define-key evil-insert-state-map (kbd "C->") 'evil-cp->)
   (evil-define-key 'normal evil-cleverparens-mode-map
     (kbd "[") nil
     (kbd "]") nil
@@ -276,50 +279,8 @@
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
 
-(use-package paredit
-  :config
-  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
-  (add-hook 'cider-repl-mode-hook 'paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode))
-
 (use-package try)
 
 (use-package jbeans-theme :config (load-theme 'jbeans t))
 
 (use-package which-key :config (which-key-mode))
-
-;; TODOs:
-;; sql https://dev.to/viglioni/emacs-as-sql-client-with-lsp-143l
-;; better treemacs
-;; - treemacs C-h m, treemacs-all-the-icons, treemacs-mode-map
-;; - https://emacs.stackexchange.com/questions/57899/unmapping-treemacs-prior-and-next-page-up-and-page-down
-;; - mimic spacemacs/treemacs-project-toggle behaviour, or any other way to navigate better from and to
-;; - customise treemacs commands when point is there
-;; customize window/frame navigation:
-;; - To move 3 windows forward you'd do C-u 3 C-x o .
-;; - To move 2 windows backwards you'd do C-u -2 C-x o .
-;; - pressing C-x O (capital o) takes to the previous window
-;; - impl next/prev frame https://github.com/zmaas/evil-unimpaired/blob/master/evil-unimpaired.el
-;; move bits under use-package emacs & early-init.el
-;; make proj searches awesome, see
-;; counsel-projectile-rg-initial-input, https://github.com/ericdanan/counsel-projectile#initial-input-for-the-project-search-commands
-;; improve buffer search with *, make it spacemacs like
-;; eglot / clj refactor capabilities
-;; flycheck
-;; clj-kondo
-;; avy (jump)
-;; customize help bindings
-;; magit, git gutter?
-;; multiple cursor (?) iedit?
-;; verify the following leftovers from brave config
-;; (use-package dumb-jump
-;;   :init
-;;   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-;;   (setq dumb-jump-prefer-searcher 'rg))
-;; ;; https://github.com/magnars/expand-region.el
-;; (use-package expand-region
-;;   :bind ("C-=" . er/expand-region))
