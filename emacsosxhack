@@ -1,1 +1,0 @@
-open -a "Emacs" --args --chdir $PWD "$@"
