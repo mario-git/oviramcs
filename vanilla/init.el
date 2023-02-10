@@ -131,7 +131,13 @@
     "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line
     "jw" 'avy-goto-word-1)
-  :init (setq warning-minimum-level :error))
+  :init (setq warning-minimum-level :error)
+  :config
+  (when is-mac-os-p
+    (use-package exec-path-from-shell
+      :config
+      (exec-path-from-shell-initialize)
+      (exec-path-from-shell-copy-envs '("PATH")))))
 
 (use-package clojure-mode
   :general
