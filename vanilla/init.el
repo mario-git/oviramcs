@@ -124,7 +124,13 @@
 (use-package emacs
   :general
   (local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
-    "ef" 'eval-defun)
+    "ef" 'eval-defun
+    "ja" 'avy-goto-word-0
+    "jc" 'avy-goto-char
+    "js" 'avy-goto-char-2
+    "jj" 'avy-goto-char-timer
+    "jl" 'avy-goto-line
+    "jw" 'avy-goto-word-1)
   :init (setq warning-minimum-level :error))
 
 (use-package clojure-mode
@@ -140,7 +146,6 @@
     "ev" 'cider-eval-sexp-at-point ;; kept as orig
     "ea" 'cider-load-all-project-ns
     "ena" 'cider-load-all-project-ns ;; kept also as Spacemacs
-    "j" 'cider-jack-in               ;; undecided
     "rr" 'cider-jack-in
     "rn" 'cider-repl-set-ns
     "rq" 'cider-quit
