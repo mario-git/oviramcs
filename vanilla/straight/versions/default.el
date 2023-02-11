@@ -1,5 +1,4 @@
-(("Try" . "8831ded1784df43a2bd56c25ad3d0650cdb9df1d")
- ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
+(("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
  ("all-the-icons.el" . "51bf77da1ebc3c199dfc11f54c0dce67559f5f40")
  ("amx" . "37f9c7ae55eb0331b27200fb745206fc58ceffc0")
  ("annalist.el" . "134fa3f0fb91a636a1c005c483516d4b64905a6d")
