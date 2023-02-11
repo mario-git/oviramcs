@@ -133,6 +133,7 @@
     "jw" 'avy-goto-word-1)
   :init (setq warning-minimum-level :error)
   :config
+  (load-theme 'modus-vivendi)
   (when is-mac-os-p
     (use-package exec-path-from-shell
       :config
@@ -261,6 +262,10 @@
   (setq projectile-project-search-path '("~/code"))
   (use-package counsel-projectile :config (counsel-projectile-mode)))
 
+(use-package rainbow-delimiters
+  :hook ((emacs-lisp-mode . rainbow-delimiters-mode)
+	 (clojure-mode . rainbow-delimiters-mode)))
+
 (use-package ranger
   :general
   (leader-bindings :keymaps 'override :states '(normal visual)
@@ -291,7 +296,5 @@
   (use-package treemacs-projectile :after projectile))
 
 (use-package try)
-
-(use-package jbeans-theme :config (load-theme 'jbeans t))
 
 (use-package which-key :config (which-key-mode))
