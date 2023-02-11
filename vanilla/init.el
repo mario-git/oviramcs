@@ -134,9 +134,9 @@
   :init (setq warning-minimum-level :error)
   :config
   (load-theme 'modus-vivendi)
-  (when is-mac-os-p
-    (use-package exec-path-from-shell
-      :config
+  (use-package exec-path-from-shell
+    :config
+    (when is-mac-os-p
       (exec-path-from-shell-initialize)
       (exec-path-from-shell-copy-envs '("PATH")))))
 
