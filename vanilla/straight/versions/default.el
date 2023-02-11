@@ -31,7 +31,6 @@
  ("gnu-elpa-mirror" . "eb1199591ec3cb8a4d1f1a20bd14ca0e52eafdd0")
  ("goto-chg" . "278cd3e6d5107693aa2bb33189ca503f22f227d0")
  ("ht.el" . "e83fdb8bc0a3cc8cd2687a947e2610b20b68b7d3")
- ("hungry-delete" . "d919e555e5c13a2edf4570f3ceec84f0ade71657")
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")
  ("ivy-rich" . "600b8183ed0be8668dcc548cc2c8cb94b001363b")
  ("jump.el" . "55caa66a7cc6e0b1a76143fd40eff38416928941")
