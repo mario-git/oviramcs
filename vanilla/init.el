@@ -105,13 +105,13 @@
   :config
   (general-evil-setup)
   (general-create-definer leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
-    "\\" 'pop-global-mark
-    "l" 'pop-global-mark ;; l - location? \ is a bit out of hand
+    "SPC" 'counsel-M-x
     "be" 'eval-buffer
     "fn" 'make-frame
     "fd" 'delete-frame
     "fo" 'other-frame
-    "ff" 'other-frame ;; trying convention of double key for cycling commands
+    "ff" 'other-frame
+    "oi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
     "w/" 'split-window-right
     "w-" 'split-window-below
     "ww" 'other-window)
@@ -205,13 +205,20 @@
 
 ;; M-x & completion juice
 (use-package ivy
+  :bind
+  (:map ivy-minibuffer-map
+	("C-j" . ivy-next-line)
+	("C-k" . ivy-previous-line)
+   :map ivy-switch-buffer-map
+	("C-k" . ivy-previous-line)
+	("C-d" . ivy-switch-buffer-kill)
+   :map ivy-reverse-i-search-map
+	("C-k" . ivy-previous-line)
+	("C-d" . ivy-reverse-i-search-kill))
   :general
   (leader-bindings :keymaps 'override :states '(normal visual) "bb" 'ivy-switch-buffer)
   :config
   (ivy-mode)
-  ;; not 100% sure why evil-collection doesn't fix these 2 bindings
-  (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-next-line)
-  (define-key ivy-minibuffer-map (kbd "C-k") #'ivy-previous-line)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   ;; no more search starting with ^ by default
   (setq ivy-initial-inputs-alist nil)
