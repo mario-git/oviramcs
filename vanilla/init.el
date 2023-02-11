@@ -120,6 +120,7 @@
 (use-package emacs
   :general
   (local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
+    "ee" 'eval-last-sexp
     "ef" 'eval-defun
     "ja" 'avy-goto-word-0
     "jc" 'avy-goto-char
