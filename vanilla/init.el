@@ -88,10 +88,6 @@
   (load bootstrap-file nil 'nomessage))
 (straight-use-package 'use-package)
 
-(use-package all-the-icons :if (display-graphic-p))
-
-(use-package company :config (global-company-mode t))
-
 ;; https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :config
@@ -134,11 +130,18 @@
   :init (setq warning-minimum-level :error)
   :config
   (load-theme 'modus-vivendi)
-  (use-package exec-path-from-shell
-    :config
-    (when is-mac-os-p
-      (exec-path-from-shell-initialize)
-      (exec-path-from-shell-copy-envs '("PATH")))))
+  (use-package all-the-icons :if (display-graphic-p))
+  (use-package company :config (global-company-mode t))
+  (use-package doom-modeline :demand :config (doom-modeline-mode 1))
+  (use-package no-littering)
+  (use-package try)
+  (use-package which-key :config (which-key-mode)))
+
+(use-package exec-path-from-shell
+  :config
+  (when is-mac-os-p
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-envs '("PATH"))))
 
 (use-package clojure-mode
   :general
@@ -160,8 +163,6 @@
     "tt" 'cider-test-run
     "tr" 'cider-test-rerun-failed-tests))
 
-(use-package doom-modeline :demand :config (doom-modeline-mode 1))
-
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t
@@ -172,8 +173,9 @@
   (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
   (evil-select-search-module 'evil-search-module 'evil-search)
+  (evil-set-undo-system 'undo-redo)
   (use-package evil-anzu :config (global-anzu-mode))
-  (evil-set-undo-system 'undo-redo))
+  (use-package evil-surround :config (global-evil-surround-mode 1)))
 
 (use-package evil-cleverparens
   :config
@@ -194,8 +196,6 @@
   :after evil
   :custom (evil-collection-setup-minibuffer t)
   :config (evil-collection-init))
-
-(use-package evil-surround :config (global-evil-surround-mode 1))
 
 (use-package cider
   :config
@@ -222,8 +222,6 @@
     (ivy-rich-mode 1)
     (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
   (use-package swiper))
-
-(use-package no-littering)
 
 (use-package org
   :config
@@ -289,7 +287,3 @@
   (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
-
-(use-package try)
-
-(use-package which-key :config (which-key-mode))
