@@ -8,6 +8,7 @@
  ("cider" . "e5b25dff6c6752642ab211ea18e65f0066fbb418")
  ("clj-refactor.el" . "b5abe655e572a6ecfed02bb8164b64716ef76b8e")
  ("clojure-mode" . "3453cd229b412227aaffd1dc2870fa8fa213c5b1")
+ ("color-theme-sanityinc-tomorrow" . "96dbaa43ff1326879e76a7943b8ae27265ae84e8")
  ("company-mode" . "d5d06f0539068e741b12a480be3f312e9b6df812")
  ("compat" . "8885b1cd3f5a2833c727b4448583213deb2d1d76")
  ("counsel-projectile" . "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")

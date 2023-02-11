@@ -23,8 +23,8 @@
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-;; different font size for Mac and others
 (set-face-attribute 'default nil :height (if is-mac-os-p 140 100))
+
 (setq-default show-trailing-whitespace t)
 (dolist (hook '(minibuffer-setup-hook))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
@@ -129,7 +129,11 @@
     "jw" 'avy-goto-word-1)
   :init (setq warning-minimum-level :error)
   :config
-  (load-theme 'modus-vivendi)
+  (use-package color-theme-sanityinc-tomorrow
+    :config
+    (load-theme 'sanityinc-tomorrow-bright t)
+    (set-cursor-color "white"))
+
   (use-package all-the-icons :if (display-graphic-p))
   (use-package company :config (global-company-mode t))
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
