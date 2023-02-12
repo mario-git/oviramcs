@@ -1,9 +1,15 @@
-(defvar is-mac-os-p (string-equal system-type "darwin"))
+(defvar ov/is-mac-os-p (string-equal system-type "darwin"))
+
+(defun ov/comment-or-uncomment-line-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+      (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
 
 ;; CamelCase as separate words everywhere
 (global-subword-mode 1)
 
-(when is-mac-os-p
+(when ov/is-mac-os-p
   ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
   (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))
   ;; Windows/Linux like positioning, starting with option and command already flipped via Karabiner.
@@ -23,7 +29,7 @@
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(set-face-attribute 'default nil :height (if is-mac-os-p 140 100))
+(set-face-attribute 'default nil :height (if ov/is-mac-os-p 140 100))
 
 (setq-default show-trailing-whitespace t)
 (dolist (hook '(minibuffer-setup-hook))
@@ -104,7 +110,7 @@
   :demand t
   :config
   (general-evil-setup)
-  (general-create-definer leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
+  (general-create-definer ov/leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
     "be" 'eval-buffer
     "fn" 'make-frame
@@ -115,11 +121,12 @@
     "w/" 'split-window-right
     "w-" 'split-window-below
     "ww" 'other-window)
-  (general-create-definer local-leader-bindings :prefix "," :global-prefix "SPC m" :states '(normal visual)))
+  (general-create-definer ov/local-leader-bindings :prefix "," :global-prefix "SPC m" :states '(normal visual)))
 
 (use-package emacs
   :general
-  (local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
+  (ov/local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
+    "c" 'ov/comment-or-uncomment-line-or-region
     "ee" 'eval-last-sexp
     "ef" 'eval-defun
     "ja" 'avy-goto-word-0
@@ -143,13 +150,13 @@
 
 (use-package exec-path-from-shell
   :config
-  (when is-mac-os-p
+  (when ov/is-mac-os-p
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-envs '("PATH"))))
 
 (use-package clojure-mode
   :general
-  (local-leader-bindings :keymaps 'clojure-mode-map
+  (ov/local-leader-bindings :keymaps 'clojure-mode-map
     "eb" 'cider-eval-file ;; b as buffer
     "ee" 'cider-eval-last-sexp
     "ef" 'cider-eval-defun-at-point
@@ -221,7 +228,7 @@
 	("C-k" . ivy-previous-line)
 	("C-d" . ivy-reverse-i-search-kill))
   :general
-  (leader-bindings :keymaps 'override :states '(normal visual) "bb" 'ivy-switch-buffer)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual) "bb" 'ivy-switch-buffer)
   :config
   (ivy-mode)
   (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -255,7 +262,7 @@
 
 (use-package projectile
   :general
-  (leader-bindings :keymaps 'override :states '(normal visual)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual)
     "pd" 'projectile-find-dir
     "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
@@ -272,7 +279,7 @@
 
 (use-package ranger
   :general
-  (leader-bindings :keymaps 'override :states '(normal visual)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual)
     "nd" 'deer
     "nr" 'ranger)
   :config
@@ -284,7 +291,7 @@
 
 (use-package treemacs
   :general
-  (leader-bindings :keymaps 'override :states '(normal visual)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual)
     "ta" 'treemacs-add-and-display-current-project
     "tt" 'treemacs)
   :init
