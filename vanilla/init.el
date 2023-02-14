@@ -145,7 +145,9 @@
   (use-package all-the-icons :if (display-graphic-p))
   (use-package company :config (global-company-mode t))
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
+  (use-package yaml-mode)
   (use-package no-littering)
+  (use-package terraform-mode)
   (use-package which-key :config (which-key-mode)))
 
 (use-package exec-path-from-shell

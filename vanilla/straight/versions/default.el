@@ -16,6 +16,7 @@
  ("doom-modeline" . "6803d0cac89c8d5fd784cc45f52a6450758430e3")
  ("el-get" . "17db7640d3ba0c15954a18ff1ea612831436935e")
  ("emacs-dashboard" . "5aaddd389e594b400d20062bf9cf3d7f236657ca")
+ ("emacs-hcl-mode" . "e4d9eef631e8a386341ae8f94f7c2579586e65b5")
  ("emacs-which-key" . "8093644032854b1cdf3245ce4e3c7b6673f741bf")
  ("emacsmirror-mirror" . "a2d65d0360ab541ff189dc7b8ba8a25ea7aeb6c2")
  ("evil" . "e981c2d0a7c40e33d3de46306c13c469f845c290")
@@ -57,7 +58,9 @@
  ("spinner" . "634529bb3173e09b37499f636de70abf29d9fa8a")
  ("straight.el" . "3eca39dfc6797243ec7d1c6a7d45142407f73f88")
  ("swiper" . "b8be4913a661b557e0d3275726e36871556569d3")
+ ("terraform-mode" . "39d2fd5bfc86c6bf1c7bc38e6f0016d714f2d79d")
  ("treemacs" . "9986d6cd3d2822db7ae0e6d8a275db7057f3e828")
  ("use-package" . "77945e002f11440eae72d8730d3de218163d551e")
+ ("yaml-mode" . "3fcb36d6039bef57e2a0f6e24c51f623c0bf5fb7")
  ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6"))
 :gamma
