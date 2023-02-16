@@ -137,6 +137,8 @@
     "jw" 'avy-goto-word-1)
   :init (setq warning-minimum-level :error)
   :config
+  (dolist (pattern '("zprofile\\'" "zprofile.d" "zshrc\\'" "zshrc.d"))
+    (add-to-list 'auto-mode-alist (cons pattern 'sh-mode)))
   (use-package color-theme-sanityinc-tomorrow
     :config
     (load-theme 'sanityinc-tomorrow-bright t)
