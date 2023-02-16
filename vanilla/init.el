@@ -112,7 +112,6 @@
   (general-evil-setup)
   (general-create-definer ov/leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
-    "be" 'eval-buffer
     "fm" 'toggle-frame-maximized
     "fn" 'make-frame
     "fd" 'delete-frame
@@ -234,7 +233,11 @@
 	("C-k" . ivy-previous-line)
 	("C-d" . ivy-reverse-i-search-kill))
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual) "bb" 'ivy-switch-buffer)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual)
+    "bb" 'ivy-switch-buffer
+    "be" 'eval-buffer
+    "bh" (lambda () (interactive) (switch-to-buffer (get-buffer-create "*dashboard*")))
+    "bs" (lambda () (interactive) (switch-to-buffer (get-buffer-create "*scratch*"))))
   :config
   (ivy-mode)
   (global-set-key (kbd "M-x") 'counsel-M-x)
