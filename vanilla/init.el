@@ -120,7 +120,9 @@
     "oi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
     "w/" 'split-window-right
     "w-" 'split-window-below
-    "ww" 'other-window)
+    "wd" 'delete-window
+    "ww" 'other-window
+    "W" 'delete-other-windows)
   (general-create-definer ov/local-leader-bindings :prefix "," :global-prefix "SPC m" :states '(normal visual)))
 
 (use-package emacs
