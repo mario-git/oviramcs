@@ -262,6 +262,12 @@
   :hook ((org-mode . evil-org-mode)
 	 (evil-org-mode . evil-org-set-key-theme)))
 
+(use-package markdown-mode
+  :general
+  (ov/local-leader-bindings :keymaps 'markdown-mode-map
+    "mm" 'markdown-mode
+    "mv" 'markdown-view-mode))
+
 (use-package projectile
   :general
   (ov/leader-bindings :keymaps 'override :states '(normal visual)

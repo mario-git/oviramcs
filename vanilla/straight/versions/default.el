@@ -36,6 +36,7 @@
  ("ivy-rich" . "600b8183ed0be8668dcc548cc2c8cb94b001363b")
  ("jump.el" . "55caa66a7cc6e0b1a76143fd40eff38416928941")
  ("map" . "a0e501aede34f183a8baa5d3d41610a3ffa1728e")
+ ("markdown-mode" . "c765b73b370f0fcaaa3cee28b2be69652e2d2c39")
  ("melpa" . "cd55f4fb3501225f722103953ac1ac9adc42d52b")
  ("multiple-cursors.el" . "16223efc2d6dece2d43bbccc189d7a4bab6de571")
  ("no-littering" . "2b67185f2b3977434045ff2377f1d94954171641")
