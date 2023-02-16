@@ -113,9 +113,9 @@
   (general-create-definer ov/leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
     "be" 'eval-buffer
+    "fm" 'toggle-frame-maximized
     "fn" 'make-frame
     "fd" 'delete-frame
-    "fo" 'other-frame
     "ff" 'other-frame
     "oi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
     "w/" 'split-window-right
