@@ -110,32 +110,33 @@
   :demand t
   :config
   (general-evil-setup)
-  (general-create-definer ov/leader-bindings :prefix "SPC" :global-prefix "C-SPC" :states '(normal visual emacs)
+  (general-create-definer ov/leader-bindings :prefix "SPC" :states '(normal visual)
     "SPC" 'counsel-M-x
     "fm" 'toggle-frame-maximized
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame
-    "oi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
+    "h" (general-simulate-key "C-h")
     "w/" 'split-window-right
     "w-" 'split-window-below
     "wd" 'delete-window
     "ww" 'other-window
     "W" 'delete-other-windows)
-  (general-create-definer ov/local-leader-bindings :prefix "," :global-prefix "SPC m" :states '(normal visual)))
+  (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual)
+    "D" 'delete-blank-lines
+    "ja" 'avy-goto-word-0
+    "jc" 'avy-goto-char
+    "js" 'avy-goto-char-2
+    "jj" 'avy-goto-char-timer
+    "jl" 'avy-goto-line
+    "jw" 'avy-goto-word-1))
 
 (use-package emacs
   :general
   (ov/local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
     "c" 'ov/comment-or-uncomment-line-or-region
     "ee" 'eval-last-sexp
-    "ef" 'eval-defun
-    "ja" 'avy-goto-word-0
-    "jc" 'avy-goto-char
-    "js" 'avy-goto-char-2
-    "jj" 'avy-goto-char-timer
-    "jl" 'avy-goto-line
-    "jw" 'avy-goto-word-1)
+    "ef" 'eval-defun)
   :init (setq warning-minimum-level :error)
   :config
   (dolist (pattern '("zprofile\\'" "zprofile.d" "zshrc\\'" "zshrc.d"))
@@ -151,7 +152,7 @@
   (use-package yaml-mode)
   (use-package no-littering)
   (use-package terraform-mode)
-  (use-package which-key :config (which-key-mode)))
+  (use-package which-key :config (which-key-mode) (setq which-key-idle-delay 0.4)))
 
 (use-package exec-path-from-shell
   :config
@@ -171,7 +172,7 @@
     "es" 'cider-eval-sexp-at-point
     "ev" 'cider-eval-sexp-at-point ;; kept as orig
     "ea" 'cider-load-all-project-ns
-    "ena" 'cider-load-all-project-ns ;; kept also as Spacemacs
+    "ena" 'cider-load-all-project-ns ;; kept as Spacemacs
     "rr" 'cider-jack-in
     "rn" 'cider-repl-set-ns
     "rq" 'cider-quit
@@ -236,8 +237,11 @@
   (ov/leader-bindings :keymaps 'override :states '(normal visual)
     "bb" 'ivy-switch-buffer
     "be" 'eval-buffer
+    "bi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
+    "oi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
     "bh" (lambda () (interactive) (switch-to-buffer (get-buffer-create "*dashboard*")))
-    "bs" (lambda () (interactive) (switch-to-buffer (get-buffer-create "*scratch*"))))
+    "bs" (lambda () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
+    "bS" (lambda () (interactive) (switch-to-buffer (get-buffer-create "*scratch*"))))
   :config
   (ivy-mode)
   (global-set-key (kbd "M-x") 'counsel-M-x)
