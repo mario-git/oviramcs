@@ -30,6 +30,7 @@
   (tool-bar-mode -1))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (set-face-attribute 'default nil :height (if ov/is-mac-os-p 140 100))
+(blink-cursor-mode 0)
 
 (setq-default show-trailing-whitespace t)
 (dolist (hook '(minibuffer-setup-hook))
