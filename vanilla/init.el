@@ -123,6 +123,7 @@
     "ww" 'other-window
     "W" 'delete-other-windows)
   (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual)
+    "c" 'ov/comment-or-uncomment-line-or-region
     "D" 'delete-blank-lines
     "ja" 'avy-goto-word-0
     "jc" 'avy-goto-char
@@ -134,7 +135,6 @@
 (use-package emacs
   :general
   (ov/local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
-    "c" 'ov/comment-or-uncomment-line-or-region
     "ee" 'eval-last-sexp
     "ef" 'eval-defun)
   :init (setq warning-minimum-level :error)
@@ -169,6 +169,7 @@
     "ev" 'cider-eval-sexp-at-point ;; kept as orig
     "ea" 'cider-load-all-project-ns
     "ena" 'cider-load-all-project-ns ;; kept as Spacemacs
+    "rc" 'cider-connect-clj
     "rr" 'cider-jack-in
     "rn" 'cider-repl-set-ns
     "rq" 'cider-quit
