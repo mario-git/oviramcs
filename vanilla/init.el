@@ -146,10 +146,10 @@
   (use-package all-the-icons :if (display-graphic-p))
   (use-package company :config (global-company-mode t))
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
-  (use-package yaml-mode)
   (use-package no-littering)
   (use-package terraform-mode)
-  (use-package which-key :config (which-key-mode) (setq which-key-idle-delay 0.4)))
+  (use-package which-key :config (which-key-mode) (setq which-key-idle-delay 0.4))
+  (use-package yaml-mode))
 
 (use-package exec-path-from-shell
   :config
@@ -251,6 +251,10 @@
     (ivy-rich-mode 1)
     (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
   (use-package swiper))
+
+(use-package lsp-mode
+  :config
+  (add-hook 'clojure-mode-hook #'lsp-mode))
 
 (use-package org
   :config
