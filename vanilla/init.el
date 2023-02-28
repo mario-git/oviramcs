@@ -126,6 +126,7 @@
   (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual)
     "c" 'ov/comment-or-uncomment-line-or-region
     "D" 'delete-blank-lines
+    "g" 'evil-goto-definition
     "ja" 'avy-goto-word-0
     "jc" 'avy-goto-char
     "js" 'avy-goto-char-2
@@ -170,6 +171,7 @@
     "ev" 'cider-eval-sexp-at-point ;; kept as orig
     "ea" 'cider-load-all-project-ns
     "ena" 'cider-load-all-project-ns ;; kept as Spacemacs
+    "k" 'cider-kill-last-result
     "rc" 'cider-connect-clj
     "rr" 'cider-jack-in
     "rn" 'cider-repl-set-ns
@@ -204,8 +206,8 @@
   (evil-define-key 'normal evil-cleverparens-mode-map
     (kbd "[") nil
     (kbd "]") nil
-    (kbd "[[") 'evil-cp-previous-opening
-    (kbd "]]") 'evil-cp-next-closing))
+    (kbd "s-[") 'evil-cp-previous-opening
+    (kbd "s-]") 'evil-cp-next-closing))
 
 (use-package evil-collection
   :after evil
