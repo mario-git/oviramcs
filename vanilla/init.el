@@ -111,7 +111,7 @@
   :demand t
   :config
   (general-evil-setup)
-  (general-create-definer ov/leader-bindings :prefix "SPC" :states '(normal visual)
+  (general-create-definer ov/leader-bindings :prefix "SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
     "fm" 'toggle-frame-maximized
     "fn" 'make-frame
@@ -123,7 +123,7 @@
     "wd" 'delete-window
     "ww" 'other-window
     "W" 'delete-other-windows)
-  (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual)
+  (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual emacs)
     "c" 'ov/comment-or-uncomment-line-or-region
     "D" 'delete-blank-lines
     "g" 'evil-goto-definition
@@ -234,7 +234,7 @@
 	("C-k" . ivy-previous-line)
 	("C-d" . ivy-reverse-i-search-kill))
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "bb" 'ivy-switch-buffer
     "be" 'eval-buffer
     "bi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
@@ -285,7 +285,7 @@
 
 (use-package projectile
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "pd" 'projectile-find-dir
     "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
@@ -302,7 +302,7 @@
 
 (use-package ranger
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "nd" 'deer
     "nr" 'ranger)
   :config
@@ -314,7 +314,7 @@
 
 (use-package treemacs
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "ta" 'treemacs-add-and-display-current-project
     "tt" 'treemacs)
   :init
