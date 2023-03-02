@@ -314,11 +314,9 @@
 
 (use-package treemacs
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
+  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs treemacs)
     "ta" 'treemacs-add-and-display-current-project
     "tt" 'treemacs)
-  :init
-  (global-set-key (kbd "C-c t") 'treemacs-select-window)
   :defer t
   :config
   (setq treemacs-project-follow-cleanup t
