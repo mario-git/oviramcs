@@ -42,7 +42,8 @@
 (setq help-window-select t)
 
 ;; autosave & buffer sync with file system
-(setq auto-save-default nil)
+(setq auto-save-default nil
+      auto-save-timeout 1)
 (auto-save-visited-mode 1)
 (global-auto-revert-mode t)
 ;; dired and other buffers
@@ -262,8 +263,8 @@
     ;; why on earth these need a space in between...
     "g r" 'lsp-find-references
     "l r" 'lsp-rename)
-  :hook ((clojure-mode . lsp-mode))
-  :init (setq lsp-modeline-diagnostics-enable nil))
+  :hook ((clojure-mode . lsp-mode)
+	 (emacs-lisp-mode . lsp-mode)))
 
 (use-package org
   :config
