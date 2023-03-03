@@ -126,7 +126,7 @@
   (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual emacs)
     "c" 'ov/comment-or-uncomment-line-or-region
     "D" 'delete-blank-lines
-    "g" 'evil-goto-definition
+    "gg" 'evil-goto-definition
     "ja" 'avy-goto-word-0
     "jc" 'avy-goto-char
     "js" 'avy-goto-char-2
@@ -255,8 +255,15 @@
   (use-package swiper))
 
 (use-package lsp-mode
-  :config
-  (add-hook 'clojure-mode-hook #'lsp-mode))
+  :commands
+  (lsp lsp-deferred)
+  :general
+  (ov/local-leader-bindings :keymaps 'lsp-mode-map :states '(normal)
+    ;; why on earth these need a space in between...
+    "g r" 'lsp-find-references
+    "l r" 'lsp-rename)
+  :hook ((clojure-mode . lsp-mode))
+  :init (setq lsp-modeline-diagnostics-enable nil))
 
 (use-package org
   :config
