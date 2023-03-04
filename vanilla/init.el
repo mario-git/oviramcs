@@ -284,8 +284,7 @@
     ;; why on earth these need a space in between...
     "g r" 'lsp-find-references
     "l r" 'lsp-rename)
-  :hook ((clojure-mode . lsp-mode)
-	 (emacs-lisp-mode . lsp-mode)))
+  :hook ((clojure-mode . lsp-mode)))
 
 (use-package org
   :config
