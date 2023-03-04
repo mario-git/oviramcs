@@ -241,6 +241,7 @@
   (setq cider-repl-pop-to-buffer-on-connect nil)
   (setq cider-repl-display-help-banner nil)
   (setq cider-show-error-buffer t)
+  ;; TODO: check if I still need this
   (use-package clj-refactor))
 
 ;; M-x & completion juice
