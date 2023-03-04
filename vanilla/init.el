@@ -215,6 +215,27 @@
   :custom (evil-collection-setup-minibuffer t)
   :config (evil-collection-init))
 
+(use-package evil-mc
+  :after evil
+  :demand
+  :general
+  (general-nmap
+    "gm" '(:keymap evil-mc-cursors-map)
+    "M-n" #'evil-mc-make-and-goto-next-match)
+  (general-vmap
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
+  :config (global-evil-mc-mode 1))
+
+;; backup in case I don't get on with the above
+;; (use-package multiple-cursors
+;;   :config
+;;   (setq mc/always-run-for-all t)
+;;   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;;   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;;   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;;   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+
 (use-package cider
   :config
   (setq cider-repl-pop-to-buffer-on-connect nil)

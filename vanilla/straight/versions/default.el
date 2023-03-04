@@ -24,6 +24,7 @@
  ("evil-cleverparens" . "9c662e10d27a55c9e853c1e83e16c6764f617ae8")
  ("evil-collection" . "85743099972bfcc4d7788db70dfe33e864eba090")
  ("evil-escape" . "3c335a5709b1abb08687960038746b36add465f9")
+ ("evil-mc" . "63fd2fe0c213a4cc31c464d246f92931c4cb720f")
  ("evil-org-mode" . "b1f309726b1326e1a103742524ec331789f2bf94")
  ("evil-surround" . "f273821f575ace519066fb106ee45a5b8577475f")
  ("exec-path-from-shell" . "ddd24dc823de9a94435b4d8ea7569161657f31e2")
