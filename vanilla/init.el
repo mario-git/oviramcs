@@ -221,7 +221,8 @@
   :general
   (general-nmap
     "gm" '(:keymap evil-mc-cursors-map)
-    "M-n" #'evil-mc-make-and-goto-next-match)
+    "M-n" #'evil-mc-make-and-goto-next-match
+    "Q" #'evil-mc-undo-all-cursors)
   (general-vmap
     "A" #'evil-mc-make-cursor-in-visual-selection-end
     "I" #'evil-mc-make-cursor-in-visual-selection-beg)
