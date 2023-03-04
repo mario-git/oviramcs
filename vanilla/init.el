@@ -202,8 +202,8 @@
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
-  (define-key evil-insert-state-map (kbd "C-<") 'evil-cp-<)
-  (define-key evil-insert-state-map (kbd "C->") 'evil-cp->)
+  (define-key evil-insert-state-map (kbd "C-c <") 'evil-cp-<)
+  (define-key evil-insert-state-map (kbd "C-c >") 'evil-cp->)
   (evil-define-key 'normal evil-cleverparens-mode-map
     (kbd "[") nil
     (kbd "]") nil
