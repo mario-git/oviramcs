@@ -118,7 +118,8 @@
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame
-    "h" (general-simulate-key "C-h")
+    ;; Not used, kept as ref if I need to do something similar
+    ;; "h" (general-simulate-key "C-h")
     "w/" 'split-window-right
     "w-" 'split-window-below
     "wd" 'delete-window
