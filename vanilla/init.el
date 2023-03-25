@@ -118,8 +118,6 @@
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame
-    ;; Not used, kept as ref if I need to do something similar
-    ;; "h" (general-simulate-key "C-h")
     "w/" 'split-window-right
     "w-" 'split-window-below
     "wd" 'delete-window
@@ -323,7 +321,8 @@
     "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
     "pr" 'projectile-replace
-    "/" 'counsel-projectile-rg)
+    "/" 'counsel-projectile-rg
+    "sl" (general-simulate-key "SPC / M-p"))
   :config
   (projectile-global-mode)
   (setq projectile-project-search-path '("~/code"))
