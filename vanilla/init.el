@@ -153,7 +153,8 @@
   (use-package no-littering)
   (use-package terraform-mode)
   (use-package which-key :config (which-key-mode) (setq which-key-idle-delay 0.4))
-  (use-package yaml-mode))
+  (use-package yaml-mode)
+  (defadvice split-window (after split-window-after activate) (other-window 1)))
 
 (use-package exec-path-from-shell
   :config
