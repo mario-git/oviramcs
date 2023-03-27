@@ -11,7 +11,8 @@
 
 (when ov/is-mac-os-p
   ;; fix for € on mac keyboard, to make it work like a Brit PC one. 8364 -> €
-  (global-set-key (kbd "s-4") (lambda () (interactive) (insert-char 8364)))
+  (defun ov/euro () (interactive) (insert-char 8364))
+  (global-set-key (kbd "s-4") 'ov/euro)
   ;; Windows/Linux like positioning, starting with option and command already flipped via Karabiner.
   ;; This is not necessary with Emacs for Mac OS X (which I was using), it seems necessary for emacs-plus
   (setq mac-option-modifier 'meta)
@@ -153,7 +154,6 @@
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
   (use-package no-littering)
   (use-package terraform-mode)
-  (use-package which-key :config (which-key-mode) (setq which-key-idle-delay 0.4))
   (use-package yaml-mode)
   (defadvice split-window (after split-window-after activate) (other-window 1)))
 
@@ -249,6 +249,11 @@
   ;; TODO: check if I still need this
   (use-package clj-refactor))
 
+(defun ov/open-init-el () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
+(defun ov/open-dashboard () (interactive) (switch-to-buffer (get-buffer-create "*dashboard*")))
+(defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
+(defun ov/open-scratch () (interactive) (switch-to-buffer (get-buffer-create "*scratch*")))
+
 ;; M-x & completion juice
 (use-package ivy
   :bind
@@ -265,11 +270,11 @@
   (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "bb" 'ivy-switch-buffer
     "be" 'eval-buffer
-    "bi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
-    "oi" (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
-    "bh" (lambda () (interactive) (switch-to-buffer (get-buffer-create "*dashboard*")))
-    "bs" (lambda () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
-    "bS" (lambda () (interactive) (switch-to-buffer (get-buffer-create "*scratch*"))))
+    "bi" 'ov/open-init-el
+    "oi" 'ov/open-init-el
+    "bh" 'ov/open-dashboard
+    "bs" 'ov/open-stuff-file
+    "bS" 'ov/open-scratch)
   :config
   (ivy-mode)
   (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -323,13 +328,14 @@
   :general
   (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "pd" 'projectile-find-dir
-    "pl" 'projectile-discover-projects-in-search-path :which-key "load projects in search path"
+    "pl" '(projectile-discover-projects-in-search-path :which-key "load/refresh project list")
     "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
     "pr" 'projectile-replace
+    "pR" 'projectile-recentf
     "/" 'counsel-projectile-rg
-    "sl" (general-simulate-key "SPC / M-p")
-    "*" (general-simulate-key "SPC / M-n"))
+    "sl" (general-simulate-key "SPC / M-p" :name last-search)
+    "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
   (projectile-global-mode)
   (setq projectile-project-search-path '("~/code"))
@@ -365,3 +371,11 @@
   (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
+
+(use-package which-key
+  :demand
+  :general
+  (ov/leader-bindings "?" 'which-key-show-top-level)
+  :config
+  (which-key-mode)
+  (setq which-key-idle-delay 0.4))
