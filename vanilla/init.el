@@ -144,6 +144,7 @@
     "ef" 'eval-defun)
   :init (setq warning-minimum-level :error)
   :config
+  (global-set-key (kbd "C-x _") 'shrink-window)
   (dolist (pattern '("zprofile\\'" "zprofile.d" "zshrc\\'" "zshrc.d"))
     (add-to-list 'auto-mode-alist (cons pattern 'sh-mode)))
   (load-theme 'modus-vivendi t)
