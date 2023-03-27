@@ -43,7 +43,10 @@
 
 ;; autosave & buffer sync with file system
 (setq auto-save-default nil
-      auto-save-timeout 1)
+      auto-save-include-big-deletions t
+      auto-save-interval 0
+      auto-save-timeout 1
+      auto-save-visited-interval 1)
 (auto-save-visited-mode 1)
 (global-auto-revert-mode t)
 ;; dired and other buffers
