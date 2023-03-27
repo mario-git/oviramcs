@@ -328,7 +328,8 @@
     "pp" 'projectile-switch-project
     "pr" 'projectile-replace
     "/" 'counsel-projectile-rg
-    "sl" (general-simulate-key "SPC / M-p"))
+    "sl" (general-simulate-key "SPC / M-p")
+    "*" (general-simulate-key "SPC / M-n"))
   :config
   (projectile-global-mode)
   (setq projectile-project-search-path '("~/code"))
