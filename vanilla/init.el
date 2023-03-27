@@ -322,6 +322,7 @@
   :general
   (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "pd" 'projectile-find-dir
+    "pl" 'projectile-discover-projects-in-search-path :which-key "load projects in search path"
     "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
     "pr" 'projectile-replace
