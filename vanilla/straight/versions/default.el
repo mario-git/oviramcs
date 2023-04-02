@@ -1,4 +1,5 @@
-(("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
+(("Emacs-wgrep" . "edf768732a56840db6879706b64c5773c316d619")
+ ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
  ("all-the-icons.el" . "51bf77da1ebc3c199dfc11f54c0dce67559f5f40")
  ("amx" . "37f9c7ae55eb0331b27200fb745206fc58ceffc0")
  ("annalist.el" . "134fa3f0fb91a636a1c005c483516d4b64905a6d")

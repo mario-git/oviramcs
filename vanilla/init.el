@@ -155,6 +155,7 @@
   (use-package no-littering)
   (use-package terraform-mode)
   (use-package yaml-mode)
+  (use-package wgrep)
   (defadvice split-window (after split-window-after activate) (other-window 1)))
 
 (use-package exec-path-from-shell
