@@ -259,7 +259,9 @@
   :bind
   (:map ivy-minibuffer-map
 	("C-j" . ivy-next-line)
+	("C-S-j" . ivy-next-line-and-call)
 	("C-k" . ivy-previous-line)
+	("C-S-k" . ivy-previous-line-and-call)
    :map ivy-switch-buffer-map
 	("C-k" . ivy-previous-line)
 	("C-d" . ivy-switch-buffer-kill)
