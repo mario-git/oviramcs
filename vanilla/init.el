@@ -254,6 +254,31 @@
 (defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
 (defun ov/open-scratch () (interactive) (switch-to-buffer (get-buffer-create "*scratch*")))
 
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t)
+  (setq git-gutter:update-interval 0.02
+	git-gutter:modified-sign " "
+	git-gutter:added-sign " "
+	git-gutter:deleted-sign " "))
+
+(use-package git-timemachine
+  :hook (git-time-machine-mode . evil-normalize-keymaps)
+  :init (setq git-timemachine-show-minibuffer-details t)
+  :general
+  (general-nmap "SPC g t" 'git-timemachine-toggle)
+  (git-timemachine-mode-map
+   "C-k" 'git-timemachine-show-previous-revision
+   "C-j" 'git-timemachine-show-next-revision
+   "q" 'git-timemachine-quit))
+
+(use-package magit
+  :general
+  (ov/leader-bindings
+    "g b" 'magit-blame
+    "g G" 'magit-status
+    "g l" 'magit-log))
+
 ;; M-x & completion juice
 (use-package ivy
   :bind
