@@ -118,18 +118,21 @@
   (general-evil-setup)
   (general-create-definer ov/leader-bindings :prefix "SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
-    "fm" 'toggle-frame-maximized
-    "fn" 'make-frame
-    "fd" 'delete-frame
-    "ff" 'other-frame
-    "w/" 'split-window-right
-    "w-" 'split-window-below
-    "wd" 'delete-window
-    "ww" 'other-window
-    "W" 'delete-other-windows)
+    "fm" 'toggle-frame-maximized ;; Mf - M maximise
+    "fn" 'make-frame ;; mf - m make; or F
+    "fd" 'delete-frame ;; df - d as delete
+    "ff" 'other-frame ;; [f and ]f
+    "w/" 'split-window-right ;; / (instead of search); or with comma bindings, as ,/
+    "w-" 'split-window-below ;; see line above
+    "wd" 'delete-window ;; dw
+    "ww" 'other-window ;; [w and ]w
+    "W" 'delete-other-windows
+    ;; more binding for redisizing windows both ways
+    )
   (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual emacs)
+    ;; for all of the following, switch to SPC leader
     "c" 'ov/comment-or-uncomment-line-or-region
-    "D" 'delete-blank-lines
+    "D" 'delete-blank-lines ;; db
     "gg" 'evil-goto-definition
     "ja" 'avy-goto-word-0
     "jc" 'avy-goto-char
@@ -171,9 +174,9 @@
     "ee" 'cider-eval-last-sexp
     "ef" 'cider-eval-defun-at-point
     "el" 'cider-eval-list-at-point
-    "ep" 'cider-eval-defun-up-to-point
+    "ep" 'cider-eval-defun-up-to-point ;; eu - eval up to
     "er" 'cider-eval-region
-    "es" 'cider-eval-sexp-at-point
+    "es" 'cider-eval-sexp-at-point ;; ep - eval point
     "ev" 'cider-eval-sexp-at-point ;; kept as orig
     "ea" 'cider-load-all-project-ns
     "ena" 'cider-load-all-project-ns ;; kept as Spacemacs
@@ -184,7 +187,8 @@
     "rq" 'cider-quit
     "ta" 'cider-test-run-project-tests
     "tt" 'cider-test-run
-    "tr" 'cider-test-rerun-failed-tests))
+    "tr" 'cider-test-rerun-failed-tests ;; tf - f as failed
+    ))
 
 (use-package evil
   :init
@@ -203,6 +207,9 @@
 (use-package evil-cleverparens
   :config
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  ;; add somewhere bindigs for paredit slurp/barf
+  ;; maybe ,b ,B ,s ,S or ,[ ,] ,{ ,}
+  ;; or any of the above with space
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
@@ -297,12 +304,12 @@
   :general
   (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
     "bb" 'ivy-switch-buffer
-    "be" 'eval-buffer
-    "bi" 'ov/open-init-el
-    "oi" 'ov/open-init-el
-    "bh" 'ov/open-dashboard
-    "bs" 'ov/open-stuff-file
-    "bS" 'ov/open-scratch)
+    "be" 'eval-buffer ;; eb, and switch to comma bindings
+    "oi" 'ov/open-init-el ;; o as open, good one to be reused
+    "bh" 'ov/open-dashboard ;; oh or od or ditch this
+    "bs" 'ov/open-stuff-file ;; os
+    "bS" 'ov/open-scratch ;; oS, or ditch it
+    )
   :config
   (ivy-mode)
   (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -321,6 +328,7 @@
   :general
   (ov/local-leader-bindings :keymaps 'lsp-mode-map :states '(normal)
     ;; why on earth these need a space in between...
+    ;; ... SPC bindings?
     "g r" 'lsp-find-references
     "g e" 'lsp-treemacs-errors-list
     "R" 'lsp-rename)
@@ -355,14 +363,14 @@
 (use-package projectile
   :general
   (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
-    "pd" 'projectile-find-dir
-    "pl" '(projectile-discover-projects-in-search-path :which-key "load/refresh project list")
-    "pf" 'projectile-find-file
+    "pl" '(projectile-discover-projects-in-search-path :which-key "load/refresh project list") ;; lp or P
+    "pf" 'projectile-find-file ;; f or ff or fp
     "pp" 'projectile-switch-project
-    "pr" 'projectile-replace
-    "pR" 'projectile-recentf
-    "/" 'counsel-projectile-rg
-    "sl" (general-simulate-key "SPC / M-p" :name last-search)
+    "pr" 'projectile-replace ;; rp
+    "pR" 'projectile-recentf ;; lr - as list recent?
+    "/" 'counsel-projectile-rg ;; S or sn or sb (search blank)
+    "sl" (general-simulate-key "SPC / M-p" :name last-search) ;; ss?
+    ;; standard * without leader in Spacemacs matches symbol with ahs, replicate it
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
   (projectile-global-mode)
@@ -373,6 +381,7 @@
   :hook ((emacs-lisp-mode . rainbow-delimiters-mode)
 	 (clojure-mode . rainbow-delimiters-mode)))
 
+;; barely used, ditch this alltogether and learn better dired?
 (use-package ranger
   :general
   (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
@@ -388,7 +397,7 @@
 (use-package treemacs
   :general
   (ov/leader-bindings :keymaps 'override :states '(normal visual emacs treemacs)
-    "ta" 'treemacs-add-and-display-current-project
+    "ta" 'treemacs-add-and-display-current-project ;; at or ap, a as add
     "tt" 'treemacs)
   :defer t
   :config
