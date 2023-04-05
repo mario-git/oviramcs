@@ -322,8 +322,8 @@
   (ov/local-leader-bindings :keymaps 'lsp-mode-map :states '(normal)
     ;; why on earth these need a space in between...
     "g r" 'lsp-find-references
-    "l e" 'lsp-treemacs-errors-list
-    "l r" 'lsp-rename)
+    "g e" 'lsp-treemacs-errors-list
+    "R" 'lsp-rename)
   :hook ((clojure-mode . lsp-mode))
   :config (use-package lsp-treemacs))
 
