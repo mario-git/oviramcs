@@ -116,7 +116,7 @@
   :demand t
   :config
   (general-evil-setup)
-  (general-create-definer ov/leader-bindings :prefix "SPC" :states '(normal visual emacs)
+  (general-create-definer ov/space-bindings :prefix "SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
     "fm" 'toggle-frame-maximized ;; Mf - M maximise
     "fn" 'make-frame ;; mf - m make; or F
@@ -129,7 +129,7 @@
     "W" 'delete-other-windows
     ;; more binding for redisizing windows both ways
     )
-  (general-create-definer ov/local-leader-bindings :prefix "," :states '(normal visual emacs)
+  (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs)
     ;; for all of the following, switch to SPC leader
     "c" 'ov/comment-or-uncomment-line-or-region
     "D" 'delete-blank-lines ;; db
@@ -143,7 +143,8 @@
 
 (use-package emacs
   :general
-  (ov/local-leader-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
+  (ov/comma-bindings :keymaps 'emacs-lisp-mode-map :states '(normal visual)
+    "eb" 'eval-buffer
     "ee" 'eval-last-sexp
     "ef" 'eval-defun)
   :init (setq warning-minimum-level :error)
@@ -169,8 +170,8 @@
 
 (use-package clojure-mode
   :general
-  (ov/local-leader-bindings :keymaps 'clojure-mode-map
-    "eb" 'cider-eval-file ;; b as buffer
+  (ov/comma-bindings :keymaps 'clojure-mode-map
+    "eb" 'cider-eval-file
     "ee" 'cider-eval-last-sexp
     "ef" 'cider-eval-defun-at-point
     "el" 'cider-eval-list-at-point
@@ -186,9 +187,7 @@
     "rn" 'cider-repl-set-ns
     "rq" 'cider-quit
     "ta" 'cider-test-run-project-tests
-    "tt" 'cider-test-run
-    "tr" 'cider-test-rerun-failed-tests ;; tf - f as failed
-    ))
+    "tt" 'cider-test-run))
 
 (use-package evil
   :init
@@ -282,7 +281,7 @@
 
 (use-package magit
   :general
-  (ov/leader-bindings
+  (ov/space-bindings
     "g b" 'magit-blame
     "g G" 'magit-status
     "g l" 'magit-log))
@@ -302,14 +301,11 @@
 	("C-k" . ivy-previous-line)
 	("C-d" . ivy-reverse-i-search-kill))
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
-    "bb" 'ivy-switch-buffer
-    "be" 'eval-buffer ;; eb, and switch to comma bindings
-    "oi" 'ov/open-init-el ;; o as open, good one to be reused
-    "bh" 'ov/open-dashboard ;; oh or od or ditch this
-    "bs" 'ov/open-stuff-file ;; os
-    "bS" 'ov/open-scratch ;; oS, or ditch it
-    )
+  (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
+    "o" '(:ignore t :which-key "open")
+    "ob" 'ivy-switch-buffer
+    "oi" 'ov/open-init-el
+    "os" 'ov/open-stuff-file)
   :config
   (ivy-mode)
   (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -326,7 +322,7 @@
   :commands
   (lsp lsp-deferred)
   :general
-  (ov/local-leader-bindings :keymaps 'lsp-mode-map :states '(normal)
+  (ov/comma-bindings :keymaps 'lsp-mode-map :states '(normal)
     ;; why on earth these need a space in between...
     ;; ... SPC bindings?
     "g r" 'lsp-find-references
@@ -356,13 +352,13 @@
 
 (use-package markdown-mode
   :general
-  (ov/local-leader-bindings :keymaps 'markdown-mode-map
+  (ov/comma-bindings :keymaps 'markdown-mode-map
     "mm" 'markdown-mode
     "mv" 'markdown-view-mode))
 
 (use-package projectile
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
+  (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
     "pl" '(projectile-discover-projects-in-search-path :which-key "load/refresh project list") ;; lp or P
     "pf" 'projectile-find-file ;; f or ff or fp
     "pp" 'projectile-switch-project
@@ -384,7 +380,7 @@
 ;; barely used, ditch this alltogether and learn better dired?
 (use-package ranger
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs)
+  (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
     "nd" 'deer
     "nr" 'ranger)
   :config
@@ -396,7 +392,7 @@
 
 (use-package treemacs
   :general
-  (ov/leader-bindings :keymaps 'override :states '(normal visual emacs treemacs)
+  (ov/space-bindings :keymaps 'override :states '(normal visual emacs treemacs)
     "ta" 'treemacs-add-and-display-current-project ;; at or ap, a as add
     "tt" 'treemacs)
   :defer t
@@ -412,7 +408,7 @@
 (use-package which-key
   :demand
   :general
-  (ov/leader-bindings "?" 'which-key-show-top-level)
+  (ov/space-bindings "?" 'which-key-show-top-level)
   :config
   (which-key-mode)
   (setq which-key-idle-delay 0.4))
