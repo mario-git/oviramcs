@@ -61,12 +61,6 @@
 ;; y/s rather than yes/no
 (setq use-short-answers t)
 
-;; swapped isearch/isearch-regex bindings
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
-
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; ibuffer is better than list-buffers (here overwritten)
@@ -139,7 +133,11 @@
     "js" 'avy-goto-char-2
     "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line
-    "jw" 'avy-goto-word-1))
+    "jw" 'avy-goto-word-1)
+  (general-nmap
+    "*" #'isearch-forward-thing-at-point
+    "s-[" #'evil-cp-previous-opening
+    "s-]" #'evil-cp-next-closing))
 
 (use-package emacs
   :general
@@ -214,12 +212,7 @@
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (define-key evil-insert-state-map (kbd "C-c <") 'evil-cp-<)
-  (define-key evil-insert-state-map (kbd "C-c >") 'evil-cp->)
-  (evil-define-key 'normal evil-cleverparens-mode-map
-    (kbd "[") nil
-    (kbd "]") nil
-    (kbd "s-[") 'evil-cp-previous-opening
-    (kbd "s-]") 'evil-cp-next-closing))
+  (define-key evil-insert-state-map (kbd "C-c >") 'evil-cp->))
 
 (use-package evil-collection
   :after evil
@@ -366,7 +359,6 @@
     "pR" 'projectile-recentf ;; lr - as list recent?
     "/" 'counsel-projectile-rg ;; S or sn or sb (search blank)
     "sl" (general-simulate-key "SPC / M-p" :name last-search) ;; ss?
-    ;; standard * without leader in Spacemacs matches symbol with ahs, replicate it
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
   (projectile-global-mode)
