@@ -2,7 +2,8 @@
 
 This repo is to save my Emacs configurations. I use [Chemacs2](https://github.com/plexus/chemacs2), to be able to play with different configurations, currently:
 
-- Vanilla (default), a custom one started from scratch.
+- Vanilla (default), a custom one started from scratch;
+- Meow, experimental;
 - Spacemacs.
 
 ## Dependencies
