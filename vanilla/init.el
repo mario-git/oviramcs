@@ -112,30 +112,28 @@
   (general-evil-setup)
   (general-create-definer ov/space-bindings :prefix "SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
-    "fm" 'toggle-frame-maximized ;; Mf - M maximise
-    "fn" 'make-frame ;; mf - m make; or F
-    "fd" 'delete-frame ;; df - d as delete
-    "ff" 'other-frame ;; [f and ]f
-    "w/" 'split-window-right ;; / (instead of search); or with comma bindings, as ,/
-    "w-" 'split-window-below ;; see line above
-    "wd" 'delete-window ;; dw
-    "ww" 'other-window ;; [w and ]w
-    "W" 'delete-other-windows
-    ;; more binding for redisizing windows both ways
-    )
-  (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs)
-    ;; for all of the following, switch to SPC leader
     "c" 'ov/comment-or-uncomment-line-or-region
-    "D" 'delete-blank-lines ;; db
+    "D" 'delete-blank-lines ;; db? cl?
+    "fm" 'toggle-frame-maximized
+    "fn" 'make-frame
+    "fd" 'delete-frame
+    "ff" 'other-frame ;; [f and ]f
     "gg" 'evil-goto-definition
     "ja" 'avy-goto-word-0
     "jc" 'avy-goto-char
     "js" 'avy-goto-char-2
     "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line
-    "jw" 'avy-goto-word-1)
+    "jw" 'avy-goto-word-1
+    ;; add more bindings for redisizing windows both ways
+    "w/" 'split-window-right
+    "w-" 'split-window-below
+    "wd" 'delete-window
+    "ww" 'other-window ;; [w and ]w and hydra
+    "W" 'delete-other-windows)
+  (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs))
   (general-nmap
-    "*" #'isearch-forward-thing-at-point
+    "*" #'isearch-forward-symbol-at-point
     "s-[" #'evil-cp-previous-opening
     "s-]" #'evil-cp-next-closing))
 
@@ -176,7 +174,6 @@
     "ep" 'cider-eval-defun-up-to-point ;; eu - eval up to
     "er" 'cider-eval-region
     "es" 'cider-eval-sexp-at-point ;; ep - eval point
-    "ev" 'cider-eval-sexp-at-point ;; kept as orig
     "ea" 'cider-load-all-project-ns
     "ena" 'cider-load-all-project-ns ;; kept as Spacemacs
     "k" 'cider-kill-last-result
@@ -252,7 +249,6 @@
 (defun ov/open-init-el () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
 (defun ov/open-dashboard () (interactive) (switch-to-buffer (get-buffer-create "*dashboard*")))
 (defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
-(defun ov/open-scratch () (interactive) (switch-to-buffer (get-buffer-create "*scratch*")))
 
 (use-package git-gutter
   :config
@@ -296,6 +292,7 @@
   :general
   (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
     "o" '(:ignore t :which-key "open")
+    "bb" 'ivy-switch-buffer
     "ob" 'ivy-switch-buffer
     "oi" 'ov/open-init-el
     "os" 'ov/open-stuff-file)
@@ -352,13 +349,13 @@
 (use-package projectile
   :general
   (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
-    "pl" '(projectile-discover-projects-in-search-path :which-key "load/refresh project list") ;; lp or P
-    "pf" 'projectile-find-file ;; f or ff or fp
+    "pl" '(projectile-discover-projects-in-search-path :which-key "load/refresh project list")
+    "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
-    "pr" 'projectile-replace ;; rp
-    "pR" 'projectile-recentf ;; lr - as list recent?
-    "/" 'counsel-projectile-rg ;; S or sn or sb (search blank)
-    "sl" (general-simulate-key "SPC / M-p" :name last-search) ;; ss?
+    "pr" 'projectile-replace
+    "pR" 'projectile-recentf
+    "/" 'counsel-projectile-rg
+    "sl" (general-simulate-key "SPC / M-p" :name last-search)
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
   (projectile-global-mode)
@@ -385,7 +382,7 @@
 (use-package treemacs
   :general
   (ov/space-bindings :keymaps 'override :states '(normal visual emacs treemacs)
-    "ta" 'treemacs-add-and-display-current-project ;; at or ap, a as add
+    "ta" 'treemacs-add-and-display-current-project
     "tt" 'treemacs)
   :defer t
   :config
