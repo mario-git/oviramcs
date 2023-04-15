@@ -242,12 +242,9 @@
   :config
   (setq cider-repl-pop-to-buffer-on-connect nil)
   (setq cider-repl-display-help-banner nil)
-  (setq cider-show-error-buffer t)
-  ;; TODO: check if I still need this
-  (use-package clj-refactor))
+  (setq cider-show-error-buffer t))
 
 (defun ov/open-init-el () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
-(defun ov/open-dashboard () (interactive) (switch-to-buffer (get-buffer-create "*dashboard*")))
 (defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
 
 (use-package git-gutter
