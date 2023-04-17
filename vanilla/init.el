@@ -112,13 +112,11 @@
   (general-evil-setup)
   (general-create-definer ov/space-bindings :prefix "SPC" :states '(normal visual emacs)
     "SPC" 'counsel-M-x
-    "c" 'ov/comment-or-uncomment-line-or-region
     "D" 'delete-blank-lines ;; db? cl?
     "fm" 'toggle-frame-maximized
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame ;; [f and ]f
-    "gg" 'evil-goto-definition
     "ja" 'avy-goto-word-0
     "jc" 'avy-goto-char
     "js" 'avy-goto-char-2
@@ -131,7 +129,9 @@
     "wd" 'delete-window
     "ww" 'other-window ;; [w and ]w and hydra
     "W" 'delete-other-windows)
-  (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs))
+  (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs)
+    "c" 'ov/comment-or-uncomment-line-or-region
+    "gg" 'evil-goto-definition)
   (general-nmap
     "*" #'isearch-forward-symbol-at-point
     "s-[" #'evil-cp-previous-opening
