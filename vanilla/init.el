@@ -123,6 +123,7 @@
     "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line
     "jw" 'avy-goto-word-1
+    "nn" 'evil-ex-nohighlight
     ;; add more bindings for redisizing windows both ways
     "w/" 'split-window-right
     "w-" 'split-window-below
@@ -133,7 +134,6 @@
     "c" 'ov/comment-or-uncomment-line-or-region
     "gg" 'evil-goto-definition)
   (general-nmap
-    "*" #'isearch-forward-symbol-at-point
     "s-[" #'evil-cp-previous-opening
     "s-]" #'evil-cp-next-closing))
 
@@ -188,11 +188,15 @@
   :init
   (setq evil-want-C-u-scroll t
 	evil-disable-insert-state-bindings t
+	evil-symbol-word-search t
 	;; precondition for evil-collection
 	evil-want-keybinding nil)
   :config
   (use-package evil-escape :config (evil-escape-mode t))
   (evil-mode 1)
+  (setq evil-cross-lines t
+	evil-kill-on-visual-paste nil
+	evil-move-beyond-eol t)
   (evil-select-search-module 'evil-search-module 'evil-search)
   (evil-set-undo-system 'undo-redo)
   (use-package evil-anzu :config (global-anzu-mode))
@@ -311,7 +315,6 @@
   :general
   (ov/comma-bindings :keymaps 'lsp-mode-map :states '(normal)
     ;; why on earth these need a space in between...
-    ;; ... SPC bindings?
     "g r" 'lsp-find-references
     "g e" 'lsp-treemacs-errors-list
     "R" 'lsp-rename)
