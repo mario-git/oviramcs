@@ -117,12 +117,6 @@
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame ;; [f and ]f
-    "ja" 'avy-goto-word-0
-    "jc" 'avy-goto-char
-    "js" 'avy-goto-char-2
-    "jj" 'avy-goto-char-timer
-    "jl" 'avy-goto-line
-    "jw" 'avy-goto-word-1
     "nn" 'evil-ex-nohighlight
     ;; add more bindings for redisizing windows both ways
     "w/" 'split-window-right
@@ -132,7 +126,10 @@
     "W" 'delete-other-windows)
   (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs)
     "c" 'ov/comment-or-uncomment-line-or-region
-    "gg" 'evil-goto-definition)
+    "gg" 'evil-goto-definition
+    "js" 'avy-goto-char-timer ;; s a search
+    "jj" 'avy-goto-word-0
+    "jl" 'avy-goto-line)
   (general-nmap
     "s-[" #'evil-cp-previous-opening
     "s-]" #'evil-cp-next-closing))
