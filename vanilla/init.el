@@ -127,8 +127,8 @@
   (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs)
     "c" 'ov/comment-or-uncomment-line-or-region
     "gg" 'evil-goto-definition
-    "js" 'avy-goto-char-timer ;; s a search
-    "jj" 'avy-goto-word-0
+    "ja" 'avy-goto-word-0 ;; a as all/any
+    "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line)
   (general-nmap
     "s-[" #'evil-cp-previous-opening
