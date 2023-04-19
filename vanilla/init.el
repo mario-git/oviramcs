@@ -111,13 +111,16 @@
   :config
   (general-evil-setup)
   (general-create-definer ov/space-bindings :prefix "SPC" :states '(normal visual emacs)
-    "SPC" 'counsel-M-x
     "D" 'delete-blank-lines ;; db? cl?
     "fm" 'toggle-frame-maximized
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame ;; [f and ]f
     "nn" 'evil-ex-nohighlight
+    "sg" 'find-grep-dired
+    "sf" 'find-name-dired
+    ;; following not used now, kept as example
+    ;; "sc" (lambda (regexp) (interactive (list (read-string "regexp to grep in ~/code: " ))) (find-grep-dired "~/code" regexp))
     ;; add more bindings for redisizing windows both ways
     "w/" 'split-window-right
     "w-" 'split-window-below
@@ -200,6 +203,7 @@
   (use-package evil-surround :config (global-evil-surround-mode 1)))
 
 (use-package evil-cleverparens
+  ;; TODO: stop adding spaces when i/I/a/A
   :config
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   ;; add somewhere bindigs for paredit slurp/barf
@@ -387,7 +391,7 @@
 	treemacs-text-scale 0.2)
   (treemacs-resize-icons 16)
   ;; name function in case we need to add the same hook somewhere else
-  (add-hook 'treemacs-mode-hook (lambda() (display-line-numbers-mode -1)))
+  (add-hook 'treemacs-mode-hook (lambda () (display-line-numbers-mode -1)))
   (use-package treemacs-evil)
   (use-package treemacs-projectile :after projectile))
 
