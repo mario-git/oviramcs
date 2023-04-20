@@ -134,8 +134,11 @@
     "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line)
   (general-nmap
+    ;; "C-;" #'move-end-of-line
     "s-[" #'evil-cp-previous-opening
-    "s-]" #'evil-cp-next-closing))
+    "s-]" #'evil-cp-next-closing)
+  ;; (general-vmap "C-;" #'move-end-of-line)
+  )
 
 (use-package emacs
   :general
@@ -199,6 +202,8 @@
 	evil-move-beyond-eol t)
   (evil-select-search-module 'evil-search-module 'evil-search)
   (evil-set-undo-system 'undo-redo)
+  (eval-after-load "evil-maps"
+    (define-key evil-motion-state-map "\C-e" nil))
   (use-package evil-anzu :config (global-anzu-mode))
   (use-package evil-surround :config (global-evil-surround-mode 1)))
 
