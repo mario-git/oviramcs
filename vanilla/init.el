@@ -208,12 +208,12 @@
   (use-package evil-surround :config (global-evil-surround-mode 1)))
 
 (use-package evil-cleverparens
-  ;; TODO: stop adding spaces when i/I/a/A
   :config
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   ;; add somewhere bindigs for paredit slurp/barf
   ;; maybe ,b ,B ,s ,S or ,[ ,] ,{ ,}
   ;; or any of the above with space
+  (setq evil-cleverparens-use-regular-insert t)
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
