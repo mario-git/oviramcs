@@ -19,7 +19,7 @@
  ("emacs-hcl-mode" . "751b79247f326ab52e00032e805775c37ad9f080")
  ("emacs-which-key" . "bd34ede7bf77ad3988330b37207f3978e7342c79")
  ("emacsmirror-mirror" . "7cd33e70f5d2b96cbe0114ed15b233efe05d0ef8")
- ("evil" . "e4f42cf5623b0721394241142416a5216715aa69")
+ ("evil" . "e7f170fb1f08662b5a4165adc23d84858129e3ef")
  ("evil-anzu" . "d1e98ee6976437164627542909a25c6946497899")
  ("evil-cleverparens" . "af426e50310a581d1bb91359707851a86c7fd6aa")
  ("evil-collection" . "d9a70ef21942c208094acf1e5c65d7f8f0016aca")
