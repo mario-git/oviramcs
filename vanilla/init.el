@@ -365,7 +365,15 @@
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
   (projectile-global-mode)
+  (setq projectile-indexing-method 'hybrid)
   (setq projectile-project-search-path '("~/code"))
+  (setq projectile-globally-ignored-directories
+	(append projectile-globally-ignored-directories
+		'(".clj-kondo" ".cpcache" ".lsp" ".shadow-cljs" "node_modules" "public")))
+  (setq projectile-globally-ignored-files
+	(append projectile-globally-ignored-files '("package-lock.json")))
+  (setq projectile-globally-unignored-directories
+	(append projectile-globally-unignored-directories '(".github")))
   (use-package counsel-projectile :config (counsel-projectile-mode)))
 
 (use-package rainbow-delimiters
