@@ -110,7 +110,7 @@
   :demand t
   :config
   (general-evil-setup)
-  (general-create-definer ov/space-bindings :prefix "SPC" :states '(normal visual emacs)
+  (general-create-definer ov/space-bindings :prefix "SPC" :states '(normal visual)
     "D" 'delete-blank-lines ;; db? cl?
     "fm" 'toggle-frame-maximized
     "fn" 'make-frame
@@ -127,7 +127,7 @@
     "wd" 'delete-window
     "ww" 'other-window ;; [w and ]w and hydra
     "W" 'delete-other-windows)
-  (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual emacs)
+  (general-create-definer ov/comma-bindings :prefix "," :states '(normal visual) :keymaps 'override
     "c" 'ov/comment-or-uncomment-line-or-region
     "gg" 'evil-goto-definition
     "ja" 'avy-goto-word-0 ;; a as all/any
@@ -218,6 +218,8 @@
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
+  ;; https://docs.cider.mx/cider/troubleshooting.html#pressing-ret-in-the-repl-does-not-evaluate-forms
+  (define-key paredit-mode-map (kbd "RET") nil)
   (define-key evil-insert-state-map (kbd "C-c <") 'evil-cp-<)
   (define-key evil-insert-state-map (kbd "C-c >") 'evil-cp->))
 
@@ -252,7 +254,11 @@
   :config
   (setq cider-repl-pop-to-buffer-on-connect nil)
   (setq cider-repl-display-help-banner nil)
-  (setq cider-show-error-buffer t))
+  (setq cider-show-error-buffer t)
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+  (evil-set-initial-state 'cider-repl-mode 'emacs)
+  )
 
 (defun ov/open-init-el () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
 (defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
@@ -297,7 +303,7 @@
 	("C-k" . ivy-previous-line)
 	("C-d" . ivy-reverse-i-search-kill))
   :general
-  (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
+  (ov/space-bindings :keymaps 'override :states '(normal visual)
     "o" '(:ignore t :which-key "open")
     "bb" 'ivy-switch-buffer
     "ob" 'ivy-switch-buffer
@@ -354,7 +360,7 @@
 
 (use-package projectile
   :general
-  (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
+  (ov/space-bindings :keymaps 'override :states '(normal visual)
     "pl" '(projectile-discover-projects-in-search-path :which-key "load/refresh project list")
     "pf" 'projectile-find-file
     "pp" 'projectile-switch-project
@@ -381,7 +387,7 @@
 ;; barely used, ditch this alltogether and learn better dired?
 (use-package ranger
   :general
-  (ov/space-bindings :keymaps 'override :states '(normal visual emacs)
+  (ov/space-bindings :keymaps 'override :states '(normal visual)
     "nd" 'deer
     "nr" 'ranger)
   :config
@@ -393,7 +399,7 @@
 
 (use-package treemacs
   :general
-  (ov/space-bindings :keymaps 'override :states '(normal visual emacs treemacs)
+  (ov/space-bindings :keymaps 'override :states '(normal visual treemacs)
     "ta" 'treemacs-add-and-display-current-project
     "tt" 'treemacs)
   :defer t
