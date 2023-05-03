@@ -375,7 +375,7 @@
   (setq projectile-project-search-path '("~/code"))
   (setq projectile-globally-ignored-directories
 	(append projectile-globally-ignored-directories
-		'(".clj-kondo" ".cpcache" ".lsp" ".shadow-cljs" "node_modules" "public")))
+		'(".clj-kondo" ".cpcache" ".lsp" ".shadow-cljs" ".git" "node_modules" "public")))
   (setq projectile-globally-ignored-files
 	(append projectile-globally-ignored-files '("package-lock.json")))
   (use-package counsel-projectile :config (counsel-projectile-mode)))
