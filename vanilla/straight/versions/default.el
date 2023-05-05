@@ -38,6 +38,7 @@
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")
  ("ivy-rich" . "4fdd4669d69c9e8248b361b6e069b27d10e809e4")
  ("lsp-mode" . "3143400be9dfc1335483838e24ae5e0f5705d420")
+ ("lsp-treemacs" . "a48763ba5d1c024426e237ce65926db849d3ae6f")
  ("magit" . "d62e8fb8c4d34ffdfc71fe9998b61cc0f8c0fa4a")
  ("map" . "a0e501aede34f183a8baa5d3d41610a3ffa1728e")
  ("markdown-mode" . "5d98592fe516748034d8baf92d7c0ba045e1f87a")
