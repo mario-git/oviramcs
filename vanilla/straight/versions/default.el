@@ -42,6 +42,7 @@
  ("map" . "a0e501aede34f183a8baa5d3d41610a3ffa1728e")
  ("markdown-mode" . "5d98592fe516748034d8baf92d7c0ba045e1f87a")
  ("melpa" . "1f7eb81678da7452682ce060754fc18bfdf58f03")
+ ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("no-littering" . "f42f2f2024827035149eeccfb0b315050291c682")
  ("nongnu-elpa" . "0120f3dfe80cffe0c3016080d9205d12be3b741d")
  ("org" . "7c8623be967c6858996c18cd317fe94911e8b1ba")

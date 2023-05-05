@@ -155,6 +155,7 @@
   (use-package all-the-icons :if (display-graphic-p))
   (use-package company :config (global-company-mode t))
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
+  (use-package nix-mode :mode "\\.nix\\'")
   (use-package no-littering)
   (use-package terraform-mode)
   (use-package yaml-mode)
