@@ -378,7 +378,7 @@
 	(append projectile-globally-ignored-directories
 		'(".clj-kondo" ".cpcache" ".lsp" ".shadow-cljs" ".git" "node_modules" "public" "target")))
   (setq projectile-globally-ignored-files
-	(append projectile-globally-ignored-files '("package-lock.json")))
+	(append projectile-globally-ignored-files '("package-lock.json" "p10k")))
   (use-package counsel-projectile :config (counsel-projectile-mode)))
 
 (use-package rainbow-delimiters
