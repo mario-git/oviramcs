@@ -152,6 +152,7 @@
   (dolist (pattern '("zprofile\\'" "zprofile.d" "zshrc\\'" "zshrc.d"))
     (add-to-list 'auto-mode-alist (cons pattern 'sh-mode)))
   (load-theme 'modus-vivendi t)
+  (add-to-list 'image-types 'svg) ; for treemacs complaining about it
   (use-package all-the-icons :if (display-graphic-p))
   (use-package company :config (global-company-mode t))
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
