@@ -1,4 +1,11 @@
-[ ! -d ~/.emacs.d ] && git clone https://github.com/plexus/chemacs2 ~/.emacs.d
+#!/usr/bin/env bash
+
+if [ ! -d ~/.emacs.d ]; then
+  git clone https://github.com/plexus/chemacs2 ~/.emacs.d
+elif [ ! -d ~/.emacs.d/.git ]; then
+  rm -rf ~/.emacs.d
+  git clone https://github.com/plexus/chemacs2 ~/.emacs.d
+fi
 [ ! -d ~/spacemacs ] && git clone https://github.com/syl20bnr/spacemacs ~/spacemacs
 [ ! -f ~/.emacs-profiles.el ] && ln -s ~/oviramcs/emacs-profiles.el ~/.emacs-profiles.el
 [ ! -f ~/oviramcs/meow/custom.el ] && touch ~/oviramcs/meow/custom.el
