@@ -134,11 +134,9 @@
     "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line)
   (general-nmap
-    ;; "C-;" #'move-end-of-line
+    "C-S-y" #'evil-scroll-line-down
     "s-[" #'evil-cp-previous-opening
-    "s-]" #'evil-cp-next-closing)
-  ;; (general-vmap "C-;" #'move-end-of-line)
-  )
+    "s-]" #'evil-cp-next-closing))
 
 (use-package emacs
   :general
