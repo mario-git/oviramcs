@@ -367,7 +367,7 @@
     "pp" 'projectile-switch-project
     "pr" 'projectile-replace
     "pR" 'projectile-recentf
-    "/" 'counsel-projectile-grep
+    "/" 'counsel-projectile-git-grep
     "sl" (general-simulate-key "SPC / M-p" :name last-search)
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
