@@ -6,6 +6,12 @@
       (comment-or-uncomment-region (region-beginning) (region-end))
       (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
 
+(defun ov/toggle-line-numbering ()
+  (interactive)
+  (if (eq display-line-numbers 'relative)
+      (setq display-line-numbers t)
+    (setq display-line-numbers 'relative)))
+
 ;; CamelCase as separate words everywhere
 (global-subword-mode 1)
 
@@ -117,6 +123,7 @@
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame ;; [f and ]f
+    "l" 'ov/toggle-line-numbering
     "nn" 'evil-ex-nohighlight
     "sg" 'find-grep-dired
     "sf" 'find-name-dired
