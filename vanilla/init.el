@@ -379,7 +379,6 @@
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
   (projectile-global-mode)
-  (setq projectile-indexing-method 'hybrid)
   (setq projectile-project-search-path '("~/code"))
   (setq projectile-globally-ignored-directories
 	(append projectile-globally-ignored-directories
