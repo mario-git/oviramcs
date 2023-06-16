@@ -182,18 +182,17 @@
     "ee" 'cider-eval-last-sexp
     "ef" 'cider-eval-defun-at-point
     "el" 'cider-eval-list-at-point
-    "ep" 'cider-eval-defun-up-to-point ;; eu - eval up to
+    "ep" 'cider-eval-defun-up-to-point
     "er" 'cider-eval-region
-    "es" 'cider-eval-sexp-at-point ;; ep - eval point
+    "es" 'cider-eval-sexp-at-point
     "ea" 'cider-load-all-project-ns
-    "ena" 'cider-load-all-project-ns ;; kept as Spacemacs
     "k" 'cider-kill-last-result
     "rc" 'cider-connect-clj
     "rr" 'cider-jack-in
     "rn" 'cider-repl-set-ns
     "rq" 'cider-quit
     "ta" 'cider-test-run-project-tests
-    "tt" 'cider-test-run))
+    "tt" 'cider-test-run-test))
 
 (defun ov/vnoremap-dot-impl ()
   "(almost) implements .vimrc config like \"vnoremap . :norm.<CR>\".
