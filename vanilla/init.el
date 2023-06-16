@@ -195,6 +195,13 @@
     "ta" 'cider-test-run-project-tests
     "tt" 'cider-test-run))
 
+(defun ov/vnoremap-dot-impl ()
+  "(almost) implements .vimrc config like \"vnoremap . :norm.<CR>\".
+It populates ex mode with the right stuff, then you have to press . and CR to repeat the last operation over visual selection.
+.vimrc would allow to press . only "
+  (interactive)
+  (evil-ex  "'<,'>norm."))
+
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t
@@ -213,6 +220,7 @@
   (eval-after-load "evil-maps"
     ;; not sure why this needs a backslash ¯_(ツ)_/¯
     (define-key evil-motion-state-map "\C-e" nil))
+   (define-key evil-visual-state-map "." 'ov/vnoremap-dot-impl)
   (use-package evil-anzu :config (global-anzu-mode))
   (use-package evil-surround :config (global-evil-surround-mode 1)))
 
