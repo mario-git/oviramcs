@@ -118,13 +118,11 @@
   :config
   (general-evil-setup)
   (general-create-definer ov/space-bindings :prefix "SPC" :states '(normal visual)
-    "D" 'delete-blank-lines ;; db? cl?
     "fm" 'toggle-frame-maximized
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame ;; [f and ]f
     "l" 'ov/toggle-line-numbering
-    "nn" 'evil-ex-nohighlight
     "sg" 'find-grep-dired
     "sf" 'find-name-dired
     ;; following not used now, kept as example
@@ -142,7 +140,6 @@
     "jj" 'avy-goto-char-timer
     "jl" 'avy-goto-line)
   (general-nmap
-    "C-S-y" #'evil-scroll-line-down
     "s-[" #'evil-cp-previous-opening
     "s-]" #'evil-cp-next-closing))
 
@@ -166,6 +163,7 @@
   (use-package no-littering)
   (use-package terraform-mode)
   (use-package yaml-mode)
+  ;; w as write
   (use-package wgrep)
   (defadvice split-window (after split-window-after activate) (other-window 1)))
 
@@ -220,6 +218,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
     ;; not sure why this needs a backslash ¯_(ツ)_/¯
     (define-key evil-motion-state-map "\C-e" nil))
    (define-key evil-visual-state-map "." 'ov/vnoremap-dot-impl)
+   ;; to display current/out-of-total when navigating search results
   (use-package evil-anzu :config (global-anzu-mode))
   (use-package evil-surround :config (global-evil-surround-mode 1)))
 
@@ -235,9 +234,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
   ;; https://docs.cider.mx/cider/troubleshooting.html#pressing-ret-in-the-repl-does-not-evaluate-forms
-  (define-key paredit-mode-map (kbd "RET") nil)
-  (define-key evil-insert-state-map (kbd "C-c <") 'evil-cp-<)
-  (define-key evil-insert-state-map (kbd "C-c >") 'evil-cp->))
+  (define-key paredit-mode-map (kbd "RET") nil))
 
 (use-package evil-collection
   :after evil
@@ -257,15 +254,6 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
     "I" #'evil-mc-make-cursor-in-visual-selection-beg)
   :config (global-evil-mc-mode 1))
 
-;; backup in case I don't get on with the above
-;; (use-package multiple-cursors
-;;   :config
-;;   (setq mc/always-run-for-all t)
-;;   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-;;   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;;   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;;   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
-
 (use-package cider
   :config
   (setq cider-repl-pop-to-buffer-on-connect nil)
@@ -273,8 +261,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (setq cider-show-error-buffer t)
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  (evil-set-initial-state 'cider-repl-mode 'emacs)
-  )
+  (evil-set-initial-state 'cider-repl-mode 'emacs))
 
 (defun ov/open-init-el () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
 (defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
@@ -322,7 +309,6 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (ov/space-bindings :keymaps 'override :states '(normal visual)
     "o" '(:ignore t :which-key "open")
     "bb" 'ivy-switch-buffer
-    "ob" 'ivy-switch-buffer
     "oi" 'ov/open-init-el
     "os" 'ov/open-stuff-file)
   :config
@@ -398,19 +384,6 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
 (use-package rainbow-delimiters
   :hook ((emacs-lisp-mode . rainbow-delimiters-mode)
 	 (clojure-mode . rainbow-delimiters-mode)))
-
-;; barely used, ditch this alltogether and learn better dired?
-(use-package ranger
-  :general
-  (ov/space-bindings :keymaps 'override :states '(normal visual)
-    "nd" 'deer
-    "nr" 'ranger)
-  :config
-  (setq ranger-show-preview t
-	ranger-show-hidden t
-	ranger-cleanup-eagerly t
-	ranger-cleanup-on-disable t
-	ranger-ignored-extensions '("mkv" "flv" "iso" "mp4")))
 
 (use-package treemacs
   :general
