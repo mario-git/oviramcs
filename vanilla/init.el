@@ -211,6 +211,7 @@
   (evil-select-search-module 'evil-search-module 'evil-search)
   (evil-set-undo-system 'undo-redo)
   (eval-after-load "evil-maps"
+    ;; not sure why this needs a backslash ¯_(ツ)_/¯
     (define-key evil-motion-state-map "\C-e" nil))
   (use-package evil-anzu :config (global-anzu-mode))
   (use-package evil-surround :config (global-evil-surround-mode 1)))
