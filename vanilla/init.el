@@ -165,7 +165,8 @@
   (use-package yaml-mode)
   ;; w as write
   (use-package wgrep)
-  (defadvice split-window (after split-window-after activate) (other-window 1)))
+  (defadvice split-window (after split-window-after activate) (other-window 1))
+  (setq exec-path (append '("~/.nix-profile/bin/") exec-path)))
 
 (use-package exec-path-from-shell
   :config
