@@ -6,12 +6,6 @@
       (comment-or-uncomment-region (region-beginning) (region-end))
       (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
 
-(defun ov/toggle-line-numbering ()
-  (interactive)
-  (if (eq display-line-numbers 'relative)
-      (setq display-line-numbers t)
-    (setq display-line-numbers 'relative)))
-
 ;; CamelCase as separate words everywhere
 (global-subword-mode 1)
 
@@ -29,7 +23,6 @@
 ;; highlight current line
 (global-hl-line-mode 1)
 (global-display-line-numbers-mode)
-(setq display-line-numbers-type 'relative)
 (menu-bar-mode -1)
 (setq use-dialog-box nil)
 (when (fboundp 'scroll-bar-mode)
@@ -122,7 +115,6 @@
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame ;; [f and ]f
-    "l" 'ov/toggle-line-numbering
     "sg" 'find-grep-dired
     "sf" 'find-name-dired
     ;; following not used now, kept as example
