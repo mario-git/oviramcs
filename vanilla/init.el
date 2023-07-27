@@ -115,6 +115,7 @@
     "fn" 'make-frame
     "fd" 'delete-frame
     "ff" 'other-frame ;; [f and ]f
+    "r" 'repeat
     "sg" 'find-grep-dired
     "sf" 'find-name-dired
     ;; following not used now, kept as example
@@ -238,13 +239,22 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   :after evil
   :demand
   :general
+  (ov/space-bindings
+    "ca" '(evil-mc-make-all-cursors :which-key "evil-mc all matches")
+    "ch" '(evil-mc-make-cursor-here :which-key "evil-mc cursor here")
+    "cn" '(evil-mc-make-cursor-move-next-line :which-key "evil-mc make & next line")
+    "cN" '(evil-mc-make-cursor-move-prev-line :which-key "evil-mc make & prev line")
+    "cp" '(evil-mc-pause-cursors :which-key "evil-mc pause")
+    "cr" '(evil-mc-resume-cursors :which-key "evil-mc resume")
+    "cm" '(evil-mc-make-and-goto-next-match :which-key "evil-mc make & go next match")
+    "cM" '(:keymap evil-mc-cursors-map)
+    "cq" '(evil-mc-undo-all-cursors :which-key "evil-mc undo all"))
   (general-nmap
-    "gm" '(:keymap evil-mc-cursors-map)
-    "M-n" #'evil-mc-make-and-goto-next-match
-    "Q" #'evil-mc-undo-all-cursors)
+    "M-n" '(evil-mc-make-and-goto-next-match :which-key "evil-mc make & go next match")
+    "Q" '(evil-mc-undo-all-cursors :which-key "evil-mc undo all"))
   (general-vmap
-    "A" #'evil-mc-make-cursor-in-visual-selection-end
-    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
+    "A" '(evil-mc-make-cursor-in-visual-selection-end :which-key "evil-mc end visual selection")
+    "I" '(evil-mc-make-cursor-in-visual-selection-beg :which-key "evil-mc begin visual selection"))
   :config (global-evil-mc-mode 1))
 
 (use-package cider
