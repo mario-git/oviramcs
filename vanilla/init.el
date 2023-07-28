@@ -72,8 +72,8 @@
       save-interprogram-paste-before-kill t
       apropos-do-all t)
 
-;; no more lockfiles (temprary files starting with .#)
-(setq create-lockfiles nil)
+(setq create-lockfiles nil) ;; temp files starting with .#
+(setq make-backup-files nil) ;; ending with ~
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
