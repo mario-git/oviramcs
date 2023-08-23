@@ -209,8 +209,8 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (evil-select-search-module 'evil-search-module 'evil-search)
   (evil-set-undo-system 'undo-redo)
   (eval-after-load "evil-maps"
-    ;; not sure why this needs a backslash ¯_(ツ)_/¯
-    (define-key evil-motion-state-map "\C-e" nil))
+    (define-key evil-motion-state-map "C-e" nil))
+   (define-key evil-motion-state-map (kbd "C-S-y") 'evil-scroll-line-down)
    (define-key evil-visual-state-map "." 'ov/vnoremap-dot-impl)
    ;; to display current/out-of-total when navigating search results
   (use-package evil-anzu :config (global-anzu-mode))
