@@ -155,7 +155,6 @@
   (use-package nix-mode :mode "\\.nix\\'")
   (use-package no-littering)
   (use-package terraform-mode)
-  (use-package yaml-mode)
   ;; w as write
   (use-package wgrep)
   (defadvice split-window (after split-window-after activate) (other-window 1))
@@ -410,3 +409,10 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   :config
   (which-key-mode)
   (setq which-key-idle-delay 0.4))
+
+(use-package yaml-mode)
+(use-package yaml-pro
+  :general
+  (general-nmap
+    "zc" 'yaml-pro-fold-at-point
+    "zo" 'yaml-pro-unfold-at-point))

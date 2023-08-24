@@ -68,5 +68,7 @@
  ("treemacs" . "4850618c64204018d04cec4d28c5bd23b9033376")
  ("use-package" . "a6e856418d2ebd053b34e0ab2fda328abeba731c")
  ("with-editor" . "9e437353ee817b8e6a9ffce53e37fe5a6fcb4294")
- ("yaml-mode" . "b153150e0e77b4ec462d741cdb16956c6ae270d6"))
+ ("yaml-mode" . "b153150e0e77b4ec462d741cdb16956c6ae270d6")
+ ("yaml-pro" . "50fc911b9015708b77872dc60c53f4a4740bef1b")
+ ("yaml.el" . "ee86566af1ed4975531ab3aa4eb4dba770c227f6"))
 :gamma
