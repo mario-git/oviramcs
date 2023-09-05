@@ -207,10 +207,9 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
 	evil-move-beyond-eol t)
   (evil-select-search-module 'evil-search-module 'evil-search)
   (evil-set-undo-system 'undo-redo)
-  (eval-after-load "evil-maps"
-    (define-key evil-motion-state-map "C-e" nil))
-   (define-key evil-motion-state-map (kbd "C-S-y") 'evil-scroll-line-down)
-   (define-key evil-visual-state-map "." 'ov/vnoremap-dot-impl)
+  (eval-after-load "evil-maps" (define-key evil-motion-state-map (kbd "C-e") nil))
+  (define-key evil-motion-state-map (kbd "C-S-y") 'evil-scroll-line-down)
+  (define-key evil-visual-state-map "." 'ov/vnoremap-dot-impl)
    ;; to display current/out-of-total when navigating search results
   (use-package evil-anzu :config (global-anzu-mode))
   (use-package evil-surround :config (global-evil-surround-mode 1)))
