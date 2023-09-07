@@ -12,6 +12,7 @@
  ("compat" . "e07c0f29d45a73cc0bdf9423780979978c1d9d22")
  ("counsel-projectile" . "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
  ("dash.el" . "96eaba028ac069ea0e5cc70de15b0229126a054a")
+ ("dockerfile-mode" . "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
  ("doom-modeline" . "a86ec8effe242cab8aba09ec0a2c7fed555c1fce")
  ("el-get" . "c11d12a1763c1183118a92a60dd048380b41f48d")
  ("eldoc" . "bf2e88dcf00e6554e24b517aa315527011042fae")

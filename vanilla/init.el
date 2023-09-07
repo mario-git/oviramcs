@@ -151,6 +151,7 @@
   (add-to-list 'image-types 'svg) ; for treemacs complaining about it
   (use-package all-the-icons :if (display-graphic-p))
   (use-package company :config (global-company-mode t))
+  (use-package dockerfile-mode)
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
   (use-package nix-mode :mode "\\.nix\\'")
   (use-package no-littering)
