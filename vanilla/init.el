@@ -375,6 +375,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
   (projectile-global-mode)
+  (setq projectile-enable-caching t)
   (setq projectile-project-search-path '("~/code"))
   (setq projectile-globally-ignored-directories
 	(append projectile-globally-ignored-directories
