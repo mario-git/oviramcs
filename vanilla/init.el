@@ -234,22 +234,33 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   :custom (evil-collection-setup-minibuffer t)
   :config (evil-collection-init))
 
+(defun ov/evil-mc-toggle-frozen ()
+  (interactive)
+  (if evil-mc-frozen
+    (progn
+      (setq evil-mc-frozen nil)
+      (message "evil-mc - cursors unfrozen"))
+    (progn
+      (setq evil-mc-frozen t)
+      (message "evil-mc - cursors frozen"))))
+
 (use-package evil-mc
   :after evil
   :demand
   :general
   (ov/space-bindings
     "ca" '(evil-mc-make-all-cursors :which-key "evil-mc all matches")
+    "cc" 'ov/evil-mc-toggle-frozen
     "ch" '(evil-mc-make-cursor-here :which-key "evil-mc cursor here")
-    "cn" '(evil-mc-make-cursor-move-next-line :which-key "evil-mc make & next line")
-    "cN" '(evil-mc-make-cursor-move-prev-line :which-key "evil-mc make & prev line")
+    ; would be nice a hydra for next two
+    "cj" '(evil-mc-make-cursor-move-next-line :which-key "evil-mc make & next line")
+    "ck" '(evil-mc-make-cursor-move-prev-line :which-key "evil-mc make & prev line")
     "cp" '(evil-mc-pause-cursors :which-key "evil-mc pause")
     "cr" '(evil-mc-resume-cursors :which-key "evil-mc resume")
-    "cm" '(evil-mc-make-and-goto-next-match :which-key "evil-mc make & go next match")
-    "cM" '(:keymap evil-mc-cursors-map)
+    "cn" '(evil-mc-make-and-goto-next-match :which-key "evil-mc make & go next match")
+    "cm" '(:keymap evil-mc-cursors-map)
     "cq" '(evil-mc-undo-all-cursors :which-key "evil-mc undo all"))
   (general-nmap
-    "M-n" '(evil-mc-make-and-goto-next-match :which-key "evil-mc make & go next match")
     "Q" '(evil-mc-undo-all-cursors :which-key "evil-mc undo all"))
   (general-vmap
     "A" '(evil-mc-make-cursor-in-visual-selection-end :which-key "evil-mc end visual selection")
