@@ -180,6 +180,7 @@
     "ea" 'cider-load-all-project-ns
     "k" 'cider-kill-last-result
     "rc" 'cider-connect-clj
+    "ro" 'cider-switch-to-repl-buffer
     "rr" 'cider-jack-in
     "rn" 'cider-repl-set-ns
     "rq" 'cider-quit
