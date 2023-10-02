@@ -164,6 +164,7 @@
 (use-package exec-path-from-shell
   :config
   (when ov/is-mac-os-p
+    (add-to-list 'exec-path-from-shell-variables "LSP_USE_PLISTS")
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-envs '("PATH"))))
 
@@ -351,7 +352,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (use-package lsp-treemacs)
   ;; 1mb
   (setq read-process-output-max (* 1024 1024))
-  ;100mb
+  ;; 100mb
   (setq gc-cons-threshold 100000000))
 
 (use-package org
