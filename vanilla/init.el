@@ -347,7 +347,12 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
     "g e" 'lsp-treemacs-errors-list
     "R" 'lsp-rename)
   :hook ((clojure-mode . lsp-mode))
-  :config (use-package lsp-treemacs))
+  :config
+  (use-package lsp-treemacs)
+  ;; 1mb
+  (setq read-process-output-max (* 1024 1024))
+  ;100mb
+  (setq gc-cons-threshold 100000000))
 
 (use-package org
   :config
