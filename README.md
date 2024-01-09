@@ -12,4 +12,4 @@ This repo is to save my Emacs configurations. I use [Chemacs2](https://github.co
 
 ## Troubleshooting
 
-- If on the splash screen the icons seem broken, a round of `M-x all-the-icons-install-fonts` and a restart should fix them.
+- If on the splash screen the icons seem broken, a round of `M-x all-the-icons-install-fonts`, `M-x nerd-icons-install-fonts`, and a restart should fix them.
