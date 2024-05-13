@@ -148,18 +148,16 @@
   (dolist (pattern '("zprofile\\'" "zprofile.d" "zshenv" "zshrc\\'" "zshrc.d"))
     (add-to-list 'auto-mode-alist (cons pattern 'sh-mode)))
   (load-theme 'modus-vivendi t)
-  (add-to-list 'image-types 'svg) ; for treemacs complaining about it
+  (add-to-list 'image-types 'svg)  ; for treemacs complaining about it
   (use-package all-the-icons :if (display-graphic-p))
   (use-package company :config (global-company-mode t))
   (use-package dockerfile-mode)
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
-  (use-package nix-mode :mode "\\.nix\\'")
   (use-package no-littering)
   (use-package terraform-mode)
   ;; w as write
   (use-package wgrep)
-  (defadvice split-window (after split-window-after activate) (other-window 1))
-  (setq exec-path (append '("~/.nix-profile/bin/") exec-path)))
+  (defadvice split-window (after split-window-after activate) (other-window 1)))
 
 (use-package exec-path-from-shell
   :config
