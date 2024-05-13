@@ -6,5 +6,6 @@ elpa
 ido.last*
 **/eln-cache
 **/straight/build*
+**/straight/modified*
 **/straight/repos
 var
