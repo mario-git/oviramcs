@@ -44,7 +44,6 @@
  ("markdown-mode" . "0cdebc833ed9b98baf9f260ed12b1e36b0ca0e89")
  ("melpa" . "bb78b814f378e58997f2032fc79a41dfb1442a2c")
  ("nerd-icons.el" . "66658b89287c3599c7b9b6babea7bcb3dff9a9e4")
- ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("no-littering" . "caf2f7f5cac25fb0053e383f3475120bc696864f")
  ("nongnu-elpa" . "fda0e2eb3117a2bdcd6b07c483935628b1417b56")
  ("org" . "b4d17c0629f7ad944946fb170d45297edcbb9904")
