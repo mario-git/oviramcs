@@ -277,7 +277,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (evil-set-initial-state 'cider-repl-mode 'emacs))
 
 (defun ov/open-init-el () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory)))
-(defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.txt")))
+(defun ov/open-stuff-file () (interactive) (find-file (expand-file-name "~/code/stuff.org")))
 
 (use-package git-gutter
   :config
