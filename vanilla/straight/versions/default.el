@@ -34,6 +34,7 @@
  ("git-timemachine" . "3780835fcd67c3703ffa768206121851e6895ece")
  ("gnu-elpa-mirror" . "c7c879e92cb2cfe5af56b8877d24a1d9b2adf14e")
  ("goto-chg" . "72f556524b88e9d30dc7fc5b0dc32078c166fda7")
+ ("haml-mode" . "a64d58df8f098f858c6c11fa1629a90969f9c7e8")
  ("hcl-mode" . "37f2cb1bf6fb51fbf99d4fac256298fcd6d1dd24")
  ("ht.el" . "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")

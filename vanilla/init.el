@@ -153,6 +153,7 @@
   (use-package company :config (global-company-mode t))
   (use-package dockerfile-mode)
   (use-package doom-modeline :demand :config (doom-modeline-mode 1))
+  (use-package haml-mode)
   (use-package no-littering)
   (use-package terraform-mode)
   ;; w as write
