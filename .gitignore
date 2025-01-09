@@ -8,4 +8,10 @@ ido.last*
 **/straight/build*
 **/straight/modified*
 **/straight/repos
+vanilla/.lsp*
+vanilla/amx*
+vanilla/history
+vanilla/places
+vanilla/projectile*
+vanilla/recentf
 var
