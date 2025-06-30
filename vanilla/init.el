@@ -355,6 +355,9 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (setq gc-cons-threshold 100000000))
 
 (use-package org
+  ; straight defaults to savannah, from which you might need half hour to clone org. So...
+  :straight
+  (org :type git :host github :repo "emacs-straight/org-mode")
   :config
   (setq org-todo-keyword-faces '(("TODO" . "yellow")
 				 ("NEXT" . "aqua")
@@ -363,10 +366,10 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
 				 ("CANCELLED" . "purple"))
 	org-todo-keywords '((sequence "TODO" "NEXT" "IN PROGRESS" "WAIT" "|" "DONE" "CANCELLED"))))
 
-;(use-package org-bullets
-;  :after org
-;  :config
-;  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(use-package org-bullets
+  :after org
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (use-package evil-org
   :after org
