@@ -354,24 +354,24 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   ;; 100mb
   (setq gc-cons-threshold 100000000))
 
-(use-package org
-  :config
-  (setq org-todo-keyword-faces '(("TODO" . "yellow")
-				 ("NEXT" . "aqua")
-				 ("IN PROGRESS" . "pink")
-				 ("DONE" . "green")
-				 ("CANCELLED" . "purple"))
-	org-todo-keywords '((sequence "TODO" "NEXT" "IN PROGRESS" "WAIT" "|" "DONE" "CANCELLED"))))
+;(use-package org
+;  :config
+;  (setq org-todo-keyword-faces '(("TODO" . "yellow")
+;				 ("NEXT" . "aqua")
+;				 ("IN PROGRESS" . "pink")
+;				 ("DONE" . "green")
+;				 ("CANCELLED" . "purple"))
+;	org-todo-keywords '((sequence "TODO" "NEXT" "IN PROGRESS" "WAIT" "|" "DONE" "CANCELLED"))))
 
-(use-package org-bullets
-  :after org
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+;(use-package org-bullets
+;  :after org
+;  :config
+;  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-(use-package evil-org
-  :after org
-  :hook ((org-mode . evil-org-mode)
-	 (evil-org-mode . evil-org-set-key-theme)))
+;(use-package evil-org
+;  :after org
+;  :hook ((org-mode . evil-org-mode)
+;	 (evil-org-mode . evil-org-set-key-theme)))
 
 (use-package markdown-mode
   :general
