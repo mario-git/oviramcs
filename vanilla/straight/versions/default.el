@@ -48,7 +48,7 @@
  ("nerd-icons.el" . "546ee20caf825e65da4c5435d31f13d269ed2a81")
  ("no-littering" . "0c119d46cce5c018e162fae4b36fd95ef26a76ac")
  ("nongnu-elpa" . "c408a345c3d4b571585ad51ba0e8339795110c04")
- ("org" . "d6b6b41cbdb71d6103d8f0f2eeade0cc572cf9bc")
+ ("org" . "b89fda2c7eac2d319a370ecc644107e4156561aa")
  ("org-bullets" . "767f55feb58b840a5a04eabfc3fbbf0d257c4792")
  ("paredit" . "af075775af91f2dbc63b915d762b4aec092946c4")
  ("parseclj" . "6af22372e0fe14df882dd300b22b12ba2d7e00b0")
