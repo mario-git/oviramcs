@@ -26,6 +26,8 @@
  ("evil-collection" . "4748cfb78488fce96812130e0b53aae6d042ca6d")
  ("evil-escape" . "aebd1a78a6bd33e5164e7552096b3fe1172d3012")
  ("evil-mc" . "7e363dd6b0a39751e13eb76f2e9b7b13c7054a43")
+("evil-org-mode" . "b1f309726b1326e1a103742524ec331789f2bf94")
+
  ("evil-surround" . "da05c60b0621cf33161bb4335153f75ff5c29d91")
  ("exec-path-from-shell" . "4896a797252fbfdac32fb77508500ac7d220f717")
  ("f.el" . "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
@@ -48,6 +50,8 @@
  ("nerd-icons.el" . "4476b4cabe63f5efafa3c0a8b370db4f6a92e90c")
  ("no-littering" . "d62b51b2e0c828b952fd53ccbeb1816f7758a106")
  ("nongnu-elpa" . "56748b48bec8af70101edaa57e35b0ac4c5b0151")
+("org" . "d6b6b41cbdb71d6103d8f0f2eeade0cc572cf9bc")
+;("org-bullets" . "767f55feb58b840a5a04eabfc3fbbf0d257c4792")
  ("paredit" . "af075775af91f2dbc63b915d762b4aec092946c4")
  ("parseclj" . "6af22372e0fe14df882dd300b22b12ba2d7e00b0")
  ("parseedn" . "3407e4530a367b6c2b857dae261cdbb67a440aaa")
