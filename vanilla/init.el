@@ -346,7 +346,8 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
     "g r" 'lsp-find-references
     "g e" 'lsp-treemacs-errors-list
     "R" 'lsp-rename)
-  :hook ((clojure-mode . lsp-mode))
+  :hook ((clojure-mode . lsp-mode)
+	 (python-mode . lsp-mode))
   :config
   (use-package lsp-treemacs)
   ;; 1mb
