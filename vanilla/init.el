@@ -78,6 +78,15 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
+(custom-set-variables
+ '(straight-recipe-overrides
+   '((nil
+      (nongnu-elpa :type git
+		   :repo "https://github.com/emacsmirror/nongnu_elpa"
+		   :depth (full single-branch)
+		   :local-repo "nongnu-elpa"
+		   :build nil)))))
+
 ;; packages
 (setq straight-use-package-by-default t)
 (defvar bootstrap-version)
