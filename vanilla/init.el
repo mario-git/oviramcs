@@ -221,7 +221,8 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   (eval-after-load "evil-maps" (define-key evil-motion-state-map (kbd "C-e") nil))
   (define-key evil-motion-state-map (kbd "C-S-y") 'evil-scroll-line-down)
   (define-key evil-visual-state-map "." 'ov/vnoremap-dot-impl)
-  ;; on trial
+  ;; on trial (next 2 lines)
+  (define-key evil-insert-state-map (kbd "C-o") 'evil-execute-in-normal-state)
   (define-key evil-insert-state-map (kbd "C-R") 'evil-paste-from-register)
    ;; to display current/out-of-total when navigating search results
   (use-package evil-anzu :config (global-anzu-mode))
