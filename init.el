@@ -409,7 +409,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
   :config
   (projectile-global-mode)
   (setq projectile-enable-caching t)
-  (setq projectile-project-search-path '("~/code" "~/code/work"))
+  (setq projectile-project-search-path '("~/.emacs.d" "~/code" "~/code/work"))
   (setq projectile-globally-ignored-directories
 	(append projectile-globally-ignored-directories
 		'(".clj-kondo" ".cpcache" ".lsp" ".shadow-cljs" ".git" "node_modules" "public" "target")))

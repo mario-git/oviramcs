@@ -1,13 +1,18 @@
 # Oviramcs
 
-This repo is to save my Emacs configurations. I use [Chemacs2](https://github.com/plexus/chemacs2), to be able to play with different configurations, currently:
+Emacs configs.
 
-- Vanilla (default), a custom one started from scratch;
-- Spacemacs.
+## Get Started
+
+```
+git clone git@github.com:mario-git/oviramcs.git
+# or
+# git clone https://github.com/mario-git/oviramcs
+./setup
+```
 
 ## Dependencies
 
-- Chemacs2 cloned in `~/.emacs.d` and Spacemacs cloned in `~/spacemacs`.
 - `rg` search tool installed.
 
 ## Troubleshooting
