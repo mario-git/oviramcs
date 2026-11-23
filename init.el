@@ -167,7 +167,7 @@
   (use-package terraform-mode)
   ;; w as write
   (use-package wgrep)
-  (defadvice split-window (after split-window-after activate) (other-window 1)))
+  (advice-add 'split-window :after (lambda (&rest _) (other-window 1))))
 
 (use-package exec-path-from-shell
   :config
@@ -407,7 +407,7 @@ It populates ex mode with the right stuff, then you have to press . and CR to re
     "sl" (general-simulate-key "SPC / M-p" :name last-search)
     "*" (general-simulate-key "SPC / M-n" :name search-thing-under-point))
   :config
-  (projectile-global-mode)
+  (projectile-mode +1)
   (setq projectile-enable-caching t)
   (setq projectile-project-search-path '("~/.emacs.d" "~/code" "~/code/work"))
   (setq projectile-globally-ignored-directories
