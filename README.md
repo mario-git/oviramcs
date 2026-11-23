@@ -5,9 +5,10 @@ Emacs configs.
 ## Get Started
 
 ```
-git clone git@github.com:mario-git/oviramcs.git
+git clone git@github.com:mario-git/oviramcs.git .emacs.d
 # or
-# git clone https://github.com/mario-git/oviramcs
+# git clone https://github.com/mario-git/oviramcs .emacs.d
+.emacs.d
 ./setup
 ```
 
